@@ -1,0 +1,108 @@
++++ Core-Fehlermeldungen +++
+
+lib/Core/Cache.class.php:
+1000: Die Klasse „…“ hat derzeit keine Hauptinstanz. 
+
+lib/Core/Module.class.php:
+1010: Das angeforderte Modul „…“ existiert nicht.
+1011: Es existiert bereits eine Modul-Hauptinstanz.
+1012: Das angeforderte Template-Set „…“ existiert nicht oder nicht vollständig.
+(1013: Das Modul „…“ ist unvollständig. Keine Klasse gefunden.)
+1014: In der Klassen-Datei von „…“ ist keine Klasse vorhanden.
+1015: Die Modul-Klasse „…“ ist keine gültige Eltern-Klasse.
+
+lib/Core/MainInstance.class.php:
+1020: Die angeforderte Klasse „…“ existiert nicht.
+1021: Die angeforderte Klasse „…“ ist keine Tochter der …-Klasse.
+
+lib/Core/User.class.php:
+1030: Es ist bereits eine Instanz für diesen User vorhanden.
+1031: Ein User mit dieser ID existiert nicht.
+
+lib/Core/CacheFile.class.php:
+1040: Es ist bereits eine Instanz für diesen Cache-File vorhanden.
+1041: Die Variable „…“ liegt nicht in diesem Cache-File.
+
+lib/Core/Install.class.php:
+1050: Keine SQL-Datei vorhanden.
+
+lib/Core/MySQL.class.php:
+1060: Die ausgewählte Datenbank "…" existiert nicht.
+1061: Die Datenbank "…" konnte nicht erstellt werden.
+1062: Es gibt bereits eine MySQL-Hauptinstanz.
+
+lib/Core/Session.class.php:
+1070: Es ist keine Session-Instance im Speicher vorhanden.
+
+lib/Core/Autoload.class.php
+1080: Die/Das angeforderte Klasse/Interface/Trait „…“ existiert nicht.
+1081: Für die/das Klasse/Interface/Trait „…“ existiert zwar eine Datei, in dieser befindet sich aber nicht die/das erwartete Klasse/Interface/Trait.
+
+lib/Core/VarCache.trait.php:
+1090: Der Variablen-Name im Variablen-Cache muss ein String sein.
+1091: Diese Variable liegt nicht im Variablen-Cache.
+1092: Diese Variable ist kein Array.
+
+lib/Core/Manager.class.php:
+1100: Es gibt bereits eine Hauptinstanz dieses Managers.
+1101: Eine Ausschreibung mit dieser ID existiert nicht.
+1102: Es ist bereits eine Instanz für diese ID vorhanden.
+1103: Dieser Manager kann keine ID-Instanzen öffnen.
+
+lib/Core/Alias.class.php:
+1110: Es gibt bereits eine Klasse mit dem Namen „…“.
+1111: Es gibt bereits eine Funktion mit dem Namen „…“.
+
+lib/Core/Module/Compiler.class.php:
+1120: Die angegebene Datei „…“ existiert nicht.
+1121: Das benötigte Cache-Verzeichnis für die Datei konnte nicht erstellt werden.
+
+lib/Core/Header.class.php:
+1130: Unbekannter Status-Code „…“ wurde versucht zu senden.
+1131: Der Header wurde bereits gesendet.
+1132: Es existiert bereits eine Header-Hauptinstanz.
+
+lib/Core/Module/Script.class.php:
+1140: Es muss genau ein „Script“-Block in jeder Modul-Skript-Datei vorkommen.
+
+
++++ Spiel-Klassen-Fehlermeldungen +++
+
+lib/game/Data.class.php:
+2011: Ein Daten-Objekt mit dieser ID ist bereits gespeichert.
+2012: Diese Daten-Gruppe ist nicht bekannt.
+2013: Kein Daten-Objekt mit dieser ID vorhanden.
+2014: Beim Aufwachen hat TrainCompany das erwartete Daten-Objekt vergessen.
+
+lib/game/Path.class.php:
+2020: Es existiert keine Strecke zwischen den beiden Bahnhöfen.
+
+lib/game/Task/TaskModel.class.php:
+2030: Der Lohn muss mindestens 10.000 Plops betragen.
+2031: Es müssen mindestens zwei Stationen angefahren werden.
+2032: Die prozentuale Abweichung muss positiv sein.
+
+lib/game/Task/TaskSchedule.class.php:
+2040: Zu dem Bahnhof „…“ existieren keine Zeiten.
+2041: Der Bahnhof „…“ ist bereits in diesem Fahrplan vorhanden
+
+lib/game/Task/Journey/TaskJourneyManager.class.php:
+2050: Es gibt bereits eine TaskJourneyManager-Hauptinstanz.
+
+lib/game/Task/Journey/TaskJourney.class.php:
+2060: Es existiert kein nächster Schritt. (Bereits am Ende angekommen? Noch beim vorherigen Schritt?)
+2061: Im Fahrplan existiert kein Fahrplan-Halt vor dem aktuellen. Das darf nicht sein!
+2062: Diese Zugreise ist noch nicht fertig, sie kann also auch nicht abgeschlossen werden.
+
+lib/game/PathUnit.class.php:
+2070: Die PathUnit konnte nicht gebildet werden.
+
+lib/game/Teain/TrainUnit.class.php:
+2080: Der Zug kann nicht mehr Kapazität freigeben, wie er benutzt ist.
+2081: Der Zug ist bereits voll ausgelastet.
+
+
++++ Daemon-Klassen-Fehlermeldungen +++
+
+lib/daemon/tasks/TaskModelTask.class.php:
+3000: Keine Task-Modelle vorhanden. Diese Daemon-Aufgabe kann nicht durchgeführt werden.

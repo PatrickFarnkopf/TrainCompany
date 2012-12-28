@@ -1,0 +1,126 @@
+#tooltip {
+    display: none;
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.6);
+    text-align: center;
+    color: #fff;
+    background: black;
+    opacity: 0.8!important;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 2;
+    padding: 5px;
+}
+
+
+#tooltip h3 {
+
+    margin: 0px;
+    margin-top: 10px;
+}
+
+#tooltip ul {
+	margin-top: 10px;
+	padding-left: 0px;
+	list-style: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+ 
+#tooltip:after {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid black;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -9px;
+    margin-left: -5px;
+}
+
+.Notification {
+	box-shadow: 0px 0px 5px black;
+    border:1px solid;
+    border-color: #A3A3A3;
+	opacity: 0.8;
+    border-radius: 5px;
+    padding: 5px 8px 5px 8px;
+    margin: 5px 0px 5px 0px;
+    background-color: #000;
+    color: #FFF;
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.6);
+}
+
+.Notification:hover {
+	opacity: 0.9;
+}
+
+.Notification div.SubjectString {
+	margin: 0px;
+	padding-bottom: 0px;
+	float: left;
+	font-size: 1.1em;
+}
+
+.Notification div.SubjectString div {
+	position: relative;
+	top: -5px;
+	padding-left: 10px;
+	font-size: 0.75em;
+}
+
+.Notification p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.NotificationClose {
+	margin: 3px;
+	padding: 0px;
+	float: right;
+}
+
+.Notification a {
+   transition-duration: 0.7s;
+   -moz-transition-duration: 0.7s; 
+   -webkit-transition-duration: 0.7s; 
+
+   color: red;
+   font-size: 18px;
+   text-decoration: none;
+}
+
+.Notification a:hover {
+    transition-duration: 0.7s;
+    -moz-transition-duration: 0.7s; 
+    -webkit-transition-duration: 0.7s; 
+    color: #FF8C8C;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#pathInfo {
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.6);
+    border:1px solid;
+    border-color: #A3A3A3;
+	opacity: 0.8;
+    border-radius: 5px;
+    padding: 5px;
+	display: none;
+	position: fixed;
+    left: 35%;
+    top: 40%;
+	z-index: 2;
+	width: 230px;
+	background-color: black;
+	color: white;
+
+}
+
+#pathInfo em {
+	font-size: 0.6em;
+	color: #c5c5c5;
+}
+

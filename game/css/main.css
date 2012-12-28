@@ -1,0 +1,586 @@
+@import "font/fonts.css";
+
+body {
+	font-family: "PTSansRegular", "Helvetica", Sans-Serif;
+	background-color: rgba(226, 172, 0, 0.8);					/* Ginstergelb */
+}
+
+#backgroundImg {
+	z-index: -1;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	opacity: 0.3;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	text-align: center;
+}
+
+#backgroundImg img {
+	width: 100%;
+}
+
+.Right {
+	float: right;
+}
+
+.Left {
+	float: left;
+}
+
+.Red {
+	color: #FA2126;
+}
+
+.Green {
+	color: #00F400;
+}
+
+.Clear {
+	margin: 0px;
+	padding: 0px;
+	content: " ";
+	clear: both;
+}
+
+.NoBreak {
+	white-spaces: pre;
+}
+
+.Error {
+	border: solid 1px #6f0202;
+	background-color: #d22929;
+	color: white;
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 500px;
+}
+
+.Success {
+	border: solid 1px #60e114;
+	background-color: #036d2a;
+	color: white;
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 500px;
+}
+
+#logoHead {
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 2em;
+	text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+	text-align: center;
+	/*border-bottom: solid 1px #4c4c4c;*/
+	padding-bottom: 5px;
+	width:600px;
+}
+
+#startContainer {
+	width: 700px;
+	margin: auto;
+	background-color: white;
+	padding: 10px;
+	border-radius: 3px;
+	border: solid 1px black;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.65);
+}
+
+fieldset {
+	border: solid 1px #4c4c4c;
+	margin: 0px 0px 10px 0px;
+	padding: 5px;
+}
+
+legend {
+	padding: 2px 0px 2px 0px;
+	height: 18px;
+	margin: 0px;
+	background-color: black;
+	color: white;
+	width: 100%;
+	text-align: center;
+}
+
+legend a, legend a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+a {
+	color: #0027ff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0027ff;
+	text-decoration: underline;
+}
+
+.RightBox {
+	width: 325px;
+	float: right;
+}
+
+.LeftBox {
+	width: 325px;
+	float: left;
+}
+
+.LeftBox label, .RightBox label {
+	float:left;
+	margin-bottom: 8px;
+	width: 170px;
+}
+.LeftBox input, .RightBox input, .LeftBox select, .RightBox select {
+	float: right;
+	margin-bottom: 10px;
+	width: 140px;
+}
+
+.LeftBox input[type="checkbox"], .RightBox input[type="checkbox"] {
+	width: auto;
+}
+
+.LeftBox span input, .RightBox span input {
+	margin-bottom: 6px;
+}
+
+table.OverviewTable, table.LeftTable {
+	border: solid 2px #4c4c4c;
+	border-collapse: collapse;
+}
+
+table.LeftTable {
+	margin-bottom: 10px;
+	float: left;
+	width: 325px;
+}
+
+table.OverviewTable {
+	margin: 5px 0px 5px 0px;
+	width: 100%;
+}
+
+table.OverviewTable th, table.LeftTable th {
+	background-color: black;
+	color: white;
+	font-weight: normal;
+	border: solid 2px #6b6b6b;
+}
+
+
+table.OverviewTable td, table.LeftTable td {
+	border: solid 2px #4c4c4c;
+	padding: 3px 5px 3px 5px;
+}
+
+.Table1 {
+	background-color: #e6e6e6;
+}
+
+.Center {
+	text-align: center;
+}
+
+.LeftAlign {
+	text-align: left!important;
+}
+
+.Top {
+	vertical-align: top;
+}
+
+.NoBullet {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#groupList {
+	margin: 10px auto 10px auto;
+}
+
+#groupList ul {
+	margin: 0px 10px 0px 10px;
+	text-align: center;
+	list-style: none;
+	padding: 0px;
+} 
+
+#groupList ul li{
+	height: 30px;
+	display: inline;
+	margin: 0px 3px 0px 3px;
+	padding: 0px;
+}
+
+hr {
+	border: none;
+	border-top: solid 1px black;
+}
+
+/**
+*
+* Design-Eigenschaften für gameHead.tpl.php
+*
+**/
+
+#naviContainer {
+	width: 720px;
+	padding: 0px;
+	margin: auto;
+	margin-bottom: 10px;
+	background-color: #3e3e3e;
+	background: -moz-linear-gradient(top, #3e3e3e 0%, #404040 50%, #3e3e3e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3e3e3e), color-stop(50%,#4c4c4c), color-stop(100%,#3e3e3e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* W3C */
+	border-radius: 3px;
+	border: solid 1px black;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
+}
+
+#naviContainer ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#naviContainer ul li {
+	float:left;
+	margin-left: 3px;
+	margin-right: 3px;
+	padding: 4px;
+	min-width: 101px;
+	color: white;
+	text-align: center;
+	border-right: dotted 1px #6b6b6b;
+	border-left: dotted 1px #6b6b6b;
+}
+
+#naviContainer ul li:hover {
+	color: black;
+	transition-duration: 0.6s;
+	-webkit-transition-duration: 0.6s;
+	-moz-transition-duration: 0.6s;
+	-o-transition-duration: 0.6s;
+	background-color: white;
+	border-right: dotted 1px #474747;
+	border-left: dotted 1px #474747;
+}
+
+#naviContainer ul li:hover a {
+	color: black;
+	text-decoration: none;
+}
+
+#naviContainer ul li:last-child {
+	border-right: none;
+}
+
+#naviContainer ul li:first-child {
+	border-left: none;
+}
+
+#naviContainer a {
+	color: white;
+	text-decoration: none;
+}
+
+#naviContainer a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+#topBlock {
+	z-index: 2;
+	position: fixed;
+	right: 20px;
+	top: 0px;
+	width: 350px;
+} 
+
+#statusBlock {
+	float: right;
+	background-color: #3e3e3e;
+	background: -moz-linear-gradient(top, #3e3e3e 0%, #404040 50%, #3e3e3e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3e3e3e), color-stop(50%,#4c4c4c), color-stop(100%,#3e3e3e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #3e3e3e 0%,#4c4c4c 50%,#3e3e3e 100%); /* W3C */
+	color: white;
+	border-radius: 0px 0px 5px 5px;
+	padding: 0px 15px 3px 15px;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.65);
+}
+
+#statusBlock img {
+	height: 14px;
+	margin-left: 8px;
+}
+
+#statusBlock img:first-child {
+	margin-left: 0px;
+}
+
+#statusBlockBig {
+	display:none;
+}
+
+#statusBlock:hover #statusBlockBig {
+	display: block;
+}
+
+#statusBlock a, #statusBlock a:hover {
+	color: #c2c2c2;
+}
+
+ul#statusBlockBig, ul#statusBlockBig ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul#statusBlockBig li {
+	border-top: 1px #c2c1c1 solid;
+	padding: 5px;
+}
+
+ul#statusBlockBig li ul li {
+	border-top: none;
+	padding: 0px;
+}
+
+/**
+*
+* Design-Eigeschaften für mainFoot.tpl.php
+*
+**/
+
+#infoFoot {
+	margin: auto;
+	margin-top: 10px;
+	text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+	
+	/*border-top: solid 1px #4c4c4c;*/
+	width: 600px;
+}
+
+#infoFoot ul {
+	margin: 0px 10px 0px 10px;
+	text-align: center;
+	list-style: none;
+	padding: 0px;
+} 
+
+#infoFoot ul li{
+	height: 30px;
+	display: inline;
+	margin: 0px 5px 0px 5px;
+	padding: 0px;
+}
+
+#infoFoot a, #infoFoot a:hover {
+	color: #4f4f4f;
+} 
+
+/**
+*
+* Design-Eigenschaften für startModule.tpl.php
+*
+**/
+
+#infoStartBox {
+	width: 350px;
+}
+
+#loginBox {
+	width: 300px;
+}
+
+#loginBox label, #loginBox a {
+	margin-bottom: 8px;
+	width: 140px;
+	float: left;
+}
+
+/**
+*
+* Design-Eigenschaften für registerModule.tpl.php
+*
+**/
+
+#infoRegisterBox {
+	width: 250px;
+}
+
+#registerBox {
+	width: 400px;
+}
+
+#registerBox input {
+	width: 160px;
+}
+
+/**
+*
+* Design-Eigenschaften für trainsModule.tpl.php
+*
+**/
+.DetailView {
+	display: none;
+}
+
+span:hover .DetailView {
+	display: block;
+	position: absolute;
+	z-index: 2;
+	background-color: #3e3e3e;
+	color: white;
+	border-radius: 2px;
+	opacity: 0.9;
+	padding: 5px;
+}
+
+.ConnectTrains {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url("../img/icons/link.png");
+}
+
+.ConnectTrains:hover {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url("../img/icons/link_break.png");
+}
+
+/**
+*
+* Design-Eigenschaften für tasksModule.tpl.php
+*
+**/
+
+.Task {
+     box-shadow: 0px 0px 5px black;
+   /*  border:1px solid;
+   border-color: rgba(226,172,0,1);*/
+     opacity: 0.8;
+    padding: 10px;
+    margin: 10px;
+    background-color: #000;
+    color: #FFF;
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.6);
+    width: 315px;
+    height: 220px;
+    text-align: center;
+    margin-left: 5px;
+    float: left;
+    
+}
+
+.Task h1
+{
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 17px;
+    height: 45px;
+}
+
+
+.Task p {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+
+.Task em {
+	font-size: 0.8em;
+}
+
+.Task blockquote {
+    position: relative;
+    height: 90px;
+}
+
+.Task blockquote:before {
+    display: block;
+    content: "\201D";
+    font-size: 60px;
+    position: absolute;
+    left: -30px;
+    top: 75px;
+    color: #E5E5E5;
+}
+
+.Task blockquote:after {
+    display: block;
+    content: "\201C";
+    font-size: 60px;
+    position: absolute;
+    left: 245px;
+    top: -20px;
+    color: #E5E5E5;
+}
+
+.Task blockquote div {
+	vertical-align: middle;
+	text-align: center;
+	height: 90px;
+	width: 300px;
+	display: table-cell;
+}
+
+/**
+*
+* Design-Elemete für activeModule.tpl.php
+*
+**/
+
+.TaskJourney {
+	box-shadow: 0px 0px 5px black;
+   /*  border:1px solid;
+   border-color: rgba(226,172,0,1);*/
+     opacity: 0.8;
+    padding: 15px;
+    margin: 10px;
+    background-color: #000;
+    color: #FFF;
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.6);
+}
+
+.TaskJourney .TaskInfo {
+	float: left;
+	width: 45%;
+}
+
+.TaskJourney .JourneyInfo {
+	float: right;
+	width: 45%;
+}
+
+.TaskJourney li {
+	padding-top: 10px;
+}
+
+.TaskJourney li li {
+	padding-top: 0px;
+}

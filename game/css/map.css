@@ -1,0 +1,55 @@
+.PathMain {
+	fill: none;
+	stroke: black;
+	stroke-width: 2px;
+	cursor: pointer;
+}
+
+.PathSmall {
+	fill: none;
+	stroke: black;
+	stroke-width: 1px;
+	cursor: pointer;
+}
+
+.NotElectrified {
+	stroke: #757575;
+}
+
+.PathMain:hover, .PathSmall:hover {
+	stroke: red;
+}
+
+.PathSelected {
+	stroke: red;
+}
+
+.StationBig {
+	fill: grey;
+	stroke: black;
+	stroke-width: 2px;
+}
+
+.StationMiddle {
+	fill: grey;
+	stroke: black;
+	stroke-width: 1px;
+}
+
+.StationSmall {
+	fill: white;
+	stroke: black;
+	stroke-width: 1px;
+}
+
+.StationBig:hover, .StationMiddle:hover, .StationSmall:hover {
+	stroke: red;
+}
+
+.StationSelected {
+	fill: red;
+}
+
+.StationMarked {
+	stroke: orange;
+}

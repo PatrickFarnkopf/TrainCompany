@@ -1,0 +1,21 @@
+gehen sie mit 
+
+cd /pfad zu TrainCompany
+
+in den Ordner in dem TrainCompany ist
+
+wechesen sie in den ordner ( cd TrainCompany/ )
+
+geben sie 
+
+vi TrainCompany 
+
+ein
+
+passen sie die erste zeile an ihr system an 
+
+den richtigen pfad eintagen...
+
+speichern sie die datei
+
+führen sie die InstallDaemon.sh mit sudo rechten aus.

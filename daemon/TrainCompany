@@ -1,0 +1,88 @@
+#!/bin/bash
+# myapp TrainCompany
+# chkconfig: 345 20 80
+# description: Der Daemon von der Projektarbeit TrainCompany
+# processname: TrainCompany-Daemon
+# Autor: Marcel Heisinger | Tobias Haber
+
+# Bitte den Pfad eintragen wo der TrainCompany-Ordner liegt!
+
+DAEMON_PATH="/var/www/TrainCompany/daemon/"
+
+#.... ende der config ... bitte mit sudo sh installDaemon.sh den Daemon installieren.
+
+
+#----------------------- HIER BITTE NICHTS ÄNDERN!----------------------------------------------------
+DAEMON="daemon-dir.sh"
+STAND="php5"
+NAME=TrainCompany
+DESC="Dies ist der Daemon für das TrainCompany PHP-Projekt"
+PIDFILE=/var/run/$NAME.pid
+SCRIPTNAME=/etc/init.d/$NAME
+
+case "$1" in
+start)
+    
+	printf "%-50s" "Starte $NAME..."
+	cd $DAEMON_PATH
+    chmod 777 $DAEMON
+if [ -n $2 ]; then
+	if [ -d $2 ]; then
+		STAND="php5"
+
+
+	else
+		STAND=$2
+		echo -e "Nutz das neue PHP-Verzeichniss $STAND"	
+	fi
+else
+
+STAND="php5"
+fi
+	PID=`./$DAEMON -dir $STAND > /dev/null 2>&1 & echo $!`
+	#echo "Saving PID" $PID " to " $PIDFILE
+        if [ -z $PID ]; then
+        printf "\e[31mFail\n"
+	
+
+        else
+            echo $PID > $PIDFILE
+       printf "\e[32mOk\n"      
+	
+        fi
+;;
+status)
+        printf "%-50s" "Prüfe $NAME..."
+        if [ -f $PIDFILE ]; then
+            PID=`cat $PIDFILE`
+            if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
+                printf "%s\n" "Der Prozess ist tot aber die pidfile ist da o.O"
+            else
+                echo "TrainCompany läuft :)"
+            fi
+        else
+            printf "%s\n" "Daemon läuft nicht"
+        fi
+;;
+stop)
+        printf "%-50s" "Stoppe $NAME"
+            PID=`cat $PIDFILE`
+            cd $DAEMON_PATH
+        if [ -f $PIDFILE ]; then
+            kill -HUP $PID
+            printf "\e[32mOk\n"  
+            rm -f $PIDFILE
+        else
+            printf "\e[31mDer Prozess ist schon tot\n"
+        fi
+;;
+
+restart)
+  	$0 stop
+  	$0 start
+;;
+
+*)
+        echo -e "Nutzung: $0 \n \n start /usr/bin/php (Startet mit dem  PHP-Pfad der angeben wird) \n \n stop (Stoppt den Daemon) \n \n status (Gibt den aktuellen Status aus) \n \n restart (Startet den Daemon neu) \n \n "
+        exit 1
+esac
