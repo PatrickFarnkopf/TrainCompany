@@ -68,41 +68,44 @@ lib/Core/Module/Script.class.php:
 
 +++ Spiel-Klassen-Fehlermeldungen +++
 
-lib/game/Data.class.php:
+lib/Game/Data.class.php:
 2011: Ein Daten-Objekt mit dieser ID ist bereits gespeichert.
 2012: Diese Daten-Gruppe ist nicht bekannt.
 2013: Kein Daten-Objekt mit dieser ID vorhanden.
 2014: Beim Aufwachen hat TrainCompany das erwartete Daten-Objekt vergessen.
 
-lib/game/Path.class.php:
+lib/Game/Path.class.php:
 2020: Es existiert keine Strecke zwischen den beiden Bahnhöfen.
 
-lib/game/Task/TaskModel.class.php:
+lib/Game/Task/Model.class.php:
 2030: Der Lohn muss mindestens 10.000 Plops betragen.
 2031: Es müssen mindestens zwei Stationen angefahren werden.
 2032: Die prozentuale Abweichung muss positiv sein.
 
-lib/game/Task/TaskSchedule.class.php:
+lib/Game/Task/Schedule.class.php:
 2040: Zu dem Bahnhof „…“ existieren keine Zeiten.
 2041: Der Bahnhof „…“ ist bereits in diesem Fahrplan vorhanden
 
-lib/game/Task/Journey/TaskJourneyManager.class.php:
+lib/Game/Task/Journey/Manager.class.php:
 2050: Es gibt bereits eine TaskJourneyManager-Hauptinstanz.
 
-lib/game/Task/Journey/TaskJourney.class.php:
+lib/Game/Task/Journey.class.php:
 2060: Es existiert kein nächster Schritt. (Bereits am Ende angekommen? Noch beim vorherigen Schritt?)
 2061: Im Fahrplan existiert kein Fahrplan-Halt vor dem aktuellen. Das darf nicht sein!
 2062: Diese Zugreise ist noch nicht fertig, sie kann also auch nicht abgeschlossen werden.
 
-lib/game/PathUnit.class.php:
+lib/Game/Path/Unit.class.php:
 2070: Die PathUnit konnte nicht gebildet werden.
 
-lib/game/Teain/TrainUnit.class.php:
+lib/Game/Train/Unit.class.php:
 2080: Der Zug kann nicht mehr Kapazität freigeben, wie er benutzt ist.
 2081: Der Zug ist bereits voll ausgelastet.
 
 
 +++ Daemon-Klassen-Fehlermeldungen +++
 
-lib/daemon/tasks/TaskModelTask.class.php:
+lib/Daemon/tasks/TaskModelTask.class.php:
 3000: Keine Task-Modelle vorhanden. Diese Daemon-Aufgabe kann nicht durchgeführt werden.
+
+lib/Daemon/Main.class.php:
+3010: TrainCompany muss installiert sein, bevor der Daemon ausgeführt werden kann.

@@ -8,7 +8,7 @@
 **/
 namespace Daemon;
 
-class Main extends \Core\Main {
+class Main extends \Game\Main {
 	const TASK_DIR = 'lib/daemon/tasks/';
 	
 	private $taskInstances = array();
@@ -20,6 +20,9 @@ class Main extends \Core\Main {
 		parent::__contruct();
 		
 		\Core\i::Header()->setContentType('text/plain');
+		
+		if(!\Config\INSTALLED)
+			throw new \Exception('TrainCompany muss installiert sein, bevor der Daemon ausgeführt werden kann.', 3010);
 	}
 
 	/**
