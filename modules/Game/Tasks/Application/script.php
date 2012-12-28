@@ -1,12 +1,11 @@
 <?php
-if(!defined('INC')) exit;
 /**
 *
 * Übersicht über die Bewerbung
 * Datum: 3. Dezember 2012
 *
 **/
-class applicationModule {
+script {
 	private $taskID = false;
 	private $task = false;
 	private $taskApplication = false;
@@ -14,9 +13,10 @@ class applicationModule {
 	private $taskSchedule = false;
 
 	public function __construct() {
-		$options = cmi()->getVarCache('options');
-		cmi()->addVarCache('siteTitle', 'Fahrplan festlegen');
-		$taskManager = i::TaskManager();
+		$options = $this->mi()->getVarCache('options');
+		$this->mi()->addVarCache('siteTitle', 'Fahrplan festlegen');
+		
+		$taskManager = \Game\Task\i::Manager();
 		$taskManager->loadAll();
 		
 		// Ausschreibung laden
@@ -24,7 +24,7 @@ class applicationModule {
 		$this->task = $taskManager->existObjectForID($this->taskID) ? $taskManager->getObjectForID($this->taskID) : false;
 		
 		// Bewerbung laden
-		$taskApplicationList = lsi()->issetVarCache('taskApplications') ? lsi()->getVarCache('taskApplications') : array();
+		$taskApplicationList = $this->si()->issetVarCache('taskApplications') ? $this->si()->getVarCache('taskApplications') : array();
 		$this->taskApplication = isset($taskApplicationList[$this->taskID]) ? $taskApplicationList[$this->taskID] : false;
 		
 		// Bewerbung überprüfen
@@ -34,18 +34,18 @@ class applicationModule {
 		if(is_object($this->taskApplication->getTaskSchedule())) {
 			$this->taskSchedule = $this->taskApplication->getTaskSchedule();
 		} else
-			$this->taskSchedule = new TaskSchedule();
+			$this->taskSchedule = new \Game\Task\Schedule();
 		
 		// Aufgaben dieses Modules ausführen
-		cmi()->addVarCache('task', $this->task);
-		cmi()->addVarCache('taskID', $this->taskID);
-		cmi()->addVarCache('neededStations', $this->task->getStations());
-		cmi()->addVarCache('stations', $this->taskApplication->getPathUnit()->getStations());
+		$this->mi()->addVarCache('task', $this->task);
+		$this->mi()->addVarCache('taskID', $this->taskID);
+		$this->mi()->addVarCache('neededStations', $this->task->getStations());
+		$this->mi()->addVarCache('stations', $this->taskApplication->getPathUnit()->getStations());
 		
 		// Ankunfszeiten berechnen
-		$arrivalTimesEmpty = $this->taskApplication->getPathUnit()->calcTimeWithTrainUnit($this->taskApplication->getTrainUnit(lsi()->getUserInstance()), TrainUnit::EMPTY_WEIGHT, $this->task->getStations());
-		$arrivalTimesMax = $this->taskApplication->getPathUnit()->calcTimeWithTrainUnit($this->taskApplication->getTrainUnit(lsi()->getUserInstance()), TrainUnit::MAX_WEIGHT, $this->task->getStations());
-		cmi()->addVarCache('arrivalTimes',array('empty'=>$arrivalTimesEmpty,'max'=>$arrivalTimesMax));
+		$arrivalTimesEmpty = $this->taskApplication->getPathUnit()->calcTimeWithTrainUnit($this->taskApplication->getTrainUnit($this->ui()), \Game\Train\Unit::EMPTY_WEIGHT, $this->task->getStations());
+		$arrivalTimesMax = $this->taskApplication->getPathUnit()->calcTimeWithTrainUnit($this->taskApplication->getTrainUnit($this->ui()), \Game\Train\Unit::MAX_WEIGHT, $this->task->getStations());
+		$this->mi()->addVarCache('arrivalTimes',array('empty'=>$arrivalTimesEmpty,'max'=>$arrivalTimesMax));
 		
 		try {
 			if(isset($options['makeAction']) && $options['makeAction']) { 
@@ -53,11 +53,11 @@ class applicationModule {
 				else $this->getSchedule();
 			}
 		} catch(HumanException $exception) {
-			cmi()->addVarCache('showError', true);
-			cmi()->addVarCache('errorString', $exception->getMessage());
+			$this->mi()->addVarCache('showError', true);
+			$this->mi()->addVarCache('errorString', $exception->getMessage());
 		}
 		
-		cmi()->addVarCache('taskSchedule', $this->taskSchedule);
+		$this->mi()->addVarCache('taskSchedule', $this->taskSchedule);
 	}
 	
 	/**
@@ -66,16 +66,16 @@ class applicationModule {
 	private function checkApplication() {
 		// Die Ausschreibung nicht (mehr) vorhanden?
 		if($this->task === false)
-			Module::goToModule('game_tasks', array('currentTask'=>'invalid'));
+			\Core\Module::goToModule('Game_Tasks', array('currentTask'=>'invalid'));
 		
 		try {
 			if($this->taskApplication === false)
-				throw new HumanException('Die Bewerbung ist ungültig.', -1);
+				throw new \HumanException();
 		
-			$this->taskApplication->checkTrainUnit($this->task, lsi()->getUserInstance());
-			$this->taskApplication->checkPathUnit($this->task, lsi()->getUserInstance());
-		} catch (HumanException $exception) {
-			Module::goToModule('game_tasks', array('currentTaskApplicaton'=>'invalid'));
+			$this->taskApplication->checkTrainUnit($this->task, $this->ui());
+			$this->taskApplication->checkPathUnit($this->task, $this->ui());
+		} catch (\HumanException $exception) {
+			\Core\Module::goToModule('Game_Tasks', array('currentTaskApplicaton'=>'invalid'));
 		}
 	}
 	
@@ -83,7 +83,7 @@ class applicationModule {
 	* Lädt den Fahrplan aus dem Formular und macht einen Fahrplan draus.
 	**/
 	private function getSchedule() {
-		$this->taskSchedule = new TaskSchedule();
+		$this->taskSchedule = new \Game\Task\Schedule();
 		
 		foreach($this->task->getStations() as $currentStation) {
 			$arrivalArray = isset($_POST[$currentStation->getID()]['arrival']) ? $_POST[$currentStation->getID()]['arrival'] : array();
@@ -99,24 +99,23 @@ class applicationModule {
 		$this->taskSchedule->check();
 		
 		// Zugeinheit sperren
-		$this->taskApplication->getTrainUnit(i::Session()->getUserInstance())->lock();
-		if($this->task->getType() == Task::WITH_APPLICATION) {
-			$this->task->addApplication($this->taskApplication, i::Session()->getUserInstance());
+		$this->taskApplication->getTrainUnit($this->ui())->lock();
+		if($this->task->getType() == \Game\Task::WITH_APPLICATION) {
+			$this->task->addApplication($this->taskApplication, $this->ui());
 			
-			Module::goToModule('game_tasks', array('addApplication'=>'success'));
+			\Core\Module::goToModule('Game_Tasks', array('addApplication'=>'success'));
 		} else {
 			$this->task->removeAllApplications();
+
+			$taskJourneyManager = \Game\Task\Journey\i::Manager($this->ui()->getUserID());
 		
-			$userInstance = i::Session()->getUserInstance();
-			$taskJourneyManager = i::TaskJourneyManager($userInstance->getUserID());
-		
-			$taskJourney = new TaskJourney(lsi()->getUserInstance(), $this->task, $this->taskApplication);
+			$taskJourney = new \Game\Task\Journey($this->ui(), $this->task, $this->taskApplication);
 			$taskJourneyManager->addObject($taskJourney);
 			
 			// Die Aufgabe aus der Liste löschen
-			i::TaskManager()->removeObject($this->taskID);
+			\Game\Task\i::Manager()->removeObject($this->taskID);
 		
-			Module::goToModule('game_tasks_active', array('application'=>'success'));
+			\Core\Module::goToModule('Game_Tasks_Active', array('application'=>'success'));
 		}
 	}
 	
@@ -131,7 +130,7 @@ class applicationModule {
 		if(!isset($array[60]) || !is_numeric($array[60])) $array[60] = 0;
 		if(!isset($array[1]) || !is_numeric($array[1])) $array[1] = 0;
 		
-		return Time::withHoursAndMinutes($array[60],$array[1]);
+		return \Core\Time::withHoursAndMinutes($array[60],$array[1]);
 	}
 }
 ?>

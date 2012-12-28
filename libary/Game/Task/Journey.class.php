@@ -90,7 +90,7 @@ class Journey {
 		foreach($this->getDelays() as $currentDelay)
 			$timeInt += $currentDelay->getTime()->toInt();
 			
-		return new Time($timeInt);
+		return new \Core\Time($timeInt);
 	}
 	
 	/**
@@ -142,7 +142,7 @@ class Journey {
 		$nextStationArrivalTimeInt = $nextStepTimes[$nextNeededStation->getID()]->toInt();
 		$nextStationArrivalTimeInt -= $nextStepTimes[$nextStation->getID()]->toInt();
 		// Startzeit hinzurechen
-		$nextStationArrivalTime = new Time($nextStationArrivalTimeInt + $this->getNextStepTimeDuration()->toInt());
+		$nextStationArrivalTime = new \Core\Time($nextStationArrivalTimeInt + $this->getNextStepTimeDuration()->toInt());
 		
 		// Fahrplan-Informationen fetchen
 		$scheduledTimes = $this->taskApplication->getTaskSchedule()->getTimesForStation($nextNeededStation);
@@ -150,9 +150,9 @@ class Journey {
 		
 		// Errechnete Ankunfzeit ist später als im Fahrplan? Da schleicht sich wohl eine Verspätung an!
 		if($scheduledArrivalTime->toInt() < $nextStationArrivalTime->toInt())
-			return new Time($nextStationArrivalTime->toInt() - $scheduledArrivalTime->toInt());
+			return new \Core\Time($nextStationArrivalTime->toInt() - $scheduledArrivalTime->toInt());
 	
-		return new Time(0);
+		return new \Core\Time(0);
 	}
 	
 	/**
@@ -181,7 +181,7 @@ class Journey {
 		$delayTime = $this->getCurrentDelay();
 		
 		// Ankunft mit Verspätung
-		$arrivalTimeWithDelay = new Time($arrivalTime->toInt() + $delayTime->toInt());
+		$arrivalTimeWithDelay = new \Core\Time($arrivalTime->toInt() + $delayTime->toInt());
 		
 		return $this->startTime + $arrivalTimeWithDelay->toInt();
 	}
@@ -192,7 +192,7 @@ class Journey {
 	* @return Time
 	**/
 	public function getCurrentTime() {
-		return new Time(time() - $this->startTime);
+		return new \Core\Time(time() - $this->startTime);
 	}
 		
 	/**
@@ -280,7 +280,7 @@ class Journey {
 	* @return Time
 	**/
 	public function getNextStepTimeDuration() {
-		return new Time($this->nextStepTime - $this->startTime);
+		return new \Core\Time($this->nextStepTime - $this->startTime);
 	}
 	
 	/**
@@ -311,7 +311,7 @@ class Journey {
 	private function checkForDaemonDelay() {
 		// Verzögerungen im Betriebsablauf? (Die Aufgabe wurde nicht rechtzeitig ausgeführt. Mindestens 60 Sekunden verzug.)
 		if($this->getNextStepTime() != 0 && $this->getNextStepTime()+60 < time()) {
-			$delayTime = new Time(time() - $this->getNextStepTime());
+			$delayTime = new \Core\Time(time() - $this->getNextStepTime());
 			$delayObject = new \Game\Task\Journey\Delay('Verzögerungen im Betriebsablauf.', $delayTime);
 				
 			$this->addDelay($delayObject);

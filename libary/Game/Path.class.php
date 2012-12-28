@@ -281,7 +281,7 @@ class Path extends Data {
 	* @param int $endSpeed - Welche Geschwindigkeit muss er am Ende der Strecke haben? (Übergang auf neue Strecke? Halt?)
 	* @return array('reachedSpeed' => Erreichte Geschwindigkeit, 'time' => Benötigte Zeit)
 	**/
-	public function calcTimeWithTrainUnit(TrainUnit $trainUnit, $weightType, $startSpeed = 0, $endSpeed = 0) {
+	public function calcTimeWithTrainUnit(Train\Unit $trainUnit, $weightType, $startSpeed = 0, $endSpeed = 0) {
 		// Daten für die Berechnungen zwischenspeichern
 	 	$speedup = $trainUnit->getSpeedup($weightType);
 	 	$delay = -$speedup;

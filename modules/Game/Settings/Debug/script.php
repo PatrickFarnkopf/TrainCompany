@@ -71,10 +71,10 @@ script {
 		$taskManager = \Game\Task\i::Manager();
 	
 		$sampleTasks = array();
-		$sampleTasks[] = array('title'=>'RE6 von Düsseldorf nach Hamm','description'=>'Der RE6 muss von Düsseldorf nach Hamm gebracht werden. Die Strecke ist stark ausgelastet.','plops'=>125000, 'type'=>Task::WITH_APPLICATION,'stations'=>array(14,81,82,83,27,84),'neededCapacity'=>array(0=>0));
-		$sampleTasks[] = array('title'=>'RE7 von Mannheim nach Saarbrücken','description'=>'Der RE7 fährt nach Saarbrücken und ist nicht besonders ausgelastet.','plops'=>100000, 'type'=>Task::WITH_APPLICATION,'stations'=>array(15,38,39,22),'neededCapacity'=>array(0=>0));
-		$sampleTasks[] = array('title'=>'Güterzug von Saarbrücken nach Paderborn','description'=>'Die Autos müssen sicher nach Paderborn gebracht werden.','plops'=>200000, 'type'=>Task::NO_APPLICATION,'stations'=>array(22,29),'neededCapacity'=>array(4=>80));
-		$sampleTasks[] = array('title'=>'Güterzug von Frankfurt nach Kassel','description'=>'Du musst eine Ladung Holz nach Kassel bringen.','plops'=>200000, 'type'=>Task::NO_APPLICATION,'stations'=>array(9,26),'neededCapacity'=>array(1=>2000));
+		$sampleTasks[] = array('title'=>'RE6 von Düsseldorf nach Hamm','description'=>'Der RE6 muss von Düsseldorf nach Hamm gebracht werden. Die Strecke ist stark ausgelastet.','plops'=>125000, 'type'=>\Game\Task::WITH_APPLICATION,'stations'=>array(14,81,82,83,27,84),'neededCapacity'=>array(0=>0));
+		$sampleTasks[] = array('title'=>'RE7 von Mannheim nach Saarbrücken','description'=>'Der RE7 fährt nach Saarbrücken und ist nicht besonders ausgelastet.','plops'=>100000, 'type'=>\Game\Task::WITH_APPLICATION,'stations'=>array(15,38,39,22),'neededCapacity'=>array(0=>0));
+		$sampleTasks[] = array('title'=>'Güterzug von Saarbrücken nach Paderborn','description'=>'Die Autos müssen sicher nach Paderborn gebracht werden.','plops'=>200000, 'type'=>\Game\Task::NO_APPLICATION,'stations'=>array(22,29),'neededCapacity'=>array(4=>80));
+		$sampleTasks[] = array('title'=>'Güterzug von Frankfurt nach Kassel','description'=>'Du musst eine Ladung Holz nach Kassel bringen.','plops'=>200000, 'type'=>\Game\Task::NO_APPLICATION,'stations'=>array(9,26),'neededCapacity'=>array(1=>2000));
 		
 		foreach($sampleTasks as $currentTask) {
 			$task = new \Game\Task($currentTask['title'],$currentTask['description'],$currentTask['plops'],$currentTask['type']);

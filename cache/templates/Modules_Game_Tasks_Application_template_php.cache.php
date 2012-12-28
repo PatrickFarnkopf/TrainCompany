@@ -1,5 +1,4 @@
-<? if(!defined('INC')) exit; ?>
-<? mit('currentTask',array('task'=>cmi()->getVarCache('task'))) ?>
+<?php use \Core\Format; ?><? \Core\i::Module()->includeTemplate('currentTask',array('task'=>\Core\i::Module()->getVarCache('task'))) ?>
 <fieldset class="RightBox">
 	<legend>Fahrplan festlegen</legend>
 	Auf dieser Seite musst du den Fahrplan deines Zuges festlegen.
@@ -15,7 +14,7 @@
 	</ul>
 </fieldset>
 
-<form method="post" action="<?= cml('game_tasks_application', array('taskID'=>cmi()->getVarCache('taskID'),'makeAction'=>true)) ?>">
+<form method="post" action="<?= \Core\Module::createModuleLink(NULL, array('taskID'=>\Core\i::Module()->getVarCache('taskID'),'makeAction'=>true)) ?>">
 	<table class="OverviewTable">
 		<tr>
 			<th width="250" rowspan="2" height="40">Stationen</th>
@@ -28,34 +27,34 @@
 			<th>Ankunft</th>
 			<th>Abfahrt</th>
 		</tr>
-		<? foreach(cmi()->getVarCache('stations') as $list => $currentStation): ?>
+		<? foreach(\Core\i::Module()->getVarCache('stations') as $list => $currentStation): ?>
 			<tr class="Table<?= $list%2 ?>">
 				<td><?= Format::string($currentStation->getName()) ?></td>
 				<td class="Center">
 					<? if($list>0): ?>
-						<?= cmi()->getVarCache('arrivalTimes')['empty'][$currentStation->getID()] ?>
+						<?= \Core\i::Module()->getVarCache('arrivalTimes')['empty'][$currentStation->getID()] ?>
 					<? else: ?>
-						<?= new Time() ?>
+						<?= new \Core\Time() ?>
 					<? endif; ?>
 				</td>
 				<td class="Center">
 					<? if($list>0): ?>
-						<?= cmi()->getVarCache('arrivalTimes')['max'][$currentStation->getID()] ?>
+						<?= \Core\i::Module()->getVarCache('arrivalTimes')['max'][$currentStation->getID()] ?>
 					<? else: ?>
-						<?= new Time() ?>
+						<?= new \Core\Time() ?>
 					<? endif; ?>
 				</td>
-				<? if(in_array($currentStation, cmi()->getVarCache('neededStations'))): ?>
+				<? if(in_array($currentStation, \Core\i::Module()->getVarCache('neededStations'))): ?>
 					<td class="Center">
 						<? if($list > 0): ?>
 							<input type="text" style="width: 15px;" onkeyup="JumperInput(this)"  maxlength="2" placeholder="00" name="<?= $currentStation->getID() ?>[arrival][60]"
-								<? if(cmi()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
-									value="<?= cmi()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['arrival']->getHours() ?>"
+								<? if(\Core\i::Module()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
+									value="<?= \Core\i::Module()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['arrival']->getHours() ?>"
 								<? endif; ?>
 							> :
 							<input type="text" style="width: 15px;" onkeyup="JumperInput(this)"  maxlength="2" placeholder="00" name="<?= $currentStation->getID() ?>[arrival][1]"
-								<? if(cmi()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
-									value="<?= cmi()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['arrival']->getMinutes() ?>"
+								<? if(\Core\i::Module()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
+									value="<?= \Core\i::Module()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['arrival']->getMinutes() ?>"
 								<? endif; ?>
 							>
 						<? else: ?>
@@ -64,16 +63,16 @@
 					</td>
 					<td class="Center">
 						<? if($list == 0): ?>
-							<?= new Time() ?>
-						<? elseif($list < count(cmi()->getVarCache('stations'))-1): ?>
+							<?= new \Core\Time() ?>
+						<? elseif($list < count(\Core\i::Module()->getVarCache('stations'))-1): ?>
 							<input type="text" style="width: 15px;" onkeyup="JumperInput(this)"  maxlength="2" placeholder="00" name="<?= $currentStation->getID() ?>[departure][60]"
-								<? if(cmi()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
-									value="<?= cmi()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['departure']->getHours() ?>"
+								<? if(\Core\i::Module()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
+									value="<?= \Core\i::Module()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['departure']->getHours() ?>"
 								<? endif; ?>
 							> :
 							<input type="text" style="width: 15px;" onkeyup="JumperInput(this)"  maxlength="2" placeholder="00" name="<?= $currentStation->getID() ?>[departure][1]"
-								<? if(cmi()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
-									value="<?= cmi()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['departure']->getMinutes() ?>"
+								<? if(\Core\i::Module()->getVarCache('taskSchedule')->existTimesForStation($currentStation)): ?>
+									value="<?= \Core\i::Module()->getVarCache('taskSchedule')->getTimesForStation($currentStation)['departure']->getMinutes() ?>"
 								<? endif; ?>
 							>
 						<? else: ?>
@@ -87,7 +86,7 @@
 		<? endforeach; ?>	
 	</table>
 
-	<? if(cmi()->getVarCache('task')->getType() == Task::WITH_APPLICATION): ?>
+	<? if(\Core\i::Module()->getVarCache('task')->getType() == \Game\Task::WITH_APPLICATION): ?>
 		<input type="submit" value="Bewerbung einreichen &raquo;" name="select" class="Right">
 	<? else: ?>
 		<input type="submit" value="Zug losschicken &raquo;" name="select" class="Right">

@@ -1,5 +1,4 @@
 <?php
-if(!defined('INC')) exit;
 /**
 *
 * Fasst mehrere Strecken zu einer langen Strecke zusammen
@@ -90,7 +89,7 @@ class Unit {
 			
 			$currentSpeed = $calculation['reachedSpeed'];
 			$fullTime += $calculation['time']->toInt();
-			$arrivalTimes[$nextStation->getID()] = $showFullTime ? new Time($fullTime) : $calculation['time'];
+			$arrivalTimes[$nextStation->getID()] = $showFullTime ? new \Core\Time($fullTime) : $calculation['time'];
 		}
 		
 		return $arrivalTimes;
@@ -143,7 +142,7 @@ class Unit {
 		$paths = array();
 		foreach($stations as $currentStations) {
 			foreach($stations as $secondStations) {
-				if(!Path::existPathFromStationToStation($currentStations,$secondStations)) continue;
+				if(!\Game\Path::existPathFromStationToStation($currentStations,$secondStations)) continue;
 				if(!isset($paths[$currentStations->getID()])) $paths[$currentStations->getID()] = array();
 				
 				$paths[$currentStations->getID()][$secondStations->getID()] = \Game\Path::getPathFromStationToStation($currentStations,$secondStations);

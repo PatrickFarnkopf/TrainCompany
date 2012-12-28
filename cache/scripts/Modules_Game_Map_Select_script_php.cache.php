@@ -5,7 +5,7 @@
 * Datum: 28. November 2012
 *
 **/
-script {
+namespace Script; class Modules_Game_Map_Select_script_php extends \Core\Module\Extender  {
 	private $mapInstance;
 
 	private $taskID = false;

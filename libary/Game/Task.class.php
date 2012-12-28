@@ -212,7 +212,7 @@ class Task {
 	* @return Time - Zeit bis zum Ende der Ausschreibung.
 	**/
 	public function getTimeTillEndTime() {
-		return new Time($this->endTime - time());
+		return new \Core\Time($this->endTime - time());
 	}
 	
 	/**

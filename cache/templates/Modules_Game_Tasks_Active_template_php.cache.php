@@ -1,23 +1,22 @@
-<? if(!defined('INC')) exit; ?>
-<fieldset>
+<?php use \Core\Format; ?><fieldset>
 	<legend>Aktive Ausschreibungen</legend>
 	Hier siehst du genau, wie weit du mit einzelnen Ausschreibungen bist. Dir wird die vorrausichtliche Ankunft und Verspätung deiner Züge und alle Verspätungen angezeigt. Außerdem siehst du, wie viel die Ausschreibung dir nach Abschluss an Plops bringt und wie viel du durch die Verspätungen verlierst.
 </fieldset>
 
 <div id="groupList">
 	<ul>
-		<li><a href="<?= cml('game_tasks', array(), 'groupList') ?>">Neue Ausschreibungen</a></li>
+		<li><a href="<?= \Core\Module::createModuleLink('Game_Tasks', array(), 'groupList') ?>">Neue Ausschreibungen</a></li>
 		<li>&middot;</li>
 		<li>&raquo;Aktive Ausschreibungen&laquo;</li>
 	</ul>
 </div>
 
-<? if(count(cmi()->getVarCache('taskJourneyList')) == 0): ?>
+<? if(count(\Core\i::Module()->getVarCache('taskJourneyList')) == 0): ?>
 	<p class="Center">
 		Derzeit existieren keine aktiven Ausschreibungen.
 	</p>
 <? else: ?>
-	<? foreach(cmi()->getVarCache('taskJourneyList') as $currentTaskJourney): ?>
+	<? foreach(\Core\i::Module()->getVarCache('taskJourneyList') as $currentTaskJourney): ?>
 		<div class="TaskJourney">
 			<div class="TaskInfo">
 				<strong><?= Format::string($currentTaskJourney->getTask()->getTitle()) ?></strong>
@@ -39,7 +38,7 @@
 							keine
 						<? endif; ?>
 						<? foreach($currentTaskJourney->getTrainUnit()->getUsedCapacity() as $currentCapacity=>$value): ?>
-							<? $currentCapacityObject = Capacity::getObjectForID($currentCapacity) ?>
+							<? $currentCapacityObject = \Game\Capacity::getObjectForID($currentCapacity) ?>
 							<img src="img/icons/<?= $currentCapacityObject->getIcon() ?>" alt="<?= $currentCapacityObject->getName() ?>" title="<?= $currentCapacityObject->getName() ?>">
 							<? if($value>0): ?>
 								<? $unit = $currentCapacityObject->getUnit() ?>
@@ -56,7 +55,7 @@
 					<li>
 						<img src="img/icons/clock_go.png" alt="Ankunfzeit" title="Ankunfzeit bei aktueller Verspätung">
 						vsl. <?= Format::date($currentTaskJourney->getTimeAtEnd(),false,true,true) ?>
-						(<?= mit('delay', array('delayTime'=>$currentTaskJourney->getCurrentDelay())) ?>)
+						(<?= \Core\i::Module()->includeTemplate('delay', array('delayTime'=>$currentTaskJourney->getCurrentDelay())) ?>)
 					</li>
 				</ul>
 			</div>
@@ -78,7 +77,7 @@
 							<? if(count($currentTaskJourney->getDelays())): ?>
 								<? foreach($currentTaskJourney->getDelays() as $currentDelay): ?>
 									<li>
-										<?= mit('delay', array('delayTime'=>$currentDelay->getTime())) ?>:
+										<?= \Core\i::Module()->includeTemplate('delay', array('delayTime'=>$currentDelay->getTime())) ?>:
 										„<?= Format::string($currentDelay->getDescription()) ?>“
 									</li>
 								<? endforeach; ?>

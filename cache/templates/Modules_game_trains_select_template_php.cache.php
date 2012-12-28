@@ -1,5 +1,4 @@
-<? if(!defined('INC')) exit; ?>
-<? mit('currentTask',array('task'=>cmi()->getVarCache('task'))) ?>
+<?php use \Core\Format; ?><? \Core\i::Module()->includeTemplate('currentTask',array('task'=>\Core\i::Module()->getVarCache('task'))) ?>
 <fieldset class="RightBox">
 	<legend>Fahrzeugwahl</legend>
 	Du musst die Zugeinheit wählen, mit der du die Ausschreibung ausführen willst.
@@ -7,7 +6,7 @@
 </fieldset>
 <div class="Clear"></div>
 
-<form method="post" action="<?= cml('game_trains_select', array('taskID'=>cmi()->getVarCache('taskID'),'makeAction'=>true)) ?>">
+<form method="post" action="<?= \Core\Module::createModuleLink(NULL, array('taskID'=>\Core\i::Module()->getVarCache('taskID'),'makeAction'=>true)) ?>">
 	<? $first = true; ?>
 	<table class="OverviewTable">
 		<tr>
@@ -19,17 +18,16 @@
 			<th>Antrieb</th>
 			<th></th>
 		</tr>
-		<? foreach(cmi()->getVarCache('trainUnitGroups') as $groupID => $currentGroup): ?>
+		<? foreach(\Core\i::Module()->getVarCache('trainUnitGroups') as $groupID => $currentGroup): ?>
 			<tr>
 				<th colspan="7"><?= Format::string($currentGroup->getName()) ?></th>
 			</tr>
-			<? $currentTrainUnitList = lsi()->getUserInstance()->listTrainUnits($groupID) ?>
 			<? $i = 1 ?>
-			<? foreach($currentTrainUnitList as $key=>$currentTrainUnit): ?>
-				<? if(cmi()->getVarCache('task')->isCompatibleTrainUnit($currentTrainUnit)): ?>
+			<? foreach(\Core\i::Module()->getVarCache('trainUnits')[$groupID] as $key=>$currentTrainUnit): ?>
+				<? if(\Core\i::Module()->getVarCache('task')->isCompatibleTrainUnit($currentTrainUnit)): ?>
 					<? $i ++ ?>
-					<? $selected = cmi()->issetVarCache('selectedUnit') ? cmi()->getVarCache('selectedUnit') == $key : $first ?>
-					<? mit('currentTrainUnit',array('tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key, 'radioButton'=>true, 'selected'=>$selected)) ?>
+					<? $selected = \Core\i::Module()->issetVarCache('selectedUnit') ? \Core\i::Module()->getVarCache('selectedUnit') == $key : $first ?>
+					<? \Core\i::Module()->includeTemplate('currentTrainUnit',array('tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key, 'radioButton'=>true, 'selected'=>$selected)) ?>
 					<? $first = false; ?>
 				<? endif; ?>
 			<? endforeach; ?>

@@ -1,4 +1,4 @@
-<fieldset class="LeftBox">
+<?php use \Core\Format; ?><fieldset class="LeftBox">
 	<legend><?= Format::string($vars['task']->getTitle()) ?></legend>
 	<?= Format::string($vars['task']->getDescription()) ?>
 	<hr>
