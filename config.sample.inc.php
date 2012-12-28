@@ -1,8 +1,7 @@
 <?php
 /**
 *
-* Konfiguration für diese Installation von TrainCompany
-* Generiert am: 28.12.2012
+* Dummy-Konfigurations-Datei. Startet automatisch den Installations-Prozess.
 *
 **/
 
