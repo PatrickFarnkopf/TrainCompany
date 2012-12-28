@@ -2,6 +2,7 @@
 #########################
 config.inc.php
 *.cache*
+*.tmp*
 
 # OS generated files #
 ######################

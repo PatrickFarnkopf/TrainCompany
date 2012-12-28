@@ -165,8 +165,8 @@ class Install {
 	**/
 	public function systemCheck() {
 		// Die Konfigurations-Datei muss beschreibbar sein.
-		if(!is_writable(ROOT_PATH.'/'.self::FILE))
-			throw new \HumanException('Die Konfigurationsdatei „'.Install::FILE.'“ muss beschreibbar sein.');
+		if(!(is_writable(ROOT_PATH) || (file_exists(ROOT_PATH.self::FILE) && !is_writable(ROOT_PATH.self::FILE))))
+			throw new \HumanException('Die Konfigurationsdatei „'.self::FILE.'“ muss existieren und beschreibbar sein oder das Hauptverzeichnis muss beschreibbar sein.');
 		
 		// Die PHP-Version muss größergleich self::REQUIERED_PHP_VERSION sein.
 		$phpVersion =  	preg_replace('/^(\d+\.\d+\.\d+).*$/', '\\1',phpversion());

@@ -15,11 +15,13 @@ class Main extends \Core\Main {
 	public function __construct() {
 		parent::__construct();
 		
-		// Daten-Objekte einbinden
-		Data::loadAllDataFiles();
+		if(\Config\INSTALLED) {
+			// Daten-Objekte einbinden
+			Data::loadAllDataFiles();
 
-		// Session šffnen
-		session_start();
+			// Session šffnen
+			session_start();
+		}
 	}
 	
 	/**

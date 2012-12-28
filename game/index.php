@@ -9,7 +9,9 @@
 define("ROOT_PATH", __DIR__.'/../');
 
 // Konfigurations-Datei einbinden
-require_once ROOT_PATH.'config.inc.php';
+if(file_exists(ROOT_PATH.'config.inc.php')) require_once ROOT_PATH.'config.inc.php';
+else require_once ROOT_PATH.'config.sample.inc.php';
+
 // Die Bibliothek einbinden. (Oder besser gesagt, ihre Autoload-Funktion.)
 require_once ROOT_PATH.'libary/main.inc.php';
 

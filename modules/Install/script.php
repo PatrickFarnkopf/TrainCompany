@@ -31,9 +31,9 @@ script {
 		
 			$this->mi()->addVarCache('badStatus', false);
 			$this->mi()->addVarCache('statusString', "Der Server scheint alle Systemvorraussetzungen zu erfüllen.");
-		} catch (\HumanException $exception) {
-			$this->mi()->addVarCache('badStatus', true);
-			$this->mi()->addVarCache('statusString', Format::string($exception->getMessage()));
+		} catch (\HumanException $exception) { 
+			$this->mi()->addVarCache('badStatus', true); 
+			$this->mi()->addVarCache('statusString', $exception->getMessage());
 		}
 		
 		if(!$this->mi()->getVarCache('badStatus') && isset($options['writeConfiguration']) && $options['writeConfiguration'] == true)
