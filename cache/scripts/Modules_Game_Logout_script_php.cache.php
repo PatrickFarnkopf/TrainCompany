@@ -13,7 +13,7 @@ namespace Script; class Modules_Game_Logout_script_php extends \Core\Module\Exte
 		// Session löschen
 		\Core\Session::unsetMainInstance();
 		// Zur Startseite weiterleiten
-		\Core\Module::goToModule('Start');
+		\Core\Module::goToModule();
 	}
 }
 ?>

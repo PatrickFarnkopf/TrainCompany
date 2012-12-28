@@ -2,12 +2,13 @@
 /**
 *
 * Konfiguration für diese Installation von TrainCompany
-* Generiert am: 10.12.2012
+* Generiert am: 28.12.2012
 *
 **/
+
 namespace Config {
 	const INSTALLED = true;
-	const INSTALL_TIME = 1355156803;
+	const INSTALL_TIME = 1356726264;
 	const DEBUG = true;
 	const TIME_ZONE = 'Europe/Berlin';
 }
@@ -23,4 +24,5 @@ namespace Config\MySQL {
 	const PASS = 'root';
 	const DATABASE = 'traincompany';
 }
+
 ?>

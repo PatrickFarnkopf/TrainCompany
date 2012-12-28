@@ -5,7 +5,7 @@
 * Datum: 19. Oktober 2012
 *
 **/
-namespace /Core;
+namespace Core;
 
 class Install {
 	const FILE = 'config.inc.php';
@@ -15,16 +15,20 @@ class Install {
 	const REQUIERED_PHP_VERSION = '5.4';
 	
 	private $knowConfigurations = 	array(
-										'INSTALLED' => false,
-										'DEBUG' => false,
-										'VERSION_STRING' => VERSION_STRING,
-										'GAME_START_TIME' => 0,
-										'LICENSE_FILE' => LICENSE_FILE,
-										'MYSQL_SERVER' => NULL,
-										'MYSQL_USER' => NULL,
-										'MYSQL_PASS' => NULL,
-										'MYSQL_DATABASE' => NULL,
-										'TIME_ZONE' => 'Europe/Berlin'
+										'INSTALLED' => NULL,
+										'INSTALL_TIME' => NULL,
+										'DEBUG' => \Config\DEBUG,
+										'TIME_ZONE' => \Config\TIME_ZONE,
+										'Version' => 	array(
+															'STRING' => \Config\Version\STRING,
+															'LICENSE_FILE' => \Config\Version\LICENSE_FILE
+														),
+										'MySQL' =>		array(
+															'SERVER' => NULL,
+															'USER' => NULL,
+															'PASS' => NULL,
+															'DATABASE' => \Config\MySQL\DATABASE
+														)
 									);
 	
 	private $knownTimeZones = 	array(
@@ -151,7 +155,7 @@ class Install {
 	**/
 	public function __construct($install = true) {
 		$this->knowConfigurations['INSTALLED'] = $install;
-		$this->knowConfigurations['GAME_START_TIME'] = time();
+		$this->knowConfigurations['INSTALL_TIME'] = time();
 	}	
 
 	/**
@@ -250,10 +254,10 @@ class Install {
 	* @param string $database - Die MySQL-Datenbank
 	**/
 	public function setMySQLData($server, $user, $pass, $database) {
-		$this->knowConfigurations['MYSQL_SERVER'] = $server;
-		$this->knowConfigurations['MYSQL_USER'] = $user;
-		$this->knowConfigurations['MYSQL_PASS'] = $pass;
-		$this->knowConfigurations['MYSQL_DATABASE'] = $database;
+		$this->knowConfigurations['MySQL']['SERVER'] = $server;
+		$this->knowConfigurations['MySQL']['USER'] = $user;
+		$this->knowConfigurations['MySQL']['PASS'] = $pass;
+		$this->knowConfigurations['MySQL']['DATABASE'] = $database;
 	}
 	
 	/**
@@ -264,15 +268,15 @@ class Install {
 	**/
 	public function checkMySQLData($createDatabase=false) {
 		try {
-			$mysqlObject = new \Core\MySQL($this->knowConfigurations['MYSQL_SERVER'], $this->knowConfigurations['MYSQL_USER'], $this->knowConfigurations['MYSQL_PASS'],false,true);
+			$mysqlObject = new MySQL($this->knowConfigurations['MySQL']['SERVER'], $this->knowConfigurations['MySQL']['USER'], $this->knowConfigurations['MySQL']['PASS'],false,true);
 		} catch (\Exception $exception) {
-			throw new Exception('Der MySQL-Server erlaubt keinen Login mit den eingegeben Login-Daten.', -1, $exception);
+			throw new \HumanException('Der MySQL-Server erlaubt keinen Login mit den eingegeben Login-Daten.', -1, $exception);
 		}
 		
-		if($createDatabase) $mysqlObject->createDatabase($this->knowConfigurations['MYSQL_DATABASE']);
+		if($createDatabase) $mysqlObject->createDatabase($this->knowConfigurations['MySQL']['DATABASE']);
 		
 		try {
-			$mysqlObject->connectDatabase($this->knowConfigurations['MYSQL_DATABASE']);
+			$mysqlObject->connectDatabase($this->knowConfigurations['MySQL']['DATABASE']);
 		} catch (\Exception $exception) {
 			if ($createDatabase) 
 				throw new \HumanException('Die Datenbank konnte nicht erstellt werden. Hast du überhaupt genug Rechte?', -2, $exception);
@@ -287,7 +291,7 @@ class Install {
 	* Erstellt die in der SQL-Datei angegeben Tabellen ein.
 	**/
 	public function createMySQLTables() {
-		$mysqlInstance = new \Core\MySQL($this->knowConfigurations['MYSQL_SERVER'], $this->knowConfigurations['MYSQL_USER'], $this->knowConfigurations['MYSQL_PASS'], $this->knowConfigurations['MYSQL_DATABASE']);
+		$mysqlInstance = new MySQL($this->knowConfigurations['MySQL']['SERVER'], $this->knowConfigurations['MySQL']['USER'], $this->knowConfigurations['MySQL']['PASS'], $this->knowConfigurations['MySQL']['DATABASE'], false);
 		
 		if (!file_exists(ROOT_PATH.'/'.self::SQL_FILE)) throw new Exception('Keine SQL-Datei vorhanden.', 1050);
 		$sql = file_get_contents(ROOT_PATH.'/'.self::SQL_FILE);
@@ -304,7 +308,6 @@ class Install {
 		$date = date('d.m.Y');
 		$fileContent = <<<CONTENT
 <?php
-if(!defined('INC')) exit;
 /**
 *
 * Konfiguration für diese Installation von TrainCompany
@@ -314,20 +317,50 @@ if(!defined('INC')) exit;
 
 
 CONTENT;
+		
+		// Namespace defininieren
+		$fileContent .= "namespace Config {\n";
 		foreach($this->knowConfigurations as $key=>$currentConfiguration) {
-			if(is_bool($currentConfiguration)) {
-				if ($currentConfiguration) $valueString = 'true';
-				else $currentConfiguration = 'false';
-			} else if(is_numeric($currentConfiguration)) $valueString = $currentConfiguration;
-			else $valueString = "'".$currentConfiguration."'";
-			
-			$fileContent .= "define('".$key."',".$valueString.");\n";
+			if(!is_array($currentConfiguration)) {				
+				$fileContent .= "\t".self::getConstString($key, $currentConfiguration);
+			}
+		}
+		$fileContent .= "}\n\n";
+
+		foreach($this->knowConfigurations as $key=>$currentConfiguration) {
+			if(is_array($currentConfiguration)) {
+				// Namespace defininieren
+				$fileContent .= 'namespace Config\\'.$key." {\n";
+				
+				// Einzelne Elemente hinzufügen
+				foreach($currentConfiguration as $key=>$value)
+					$fileContent .= "\t".self::getConstString($key, $value);
+					
+				$fileContent .= "}\n\n";
+			}
 		}
 		$fileContent .="?>";
 	
 		$handler = fopen(ROOT_PATH.'/'.self::FILE, 'w');
 		fputs($handler, $fileContent);
 		fclose($handler);
+	}
+	
+	/**
+	* Gibt einen Konstanten-String zurück.
+	*
+	* @param string $key - Name der Konstante
+	* @param string $value - Inhalt der Konstante
+	* @return string
+	**/
+	private static function getConstString($key, $value) {
+		if(is_bool($value)) {
+			if ($value) $valueString = 'true';
+			else $value = 'false';
+		} else if(is_numeric($value)) $valueString = $value;
+		else $valueString = "'".$value."'";
+			
+		return "const ".$key." = ".$valueString.";\n";
 	}
 }
 ?>

@@ -13,7 +13,7 @@ script {
 		// Session löschen
 		\Core\Session::unsetMainInstance();
 		// Zur Startseite weiterleiten
-		\Core\Module::goToModule('Start');
+		\Core\Module::goToModule();
 	}
 }
 ?>

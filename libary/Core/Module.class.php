@@ -15,6 +15,7 @@ class Module extends Cache {
 	const INC_DIR = 'templates/inc/';
 	
 	const START_MODULE = 'Start';
+	const INSTALL_MODULE = 'Install';
 	const ERROR_MODULE = 'Error';
 	
 	const GET_NAME = 'module';
@@ -38,7 +39,10 @@ class Module extends Cache {
 		$this->setTemplateSet('main');
 	
 		// Welches Modul wurde angefordert?
-		$moduleNameString = isset($_GET[self::GET_NAME]) ? $_GET[self::GET_NAME] : self::START_MODULE;
+		if(\Config\INSTALLED)
+			$moduleNameString = isset($_GET[self::GET_NAME]) ? $_GET[self::GET_NAME] : self::START_MODULE;
+		else
+			$moduleNameString = self::INSTALL_MODULE;
 		
 		do {
 			// Ein Objekt drausmachen
@@ -253,7 +257,10 @@ class Module extends Cache {
 	* @param Array $options - Die mitgelieferten Optionen [optional]
 	* @param string $anchor - HTML-Anker [optional]
 	**/
-	public static function goToModule($moduleName = '', array $options = array(), $anchor = NULL) {
+	public static function goToModule($moduleName = NULL, array $options = array(), $anchor = NULL) {
+		// Wenn der Modul-Name == NULL ist, dann zur Startseite weiterleiten
+		if(is_null($moduleName)) $moduleName = self::START_MODULE;
+	
 		i::Header()->addLocation(self::createModuleLink($moduleName, $options, $anchor, false));
 	}
 	
