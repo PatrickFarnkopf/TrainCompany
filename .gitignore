@@ -1,3 +1,8 @@
+# Cache und Config-Dateien #
+#########################
+config.inc.php
+*.cache*
+
 # OS generated files #
 ######################
 .DS_Store
