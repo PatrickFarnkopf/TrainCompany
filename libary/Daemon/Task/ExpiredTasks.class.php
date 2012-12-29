@@ -14,9 +14,9 @@ class ExpiredTasks implements \Daemon\Task {
 	* Überprüft, ob die Aufgabe ausgeführt werden muss
 	**/
 	public function __construct() {
-		i::\Game\Task\Manager()->loadExpired();
+		\Game\Task\i::Manager()->loadExpired();
 		
-		if (i::\Game\Task\Manager()->countObjects() > 0)
+		if (\Game\Task\i::Manager()->countObjects() > 0)
 			$this->hasToRun = true;
 	}
 
@@ -33,7 +33,7 @@ class ExpiredTasks implements \Daemon\Task {
 	* Führt die Aufgabe durch
 	**/
 	public function run() {
-		foreach(i::\Game\Task\Manager()->listObjects() as $taskID => $currentTask) {
+		foreach(\Game\Task\i::Manager()->listObjects() as $taskID => $currentTask) {
 			if($currentTask->getEndTime() == 0 || $currentTask->getEndTime() > time()) continue;
 			
 			if($currentTask->countApplications() == 0)
@@ -50,7 +50,7 @@ class ExpiredTasks implements \Daemon\Task {
 				foreach($currentTask->getApplications() as $userID => $currentApplication) {
 					if($currentApplication == $taskApplication) continue;
 					
-					$lostUserInstance = i::\Game\User($userID);
+					$lostUserInstance = \Game\i::User($userID);
 					$currentApplication->getTrainUnit($lostUserInstance)->unlock();
 					
 					// Notification senden
@@ -65,13 +65,13 @@ class ExpiredTasks implements \Daemon\Task {
 				// Alle Bewerbungen aus der Ausschreibung löschen (brauchen wir nicht mehr)
 				$currentTask->removeAllApplications();
 			
-				$taskJourneyManager = i::\Game\Task\Journey\Manager($userInstance->getUserID());
+				$taskJourneyManager = \Game\Task\Journey\i::Manager($userInstance->getUserID());
 		
 				$taskJourney = new \Game\Task\Journey($userInstance, $currentTask, $taskApplication);
 				$taskJourneyManager->addObject($taskJourney);
 			
 				// Die Aufgabe aus der Liste löschen
-				i::TaskManager()->removeObject($taskID);
+				\Game\Task\i::Manager()->removeObject($taskID);
 			}
 		}
 	}

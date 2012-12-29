@@ -9,7 +9,8 @@
 namespace Daemon;
 
 class Main extends \Game\Main {
-	const TASK_DIR = 'lib/daemon/tasks/';
+	const TASK_DIR = 'libary/Daemon/Task/';
+	const TASK_NAMESPACE = '\Daemon\Task\\';
 	
 	private $taskInstances = array();
 	
@@ -17,7 +18,7 @@ class Main extends \Game\Main {
 	* Den Content-Type auf text/plain setzen
 	**/
 	public function __construct() {
-		parent::__contruct();
+		parent::__construct();
 		
 		\Core\i::Header()->setContentType('text/plain');
 		
@@ -55,10 +56,10 @@ class Main extends \Game\Main {
 	    foreach($taskFiles as $currentFile) {
 		    if(!strpos($currentFile, '.class.php')) continue;
 		    
-		    $taskClass = str_replace('.class.php', '', $currentFile);
+		    $taskClass = self::TASK_NAMESPACE.str_replace('.class.php', '', $currentFile);
 		    
 		    $reflection = new \ReflectionClass($taskClass);
-		    if($reflection->implementsInterface('DaemonTask'))
+		    if($reflection->implementsInterface('\Daemon\Task'))
 		    	$this->taskInstances[] = new $taskClass;
 	    }
 	}
@@ -72,8 +73,11 @@ class Main extends \Game\Main {
 		if($taskInstance->hasToRun()) {
 			try {
 				$taskInstance->run();
-			} catch(Exception $exception) {
-				require_once ROOT_PATH.'tpl/ExceptionPlain.tpl.php';
+			} catch(\Exception $exception) {
+				$exceptionHandler = get_exception_handler();
+				
+				// Exception-Handler die Aufgabe geben
+				call_user_func($exceptionHandler, $exception);
 			}
 		}
 	}

@@ -52,7 +52,7 @@
 			<? $i = 1 ?>
 			<? foreach(!!!trainUnits!!! as $key=>$currentTrainUnit): ?>
 				<? $i ++ ?>
-				<? ^^^('currentTrainUnit',array('tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key,'splitUpModule'=>'game_trains','splitUpOptions'=>array('splitUp'=>true,'trainUnit'=>$key,'groupID'=>!!!currentUnitGroupID!!!), 'showSalePrice'=>true)) ?>
+				<? ^^^('currentTrainUnit',array('tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key,'splitUpOptions'=>array('splitUp'=>true,'trainUnit'=>$key,'groupID'=>!!!currentUnitGroupID!!!), 'showSalePrice'=>true)) ?>
 			<? endforeach; ?>
 		<? else: ?>
 			<tr>

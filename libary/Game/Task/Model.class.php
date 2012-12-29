@@ -5,9 +5,9 @@
 * Datum: 30. November 2012
 *
 **/
-namespace Game;
+namespace Game\Task;
 
-class TaskModel extends Data {
+class Model extends \Game\Data {
 	use \Core\Data\Vars;
 	
 	private $direction = 0;
@@ -101,7 +101,7 @@ class TaskModel extends Data {
 	
 		$this->properties['stations'] = array();
 		foreach($stationIDs as $currentID)
-			$this->properties['stations'][] = Station::getObjectForID($currentID);
+			$this->properties['stations'][] = \Game\Station::getObjectForID($currentID);
 	}
 	
 	/**

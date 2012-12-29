@@ -74,7 +74,7 @@ script {
 			throw new \HumanException('Du hast keine Fahrzeuge zum Kaufen ausgewählt.', -3);
 		
 		$this->mi()->addVarCache('showSuccess', true);
-		if($newCount > 1) $this->mi()->addVarCache('successString', 'Die '.Format::number($newCount).' Fahrzeuge wurden erfolgreich gekauft.');
+		if($newCount > 1) $this->mi()->addVarCache('successString', 'Die '.\Core\Format::number($newCount).' Fahrzeuge wurden erfolgreich gekauft.');
 		else $this->mi()->addVarCache('successString', 'Das Fahrzeug wurde erfolgreich gekauft.');
 	}
 }

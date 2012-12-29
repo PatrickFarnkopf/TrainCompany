@@ -5,7 +5,7 @@
 * Datum: 4. Dezember 2012
 *
 **/
-namespace \Daemon;
+namespace Daemon;
 
 interface Task {
 	/**

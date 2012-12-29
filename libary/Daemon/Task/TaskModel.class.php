@@ -17,7 +17,7 @@ class TaskModel implements \Daemon\Task {
 	* Überprüft, ob die Aufgabe ausgeführt werden muss
 	**/
 	public function __construct() {
-		if(\Game\TaskModel::countObjects() == 0)
+		if(\Game\Task\Model::countObjects() == 0)
 			throw new \Exception('Keine Task-Modelle vorhanden. Diese Daemon-Aufgabe kann nicht durchgeführt werden.', 3000);
 	
 		if (\Game\Task\i::Manager()->countAllObjects() < self::MIN_TASKS)
@@ -40,8 +40,8 @@ class TaskModel implements \Daemon\Task {
 		$taskManager = \Game\Task\i::Manager();
 		
 		for($i = $taskManager->countAllObjects(); $i < self::CREATE_TASKS; $i++) {
-			$taskModelID = mt_rand(0, TaskModel::countObjects()-1);
-			$taskModel = TaskModel::getObjectForID($taskModelID);
+			$taskModelID = mt_rand(0, \Game\Task\Model::countObjects()-1);
+			$taskModel = \Game\Task\Model::getObjectForID($taskModelID);
 			$taskModel->swapDirection();
 			
 			$task = new \Game\Task($taskModel->getName(), $taskModel->getDescription(), $taskModel->getPlops(), $taskModel->getGroup());

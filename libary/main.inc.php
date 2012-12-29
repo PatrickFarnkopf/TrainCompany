@@ -27,7 +27,7 @@ set_error_handler(function($number, $string, $file, $line) {
 **/
 set_exception_handler(function(Exception $exception) {
 	// Alte Ausgaben rauslöschen
-	while(ob_get_level()) ob_end_clean();
+	while(!\Config\DEBUG && ob_get_level()) ob_end_clean();
 
 	// Plain- oder HTML-Fehler ausgeben?
 	if(class_exists('\Core\Header', false) && \Core\i::Header()->getContentType() == 'text/html')
@@ -35,6 +35,20 @@ set_exception_handler(function(Exception $exception) {
 	else
 		require ROOT_PATH.'templates/ExceptionPlain.tpl.php';
 });
+
+/**
+* Gibt den definierten Exception-Handler zurück.
+*
+* @return callback
+**/
+function get_exception_handler() {
+	// Den aktuellen abfragen
+	$currentExceptionHandler = set_exception_handler(function(){});
+	// Den aktuellen wieder setzen
+	restore_exception_handler();
+	// Exception-Handler zurückgeben
+	return $currentExceptionHandler;
+}
 
 /**
 * Aktiviert das Autoloading von PHP.

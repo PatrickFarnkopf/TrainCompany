@@ -4,9 +4,9 @@
 			<? foreach($vars['trainUnit']->listTrains() as $trainKey=>$currentTrain): ?>
 				<li>
 					<? if($trainKey != 0): ?>
-						<? if(isset($vars['splitUpModule']) && isset($vars['splitUpOptions'])): ?>
+						<? if(isset($vars['splitUpOptions'])): ?>
 							<? $vars['splitUpOptions']['element'] = $trainKey ?>
-							<a href="<?= cml($vars['splitUpModule'], $vars['splitUpOptions']) ?>" title="An dieser Stelle entkoppeln" class="ConnectTrains"> </a>
+							<a href="<?= >>>(NULL, $vars['splitUpOptions']) ?>" title="An dieser Stelle entkoppeln" class="ConnectTrains"> </a>
 						<? else: ?>
 							<img src="img/icons/link.png" alt="gekoppelt">
 						<? endif; ?>

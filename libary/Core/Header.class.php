@@ -66,15 +66,15 @@ class Header extends Cache {
 		// Den Standard-Content-Type setzen
 		if(!$this->isSent()) $this->setContentType($this->contentType);
 		
-		// OB-Cache starten
-		ob_start();
+		// OB-Cache starten, wenn nicht im DEBUG-Modus
+		if(!\Config\DEBUG) ob_start();
 	}
 	
 	/**
 	* Gespeicherten Inhalt ausgeben.
 	**/
 	public function __destruct() {
-		if(ob_get_level()) ob_end_flush();
+		if(!\Config\DEBUG && ob_get_level()) ob_end_flush();
 	}
 	
 	/**
