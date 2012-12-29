@@ -130,7 +130,7 @@ script {
 		if(!isset($array[60]) || !is_numeric($array[60])) $array[60] = 0;
 		if(!isset($array[1]) || !is_numeric($array[1])) $array[1] = 0;
 		
-		return \Core\Time::withHoursAndMinutes($array[60],$array[1]);
+		return \Core\TimeDuration::withHoursAndMinutes($array[60],$array[1]);
 	}
 }
 ?>

@@ -19,7 +19,7 @@ class Schedule {
 	* @param Time $arrivalTime - Ankunfzeit in Sekunden
 	* @param Time $departureTime - Abfahrtszeit in Sekunden
 	**/
-	public function addStation(\Game\Station $station, \Core\Time $arrivalTime, \Core\Time $departureTime) {
+	public function addStation(\Game\Station $station, \Core\TimeDuration $arrivalTime, \Core\TimeDuration $departureTime) {
 		if(in_array($station, $this->stations))
 			throw new \Exception('Der Bahnhof „'.$station->getName().'“ ist bereits in diesem Fahrplan vorhanden', 2041);
 	

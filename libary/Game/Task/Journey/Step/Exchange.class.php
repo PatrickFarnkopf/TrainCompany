@@ -63,7 +63,7 @@ class Exchange extends \Game\Task\Journey\Step {
 		}
 		
 		// In ein Time-Objekt umwandeln
-		$exchangeTime = new \Core\Time($exchangeTimeInt);
+		$exchangeTime = new \Core\TimeDuration($exchangeTimeInt);
 		
 		// Verspätung vorhanden? Den User auch benachrichten!
 		if($exchangeTimeInt > 0) {
@@ -99,7 +99,7 @@ class Exchange extends \Game\Task\Journey\Step {
 		// Berechnete Zeit länger als die im Fahrplan eingetragene Zeit
 		if($calcedTime > $scheduledTime) {
 			// Verspätung hinzufügen
-			$delayTime = new \Core\Time($fullPathTime->toInt() - $scheduledDepartureTime->toInt());
+			$delayTime = new \Core\TimeDuration($fullPathTime->toInt() - $scheduledDepartureTime->toInt());
 			$delayObject = new \Game\Task\Journey\Delay('Der erstellte Fahrplan konnte nicht komplett eingehalten werden.', $delayTime);
 				
 			$this->addDelay($delayObject);

@@ -89,7 +89,7 @@ class Unit {
 			
 			$currentSpeed = $calculation['reachedSpeed'];
 			$fullTime += $calculation['time']->toInt();
-			$arrivalTimes[$nextStation->getID()] = $showFullTime ? new \Core\Time($fullTime) : $calculation['time'];
+			$arrivalTimes[$nextStation->getID()] = $showFullTime ? new \Core\TimeDuration($fullTime) : $calculation['time'];
 		}
 		
 		return $arrivalTimes;

@@ -34,14 +34,14 @@
 					<? if($list>0): ?>
 						<?= !!!arrivalTimes!!!['empty'][$currentStation->getID()] ?>
 					<? else: ?>
-						<?= new \Core\Time() ?>
+						<?= new \Core\TimeDuration() ?>
 					<? endif; ?>
 				</td>
 				<td class="Center">
 					<? if($list>0): ?>
 						<?= !!!arrivalTimes!!!['max'][$currentStation->getID()] ?>
 					<? else: ?>
-						<?= new \Core\Time() ?>
+						<?= new \Core\TimeDuration() ?>
 					<? endif; ?>
 				</td>
 				<? if(in_array($currentStation, !!!neededStations!!!)): ?>
@@ -63,7 +63,7 @@
 					</td>
 					<td class="Center">
 						<? if($list == 0): ?>
-							<?= new \Core\Time() ?>
+							<?= new \Core\TimeDuration() ?>
 						<? elseif($list < count(!!!stations!!!)-1): ?>
 							<input type="text" style="width: 15px;" onkeyup="JumperInput(this)"  maxlength="2" placeholder="00" name="<?= $currentStation->getID() ?>[departure][60]"
 								<? if(!!!taskSchedule!!!->existTimesForStation($currentStation)): ?>

@@ -386,7 +386,7 @@ class Path extends Data {
 	 	// Erreichte Geschwindigkeit in km/h umrechnen (liegt in m/s vor)
 	 	$reachedSpeed /= 1000/60/60;
 	 	
-	 	$time = new \Core\Time(round($fullTime));
+	 	$time = new \Core\TimeDuration(round($fullTime));
 	 	return array('reachedSpeed'=>$reachedSpeed, 'time'=>$time);
 	}
 

@@ -33,7 +33,7 @@ class Travel extends \Game\Task\Journey\Step {
 		// Berechnete Zeit länger als die im Fahrplan eingetragene Zeit
 		if($calcedTime->toInt() > $scheduledTime->toInt()) {
 			// Verspätung hinzufügen
-			$delayTime = new \Core\Time($calcedTime->toInt() - $scheduledTime->toInt());
+			$delayTime = new \Core\TimeDuration($calcedTime->toInt() - $scheduledTime->toInt());
 			$delayObject = new \Game\Task\Journey\Delay('Der erstellte Fahrplan konnte nicht komplett eingehalten werden.', $delayTime);
 				
 			$this->addDelay($delayObject);

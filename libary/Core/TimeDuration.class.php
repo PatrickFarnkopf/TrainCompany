@@ -1,14 +1,14 @@
 <?php
 /**
 *
-* Psyeudo Datentyp für Zeiten
+* Psyeudo Datentyp für eine Zeitdauer
 *
 * Datum: 2. Dezember 2012
 *
 **/
 namespace Core;
 
-class Time {
+class TimeDuration {
 	private $time;
 	
 	/**

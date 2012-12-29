@@ -90,7 +90,7 @@ class Journey {
 		foreach($this->getDelays() as $currentDelay)
 			$timeInt += $currentDelay->getTime()->toInt();
 			
-		return new \Core\Time($timeInt);
+		return new \Core\TimeDuration($timeInt);
 	}
 	
 	/**
@@ -122,37 +122,12 @@ class Journey {
 	* Gibt zurück, wie viel Verspätung der Zug aktuell hat.
 	*	Das Ergebnis ist eine Hochrechnung.
 	*
-	* @return Time
+	* @return TimeDuration
 	**/
 	public function getCurrentDelay() {
-		// Informationen über die Fahrplan-Bahnhöfe fetchen
-		$lastNeededStation = $this->getLastNeededStation();
-		$nextNeededStation = $this->getNextNeededStation();
-		$neededStations = array($lastNeededStation,$nextNeededStation);
-		
-		// Informationen über die aktuellen Bahnhöfe fetchen
-		$currentStation = $this->getCurrentStation();
-		$nextStation = $this->getNextStation();
-		
-		// Informationen über die Streckeneinheit und die benötigte Zeit.
-		$nextPathUnit = $this->taskApplication->getPathUnit()->getPathUnit($lastNeededStation, $nextNeededStation);
-		$nextStepTimes = $nextPathUnit->calcTimeWithTrainUnit($this->getTrainUnit(), TrainUnit::CURRENT_WEIGHT, $neededStations);
-		
-		// Fahrdauer ermitteln
-		$nextStationArrivalTimeInt = $nextStepTimes[$nextNeededStation->getID()]->toInt();
-		$nextStationArrivalTimeInt -= $nextStepTimes[$nextStation->getID()]->toInt();
-		// Startzeit hinzurechen
-		$nextStationArrivalTime = new \Core\Time($nextStationArrivalTimeInt + $this->getNextStepTimeDuration()->toInt());
-		
-		// Fahrplan-Informationen fetchen
-		$scheduledTimes = $this->taskApplication->getTaskSchedule()->getTimesForStation($nextNeededStation);
-		$scheduledArrivalTime = $scheduledTimes['arrival']; 
-		
-		// Errechnete Ankunfzeit ist später als im Fahrplan? Da schleicht sich wohl eine Verspätung an!
-		if($scheduledArrivalTime->toInt() < $nextStationArrivalTime->toInt())
-			return new \Core\Time($nextStationArrivalTime->toInt() - $scheduledArrivalTime->toInt());
+		// Keine Ahnung?
 	
-		return new \Core\Time(0);
+		return new \Core\TimeDuration(0);
 	}
 	
 	/**
@@ -181,7 +156,7 @@ class Journey {
 		$delayTime = $this->getCurrentDelay();
 		
 		// Ankunft mit Verspätung
-		$arrivalTimeWithDelay = new \Core\Time($arrivalTime->toInt() + $delayTime->toInt());
+		$arrivalTimeWithDelay = new \Core\TimeDuration($arrivalTime->toInt() + $delayTime->toInt());
 		
 		return $this->startTime + $arrivalTimeWithDelay->toInt();
 	}
@@ -192,7 +167,7 @@ class Journey {
 	* @return Time
 	**/
 	public function getCurrentTime() {
-		return new \Core\Time(time() - $this->startTime);
+		return new \Core\TimeDuration(time() - $this->startTime);
 	}
 		
 	/**
@@ -280,7 +255,7 @@ class Journey {
 	* @return Time
 	**/
 	public function getNextStepTimeDuration() {
-		return new \Core\Time($this->nextStepTime - $this->startTime);
+		return new \Core\TimeDuration($this->nextStepTime - $this->startTime);
 	}
 	
 	/**
@@ -311,7 +286,7 @@ class Journey {
 	private function checkForDaemonDelay() {
 		// Verzögerungen im Betriebsablauf? (Die Aufgabe wurde nicht rechtzeitig ausgeführt. Mindestens 60 Sekunden verzug.)
 		if($this->getNextStepTime() != 0 && $this->getNextStepTime()+60 < time()) {
-			$delayTime = new \Core\Time(time() - $this->getNextStepTime());
+			$delayTime = new \Core\TimeDuration(time() - $this->getNextStepTime());
 			$delayObject = new \Game\Task\Journey\Delay('Verzögerungen im Betriebsablauf.', $delayTime);
 				
 			$this->addDelay($delayObject);

@@ -16,7 +16,7 @@ class Delay {
 	* @param string $description - Wieso ist der Zug verspätet?
 	* @param Time $time - Wie viel ist der Zug verspätet?
 	**/
-	public function __construct($description, \Core\Time $time) {
+	public function __construct($description, \Core\TimeDuration $time) {
 		$this->description = $description;
 		$this->time = $time;
 	} 

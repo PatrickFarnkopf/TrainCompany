@@ -10,7 +10,7 @@ namespace Core;
 class Module extends Cache {
 	use VarCache, Cache\Vars;
 
-	const MODULE_DIR = 'Modules/';
+	const MODULE_DIR = 'modules/';
 	const SET_DIR = 'templates/set/';
 	const INC_DIR = 'templates/inc/';
 	
