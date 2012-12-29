@@ -35,6 +35,7 @@ class User extends Cache {
 		$this->tableActions = i::MySQL()->tableActions('user');
 		$mysqlObject = $this->tableActions->select(array('id'=>$userID));
 		
+		// Der User existiert gar nicht?
 		if($mysqlObject->numRows() != 1)
 			throw new Exception('Ein User mit dieser ID existiert nicht.', 1031);			
 		
@@ -95,9 +96,9 @@ class User extends Cache {
 	**/
 	private static function validateUserName($userName) {
 		if (strlen($userName) < static::NAME_MIN_LENGTH)
-			throw new \HumanException('Der ausgesuchte Benutzername ist zu kurz.', -1);
+			throw new \HumanException('Der ausgesuchte Benutzername ist zu kurz. Er muss mindestens '.Format::number(static::NAME_MIN_LENGTH).' Zeichen haben.', -1);
 		if (strlen($userName) > static::NAME_MAX_LENGTH)
-			throw new \HumanException('Der ausgesuchte Benutzername ist zu lang.', -2);
+			throw new \HumanException('Der ausgesuchte Benutzername ist zu lang. Er darf maximal '.Format::number(static::NAME_MAX_LENGTH).' Zeichen haben.', -2);
 		if (!preg_match(static::NAME_MATCH, $userName))
 			throw new \HumanException('Der ausgesuchte Benutzername enthält Leerzeichen oder andere Sonderzeichen.', -3);
 		if (static::existUserName($userName))
@@ -112,7 +113,7 @@ class User extends Cache {
 	**/
 	private static function validateUserPass($firstPass, $secondPass) {
 		if (strlen($firstPass) < static::PASS_MIN_LENGTH)
-			throw new \HumanException('Das eingegebene Passwort ist zu kurz.', -1);
+			throw new \HumanException('Das eingegebene Passwort ist zu kurz. Es muss mindestens '.Format::number(static::PASS_MIN_LENGTH).' Zeichen haben.', -1);
 		if ($firstPass != $secondPass)
 			throw new \HumanException('Die zwei eingegebenen Passwörter stimmen nicht überein.', -2);
 	}
@@ -134,9 +135,13 @@ class User extends Cache {
 	* @param String $secondPass - Passwort-Wiederholung
 	**/
 	public function setUserPass($firstPass, $secondPass) {
+		$passHash = static::hashUserPass($firstPass);
+		
+		if($passHash = $this->userPass)
+			throw new \HumanException('Das ist bereits dein aktuelles Passwort.', -1);
+			
 		static::validateUserPass($firstPass, $secondPass);
 		
-		$passHash = static::hashUserPass($firstPass);
 		$this->userPass = $passHash;
 	}
 	
@@ -157,6 +162,8 @@ class User extends Cache {
 	private static function validateUserMail($mail) {
 		if (!preg_match(static::MAIL_MATCH, $mail))
 			throw new \HumanException('Die eingegebene E-Mail-Adresse ist keine gültige E-Mail-Adresse.', -1);
+		if (static::existUserMail($mail))
+			throw new \HumanException('Die ausgesuchte E-Mail-Adresse wird bereites von einem anderen Benutzer benutzt.', -2);
 	}
 	
 	/**
@@ -165,6 +172,9 @@ class User extends Cache {
 	* @param String $mail - Die E-Mail-Adresse
 	**/
 	public function setUserMail($mail) {
+		if($mail = $this->userMail)
+			throw new \HumanException('Das ist bereits deine aktuelle E-Mai-Adresse.', -1);
+			
 		static::validateUserMail($mail);
 	
 		$this->userMail = $mail;
@@ -228,9 +238,20 @@ class User extends Cache {
 	**/
 	public static function existUserName($userName) {
 		$queryObject = i::MySQL()->tableActions('user')->select(array('name'=>$userName));
-		if ($queryObject->numRows() > 0) return true;
 		
-		return false;
+		return (bool) $queryObject->numRows();
+	}
+	
+	/**
+	* Überprüft, ob eine E-Mail registriert ist.
+	*
+	* @param String $userName - Die zu überprüfende Mail
+	* @return bool - true = ja / false = nein
+	**/
+	public static function existUserMail($userMail) {
+		$queryObject = i::MySQL()->tableActions('user')->select(array('mail'=>$userMail));
+		
+		return (bool) $queryObject->numRows();
 	}
 	
 	/**

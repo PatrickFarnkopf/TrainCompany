@@ -65,7 +65,7 @@ script {
 	**/
 	private function add() {
 		$groupName = isset($_POST['groupName']) ? $_POST['groupName'] : '';
-		$this->ui()->addTrainUnitGroup(new TrainUnitGroup($groupName));
+		$this->ui()->addTrainUnitGroup(new \Game\Train\Unit\Group($groupName));
 		
 		$this->mi()->addVarCache('showSuccess', true);
 		$this->mi()->addVarCache('successString', 'Die Gruppe wurde erfolgreich erstellt.');
