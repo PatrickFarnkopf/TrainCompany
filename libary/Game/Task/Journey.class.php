@@ -30,7 +30,7 @@ class Journey {
 		$this->startTime = time();
 		
 		// Erste Station als aktuelle Station setzen.
-		$this->runNextStep();
+		//$this->runNextStep();
 	}
 	
 	/**

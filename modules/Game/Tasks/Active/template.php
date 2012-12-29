@@ -30,7 +30,7 @@
 					<span class="Red"><?= Format::number($currentTaskJourney->getDelaySub()) ?></span>
 				</span>
 				<div class="Clear"></div>	
-				
+				<? /*
 				<ul class="NoBullet">
 					<li>
 						<img src="img/icons/basket_put.png" alt="Kapazität" title="Kapazität"> Kapazität genutzt:
@@ -57,11 +57,11 @@
 						vsl. <?= Format::date($currentTaskJourney->getTimeAtEnd(),false,true,true) ?>
 						(<?= ^^^('delay', array('delayTime'=>$currentTaskJourney->getCurrentDelay())) ?>)
 					</li>
-				</ul>
+				</ul> */ ?>
 			</div>
 			
-			<div class="JourneyInfo">
-				<ul class="NoBullet">
+			<div class="JourneyInfo"> 
+				<ul class="NoBullet"><? /*
 					<li>
 						<img src="img/icons/map_go.png" alt="Position" title="Aktuelle Position">
 						Zwischen <strong><?= Format::string($currentTaskJourney->getCurrentStation()->getName()) ?></strong>
@@ -70,7 +70,7 @@
 					<li>
 						<img src="img/icons/clock_go.png" alt="Restzeit" title="Restzeit auf diesem Strecken-Abschnitt">
 						<?= Format::date($currentTaskJourney->getNextStepTime(),false,true,true) ?>
-					</li>
+					</li> */ ?>
 					<li>
 						<img src="img/icons/clock_red_stop.png" alt="Verspätungen" title="Alle Verspätungen"> Verspätungen:
 						<ul>
@@ -87,6 +87,7 @@
 							<? endif; ?>
 						</ul>
 					</li>
+					<li><em>Der Zug fährt nicht. So weit ist das Spiel noch nicht.</em></li>
 				</ul>
 			</div>
 			<div class="Clear"></div>

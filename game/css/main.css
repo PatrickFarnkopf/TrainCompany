@@ -110,9 +110,14 @@ legend {
 	text-align: center;
 }
 
-legend a, legend a:hover {
+legend a {
 	color: white;
 	text-decoration: none;
+}
+
+legend a:hover {
+	color: white;
+	text-decoration: underline;
 }
 
 a {
