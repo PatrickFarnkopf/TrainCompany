@@ -7,14 +7,6 @@
 **/
 
 /**
-* Dateien einbinde, die das Autoloading nicht übernehmen kann. (Absolute Low-Level-Klassen.)
-**/
-require_once ROOT_PATH.'libary/Core/functions.php';
-require_once ROOT_PATH.'libary/Core/Classname.class.php';
-require_once ROOT_PATH.'libary/Core/Alias.class.php';
-require_once ROOT_PATH.'libary/Core/Autoload.class.php';
-
-/**
 * PHP-Fehler sollen Exceptions werfen.
 **/
 set_error_handler(function($number, $string, $file, $line) {
@@ -30,9 +22,13 @@ set_exception_handler(function(Exception $exception) {
 	while(!\Config\DEBUG && ob_get_level()) ob_end_clean();
 
 	// Plain- oder HTML-Fehler ausgeben?
-	if(class_exists('\Core\Header', false) && \Core\i::Header()->getContentType() == 'text/html')
-		require ROOT_PATH.'templates/ExceptionHTML.tpl.php';
-	else
+	if(class_exists('\Core\Header', false) && \Core\Header::existMainInstance() &&  \Core\Header::mainInstance()->getContentType() == 'text/html') {
+		// Wenn nicht installiert, dann gebe eine besondere Fehlermeldung aus
+		if(!\Config\INSTALLED)
+			require ROOT_PATH.'templates/ExceptionInstallHTML.tpl.php';
+		else
+			require ROOT_PATH.'templates/ExceptionHTML.tpl.php';
+	} else
 		require ROOT_PATH.'templates/ExceptionPlain.tpl.php';
 });
 
@@ -49,6 +45,14 @@ function get_exception_handler() {
 	// Exception-Handler zurückgeben
 	return $currentExceptionHandler;
 }
+
+/**
+* Dateien einbinde, die das Autoloading nicht übernehmen kann. (Absolute Low-Level-Klassen.)
+**/
+require_once ROOT_PATH.'libary/Core/functions.php';
+require_once ROOT_PATH.'libary/Core/Classname.class.php';
+require_once ROOT_PATH.'libary/Core/Alias.class.php';
+require_once ROOT_PATH.'libary/Core/Autoload.class.php';
 
 /**
 * Aktiviert das Autoloading von PHP.

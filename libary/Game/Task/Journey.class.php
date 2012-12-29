@@ -10,7 +10,7 @@ namespace Game\Task;
 class Journey {
 	private $userID, $user;
 	private $task, $taskApplication;
-	private $startTime, $nextStepTime, $currentStation;
+	private $startTime, $nextStepTime, $currentStep;
 	private $delays = array();
 	
 	/**
@@ -39,14 +39,14 @@ class Journey {
 	* @return array
 	**/
 	public function __sleep() {
-		return array('userID', 'task', 'taskApplication', 'startTime', 'nextStepTime', 'currentStation', 'delays');
+		return array('userID', 'task', 'taskApplication', 'startTime', 'nextStepTime', 'currentStep', 'delays');
 	}
 
 	/**
 	* Stellt das User-Objekt wieder her.
 	**/
 	public function __wakeup() {
-		$this->user = i::GameUser($this->userID);
+		$this->user = \Game\i::User($this->userID);
 	}
 	
 	/**

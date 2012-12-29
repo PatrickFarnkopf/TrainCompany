@@ -40,9 +40,12 @@ abstract class Compiler {
 		// Der Ordner existiert bereits? Dann müssen wir ihn auch nicht erstellen.
 		if(file_exists(ROOT_PATH.static::CACHE_DIR)) return false;
 		
-		// Ordner erstellen und bei einem Fehler eine Exception werfen.
-		if(!mkdir(ROOT_PATH.static::CACHE_DIR))
-			throw new \Exception('Das benötigte Cache-Verzeichnis für die Datei konnte nicht erstellt werden.', 1121);
+		try {
+			// Ordner erstellen und bei einem Fehler eine Exception werfen.
+			if(!mkdir(ROOT_PATH.static::CACHE_DIR)) throw new \Exception();
+		} catch(\Exception $exception) {
+			throw new \Exception('Das benötigte Cache-Verzeichnis für die Datei konnte nicht erstellt werden.', 1121, $exception);
+		}
 		
 		return true;
 	}

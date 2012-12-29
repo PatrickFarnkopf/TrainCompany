@@ -178,7 +178,7 @@ class Install {
 			throw new \HumanException('Es scheint kein MySQL auf diesem Server installiert zu sein.');
 		
 		// Das Cache-Verzeichnis muss beschreibar sein.
-		if(!file_exists(ROOT_PATH.self::FILE) || !is_writable(ROOT_PATH.'/'.CacheFile::DIR))
+		if(!(file_exists(ROOT_PATH.'/'.CacheFile::DIR) && is_writable(ROOT_PATH.'/'.CacheFile::DIR)))
 			throw new \HumanException('Der Cache-Ordner „'.CacheFile::DIR.'“ muss existieren und beschreibbar sein.');
 		
 		// Die Allowed-Memory-Size muss größergleich self::REQUIERED_MEMORY_SIZE sein.
