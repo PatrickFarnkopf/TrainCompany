@@ -155,7 +155,7 @@ class Task {
 		// Die Werte für alle Bewerbungen bekommen
 		foreach($applications as $userID => $currentApplication) {
 			$fullTimes[$userID] = $currentApplication->getTaskSchedule()->getFullTime()->toInt();
-			$fullCapacity[$userID] = $currentApplication->getTrainUnit(i::GameUser($userID))->getFullCapacity($capacities);
+			$fullCapacity[$userID] = $currentApplication->getTrainUnit(i::User($userID))->getFullCapacity($capacities);
 		}
 		
 		// Durch Sortieren die Plätze ermitteln

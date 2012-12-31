@@ -8,7 +8,7 @@
 // Grund-Konstanten definieren
 define("ROOT_PATH", __DIR__.'/../');
 
-// Konfigurations-Datei einbinden
+// Konfigurations-Datei einbinden (Eine Dummy-Config-Datei verwenden, falls keine vorhanden ist.)
 if(file_exists(ROOT_PATH.'config.inc.php')) require_once ROOT_PATH.'config.inc.php';
 else require_once ROOT_PATH.'config.sample.inc.php';
 
@@ -18,6 +18,6 @@ require_once ROOT_PATH.'libary/main.inc.php';
 // Das Spiel starten.
 \Game\Main::startAll();
 
-// Am Ende der AusfŸrhung angekommen
+// Am Ende der AusfŸhrung angekommen
 exit;
 ?>

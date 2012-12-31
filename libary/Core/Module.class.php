@@ -253,7 +253,7 @@ class Module extends Cache {
 	/**
 	* Leitet zu einem Modul um
 	*
-	* @param String $moduleName - Der Name das zu verlinkenden Moduls [optional]
+	* @param String $moduleName - Der Name das zu verlinkenden Moduls [optional] NULL = Startseite
 	* @param Array $options - Die mitgelieferten Optionen [optional]
 	* @param string $anchor - HTML-Anker [optional]
 	**/
@@ -268,7 +268,7 @@ class Module extends Cache {
 	/**
 	* Erzeugt einen Link zu einem Modul.
 	*
-	* @param String $moduleName - Der Name das zu verlinkenden Moduls [optional]
+	* @param String $moduleName - Der Name das zu verlinkenden Moduls [optional] NULL = Aktuelle Seite
 	* @param Array $options - Die mitgelieferten Optionen [optional]
 	* @param string $anchor - HTML-Anker [optional]
 	* @param bool $encodeEntities - Später als in HTML? [optional]

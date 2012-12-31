@@ -9,6 +9,7 @@ namespace Core\Module;
 
 class Script extends Compiler {
 	const CACHE_DIR = 'cache/scripts/';
+	const SCRIPT_NAMESPACE = 'Script';
 	
 	/**
 	* Nimmt den Namen der Skript-Datei entgegen und führt sie aus.
@@ -23,7 +24,7 @@ class Script extends Compiler {
 		require_once ROOT_PATH.$this->getCacheFileName();
 		
 		// Klassen-Namen ermitteln
-		$classname = '\Script\\'.$this->getCacheName();
+		$classname = '\\'.self::SCRIPT_NAMESPACE.'\\'.$this->getCacheName();
 		
 		new $classname();
 	}
@@ -38,7 +39,7 @@ class Script extends Compiler {
 		// „script“ ersetzen
 		$count = 0;
 		$pattern = '/script(?=([^"\']*["\'][^"\']*["\'])*[^"\']*$)/';
-		$replacement = 'namespace Script; class '.$this->getCacheName().' extends \Core\Module\Extender ';
+		$replacement = 'namespace '.self::SCRIPT_NAMESPACE.";\n\nclass ".$this->getCacheName().' extends \Core\Module\Extender ';
 		
 		$scriptContent = preg_replace($pattern,$replacement,$scriptContent, -1, $count);
 		

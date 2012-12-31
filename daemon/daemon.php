@@ -18,6 +18,6 @@ require_once ROOT_PATH.'libary/main.inc.php';
 // Das Spiel starten.
 \Daemon\Main::startAll();
 
-// Am Ende der Ausfürhung angekommen
+// Am Ende der Ausführung angekommen
 exit;
 ?>
