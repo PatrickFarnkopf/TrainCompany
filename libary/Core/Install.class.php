@@ -356,7 +356,7 @@ CONTENT;
 	private static function getConstString($key, $value) {
 		if(is_bool($value)) {
 			if ($value) $valueString = 'true';
-			else $value = 'false';
+			else $valueString = 'false';
 		} else if(is_numeric($value)) $valueString = $value;
 		else $valueString = "'".$value."'";
 			
