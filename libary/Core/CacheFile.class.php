@@ -11,6 +11,7 @@ class CacheFile extends Cache {
 	use Cache\Vars;
 
 	const DIR = 'cache/';
+	const DONT_DELETE_FILE = '.dontDelete';
 	
     private $fileName;
     private $cache = array();
@@ -121,7 +122,7 @@ class CacheFile extends Cache {
 	    // Ordner-Name ermitteln
     	$dirName = ROOT_PATH.'/'.static::DIR.$dir;
 	    foreach(scandir($dirName) as $currentFile) {
-		    if($currentFile == '..' || $currentFile == '.') continue;
+		    if($currentFile == '..' || $currentFile == '.' || $currentFile == self::DONT_DELETE_FILE) continue;
 		    
 		    // Wenn Ordner, dann diesen rekursiv durchsuchen
 		    if(is_dir($dirName.$currentFile)) {
@@ -146,7 +147,7 @@ class CacheFile extends Cache {
     public static function clearCache($dir='') {
     	$dirName = ROOT_PATH.'/'.static::DIR.$dir;
 	    foreach(scandir($dirName) as $currentFile) {
-		    if($currentFile == '..' || $currentFile == '.') continue;
+		    if($currentFile == '..' || $currentFile == '.' || $currentFile == self::DONT_DELETE_FILE) continue;
 		    
 		    // Wenn Ordner, dann erst den lehren und danach siche selbst löschen
 		    if(is_dir($dirName.$currentFile)) {
