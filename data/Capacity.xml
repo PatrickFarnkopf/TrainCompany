@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<Capacities>
+	<Capacity id='passengers'>
+		<name>Fahrgäste</name>
+		<unit></unit>
+		<unitMass>0.07</unitMass>
+		<iconName>group.png</iconName>
+	</Capacity>
+
+	<Capacity id='wood'>
+		<name>Holz</name>
+		<unit>t</unit>
+		<unitMass>1</unitMass>
+		<iconName>box.png</iconName>
+	</Capacity>
+
+	<Capacity id='oil'>
+		<name>Öl</name>
+		<unit>l</unit>
+		<unitMass>0.0008</unitMass>
+		<iconName>database.png</iconName>
+	</Capacity>
+
+	<Capacity id='cars'>
+		<name>Autos</name>
+		<unit></unit>
+		<unitMass>1.7</unitMass>
+		<iconName>car.png</iconName>
+	</Capacity>
+</Capacities>

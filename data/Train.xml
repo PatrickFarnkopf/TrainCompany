@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<Trains>
+	<Train id='0' group='2'>
+		<name>Siemens Velaro D</name>
+		<capacity>
+			<passengers>460</passengers>
+		</capacity>
+		<speed>330</speed>
+		<weight>454</weight>
+		<force>300</force>
+		<length>200</length>
+		<drive>0</drive>
+		<reliability>1</reliability>
+		<cost>5000000</cost>
+		<maxConnectedUnits>2</maxConnectedUnits>
+	</Train>
+
+	<Train id='1' group='2'>
+		<name>Stadler DoSto</name>
+		<capacity>
+			<passengers>535</passengers>
+		</capacity>
+		<speed>160</speed>
+		<weight>298</weight>
+		<force>400</force>
+		<length>150</length>
+		<drive>0</drive>
+		<reliability>1</reliability>
+		<cost>850000</cost>
+		<maxConnectedUnits>4</maxConnectedUnits>
+	</Train>
+
+	<Train id='2' group='2'>
+		<name>BR 612</name>
+		<capacity>
+			<passengers>146</passengers>
+		</capacity>
+		<speed>160</speed>
+		<weight>116</weight>
+		<force>100</force>
+		<length>51</length>
+		<drive>1</drive>
+		<reliability>1</reliability>
+		<cost>450000</cost>
+		<maxConnectedUnits>4</maxConnectedUnits>
+	</Train>
+
+	<Train id='3' group='0'>
+		<name>BR 101</name>
+		<capacity>
+		</capacity>
+		<speed>220</speed>
+		<weight>84</weight>
+		<force>300</force>
+		<length>19</length>
+		<drive>0</drive>
+		<reliability>1</reliability>
+		<cost>350000</cost>
+		<maxConnectedUnits>0</maxConnectedUnits>
+	</Train>
+
+	<Train id='4' group='1'>
+		<name>IC-Wagen (bpmz)</name>
+		<capacity>
+			<passengers>80</passengers>
+		</capacity>
+		<speed>200</speed>
+		<weight>42</weight>
+		<force>0</force>
+		<length>26</length>
+		<drive>-1</drive>
+		<reliability>1</reliability>
+		<cost>180000</cost>
+		<maxConnectedUnits>0</maxConnectedUnits>
+	</Train>
+
+	<Train id='5' group='0'>
+		<name>BR 218</name>
+		<capacity>
+		</capacity>
+		<speed>160</speed>
+		<weight>80</weight>
+		<force>235</force>
+		<length>16</length>
+		<drive>1</drive>
+		<reliability>0.9</reliability>
+		<cost>200000</cost>
+		<maxConnectedUnits>0</maxConnectedUnits>
+	</Train>
+
+	<Train id='6' group='0'>
+		<name>BR 146.2</name>
+		<capacity>
+		</capacity>
+		<speed>160</speed>
+		<weight>84</weight>
+		<force>300</force>
+		<length>19</length>
+		<drive>0</drive>
+		<reliability>1</reliability>
+		<cost>300000</cost>
+	</Train>
+
+	<Train id='7' group='1'>
+		<name>DoSto-Wagen</name>
+		<capacity>
+			<passengers>121</passengers>
+		</capacity>
+		<speed>160</speed>
+		<weight>50</weight>
+		<force>0</force>
+		<length>27</length>
+		<drive>-1</drive>
+		<reliability>1</reliability>
+		<cost>180000</cost>
+		<maxConnectedUnits>0</maxConnectedUnits>
+	</Train>
+
+	<Train id='8'  group='1'>
+		<name>Autotransportwagen</name>
+		<capacity>
+			<cars>12</cars>
+		</capacity>
+		<speed>120</speed>
+		<weight>45</weight>
+		<force>0</force>
+		<length>31</length>
+		<drive>-1</drive>
+		<reliability>1</reliability>
+		<cost>150000</cost>
+		<maxConnectedUnits>0</maxConnectedUnits>
+	</Train>
+
+	<Train id='9'>
+		<name>BR 425</name>
+		<capacity>
+			<passengers>206</passengers>
+		</capacity>
+		<speed>160</speed>
+		<weight>114</weight>
+		<force>140</force>
+		<length>68</length>
+		<drive>0</drive>
+		<reliability>1</reliability>
+		<cost>500000</cost>
+		<maxConnectedUnits>3</maxConnectedUnits>
+	</Train>
+
+	<Train id='10' group='2'>
+		<name>Talent 2</name>
+		<capacity>
+			<passengers>221</passengers>
+		</capacity>
+		<speed>160</speed>
+		<weight>137</weight>
+		<force>190</force>
+		<length>72</length>
+		<drive>0</drive>
+		<reliability>1</reliability>
+		<cost>600000</cost>
+		<maxConnectedUnits>4</maxConnectedUnits>
+	</Train>
+
+	<Train id='11' group='1'>
+		<name>n-Wagen</name>
+		<capacity>
+			<passengers>96</passengers>
+		</capacity>
+		<speed>140</speed>
+		<weight>40</weight>
+		<force>0</force>
+		<length>26</length>
+		<drive>-1</drive>
+		<reliability>0.9</reliability>
+		<cost>75000</cost>
+		<maxConnectedUnits>0</maxConnectedUnits>
+	</Train>
+
+	<Train id='12' group='0'>
+		<name>BR 143</name>
+		<capacity>
+		</capacity>
+		<speed>120</speed>
+		<weight>83</weight>
+		<force>240</force>
+		<length>17</length>
+		<drive>0</drive>
+		<reliability>0.9</reliability>
+		<cost>200000</cost>
+		<maxConnectedUnits>0</maxConnectedUnits>
+	</Train>
+</Trains>

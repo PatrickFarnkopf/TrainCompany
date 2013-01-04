@@ -28,6 +28,7 @@
 		<li><a href="<?= >>>(NULL, array('notification'=>'new')) ?>">Neue Test-Benachrichtigung</a></li>
 		<li><a href="<?= >>>(NULL, array('tasks'=>'new')) ?>">Neue Test-Ausschreibungen</a></li>
 		<li><a href="<?= >>>(NULL, array('tasks'=>'removeAll')) ?>">Alle Ausschreibungen löschen</a></li>
+		<li><a href="<?= >>>(NULL, array('taskJourneys'=>'removeAll')) ?>">Alle aktiven Ausschreibungen löschen</a></li>
 	</ul>
 </fieldset>
 

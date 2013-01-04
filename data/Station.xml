@@ -1,0 +1,794 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<Stations>
+	<Station id='0' group='0'>
+		<name>Köln Hbf</name>
+		<x>45</x>
+		<y>135</y>
+		<platformLength>490</platformLength>
+		<platforms>11</platforms>
+	</Station>
+
+	<Station id='1' group='1'>
+		<name>Bonn Hbf</name>
+		<x>95</x>
+		<y>185</y>
+		<platformLength>440</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='2' group='2'>
+		<name>Remagen</name>
+		<x>105</x>
+		<y>215</y>
+		<platformLength>405</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='3' group='2'>
+		<name>Andernach</name>
+		<x>125</x>
+		<y>235</y>
+		<platformLength>410</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='4' group='1'>
+		<name>Koblenz Hbf</name>
+		<x>155</x>
+		<y>255</y>
+		<platformLength>500</platformLength>
+		<platforms>12</platforms>
+	</Station>
+
+	<Station id='5' group='2'>
+		<name>Bingen (Rhein) Hbf</name>
+		<x>175</x>
+		<y>303</y>
+		<platformLength>415</platformLength>
+		<platforms>6</platforms>
+	</Station>
+
+	<Station id='6' group='1'>
+		<name>Mainz Hbf</name>
+		<x>225</x>
+		<y>305</y>
+		<platformLength>705</platformLength>
+		<platforms>9</platforms>
+	</Station>
+
+	<Station id='7' group='2'>
+		<name>Rüsselsheim</name>
+		<x>250</x>
+		<y>310</y>
+		<platformLength>300</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='8' group='1'>
+		<name>Frankfurt (Main) Flughafen</name>
+		<x>270</x>
+		<y>300</y>
+		<platformLength>430</platformLength>
+		<platforms>7</platforms>
+	</Station>
+
+	<Station id='9' group='0'>
+		<name>Frankfurt (Main) Hbf</name>
+		<x>290</x>
+		<y>290</y>
+		<platformLength>420</platformLength>
+		<platforms>29</platforms>
+	</Station>
+
+	<Station id='10' group='2'>
+		<name>Limburg Süd</name>
+		<x>215</x>
+		<y>245</y>
+		<platformLength>405</platformLength>
+		<platforms>2</platforms>
+	</Station>
+
+	<Station id='11' group='2'>
+		<name>Montabaur</name>
+		<x>200</x>
+		<y>225</y>
+		<platformLength>405</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='12' group='1'>
+		<name>Siegburg/Bonn</name>
+		<x>155</x>
+		<y>175</y>
+		<platformLength>420</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='13' group='1'>
+		<name>Köln Messe/Deutz</name>
+		<x>55</x>
+		<y>130</y>
+		<platformLength>410</platformLength>
+		<platforms>10</platforms>
+	</Station>
+
+	<Station id='14' group='0'>
+		<name>Düsseldorf Hbf</name>
+		<x>35</x>
+		<y>85</y>
+		<platformLength>460</platformLength>
+		<platforms>16</platforms>
+	</Station>
+
+	<Station id='15' group='0'>
+		<name>Mannheim Hbf</name>
+		<x>270</x>
+		<y>375</y>
+		<platformLength>470</platformLength>
+		<platforms>9</platforms>
+	</Station>
+
+	<Station id='16' group='2'>
+		<name>Groß Gerau-Dornberg</name>
+		<x>275</x>
+		<y>315</y>
+		<platformLength>220</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='17' group='2'>
+		<name>Biblis</name>
+		<x>270</x>
+		<y>355</y>
+		<platformLength>250</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='18' group='2'>
+		<name>Frankenthal Hbf</name>
+		<x>255</x>
+		<y>365</y>
+		<platformLength>322</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='19' group='2'>
+		<name>Worms Hbf</name>
+		<x>250</x>
+		<y>355</y>
+		<platformLength>450</platformLength>
+		<platforms>9</platforms>
+	</Station>
+
+	<Station id='20' group='2'>
+		<name>Freinsheim</name>
+		<x>235</x>
+		<y>370</y>
+		<platformLength>240</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='21' group='2'>
+		<name>Grünstadt</name>
+		<x>230</x>
+		<y>360</y>
+		<platformLength>210</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='22' group='0'>
+		<name>Saarbrücken Hbf</name>
+		<x>35</x>
+		<y>405</y>
+		<platformLength>405</platformLength>
+		<platforms>10</platforms>
+	</Station>
+
+	<Station id='23' group='1'>
+		<name>Trier Hbf</name>
+		<x>15</x>
+		<y>335</y>
+		<platformLength>440</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='24' group='0'>
+		<name>Würzburg Hbf</name>
+		<x>475</x>
+		<y>335</y>
+		<platformLength>445</platformLength>
+		<platforms>10</platforms>
+	</Station>
+
+	<Station id='25' group='1'>
+		<name>Fulda</name>
+		<x>445</x>
+		<y>205</y>
+		<platformLength>450</platformLength>
+		<platforms>10</platforms>
+	</Station>
+
+	<Station id='26' group='0'>
+		<name>Kassel-Willhelmshöhe</name>
+		<x>445</x>
+		<y>55</y>
+		<platformLength>450</platformLength>
+		<platforms>8</platforms>
+	</Station>
+
+	<Station id='27' group='0'>
+		<name>Dortmund Hbf</name>
+		<x>155</x>
+		<y>30</y>
+		<platformLength>490</platformLength>
+		<platforms>16</platforms>
+	</Station>
+
+	<Station id='28' group='0'>
+		<name>Nürnberg Hbf</name>
+		<x>625</x>
+		<y>385</y>
+		<platformLength>410</platformLength>
+		<platforms>23</platforms>
+	</Station>
+
+	<Station id='29' group='1'>
+		<name>Paderborn Hbf</name>
+		<x>315</x>
+		<y>5</y>
+		<platformLength>330</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='30' group='1'>
+		<name>Gießen Hbf</name>
+		<x>290</x>
+		<y>220</y>
+		<platformLength>425</platformLength>
+		<platforms>11</platforms>
+	</Station>
+
+	<Station id='31' group='2'>
+		<name>Bad Kreuznach</name>
+		<x>175</x>
+		<y>325</y>
+		<platformLength>210</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='32' group='2'>
+		<name>Bad Münster am Stein</name>
+		<x>175</x>
+		<y>340</y>
+		<platformLength>300</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='33' group='2'>
+		<name>Idar-Oberstein</name>
+		<x>115</x>
+		<y>350</y>
+		<platformLength>230</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='34' group='2'>
+		<name>Türkismühle</name>
+		<x>95</x>
+		<y>360</y>
+		<platformLength>255</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='35' group='1'>
+		<name>Neunkirchen (Saar) Hbf</name>
+		<x>95</x>
+		<y>385</y>
+		<platformLength>300</platformLength>
+		<platforms>6</platforms>
+	</Station>
+
+	<Station id='36' group='2'>
+		<name>Schifferstadt</name>
+		<x>255</x>
+		<y>385</y>
+		<platformLength>490</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='37' group='2'>
+		<name>Neustadt (Weinstr) Hbf</name>
+		<x>215</x>
+		<y>395</y>
+		<platformLength>400</platformLength>
+		<platforms>6</platforms>
+	</Station>
+
+	<Station id='38' group='1'>
+		<name>Kaiserslautern Hbf</name>
+		<x>180</x>
+		<y>380</y>
+		<platformLength>540</platformLength>
+		<platforms>13</platforms>
+	</Station>
+
+	<Station id='39' group='1'>
+		<name>Homburg (Saar) Hbf</name>
+		<x>115</x>
+		<y>390</y>
+		<platformLength>400</platformLength>
+		<platforms>7</platforms>
+	</Station>
+
+	<Station id='40' group='2'>
+		<name>Rohrbach (Saar)</name>
+		<x>95</x>
+		<y>400</y>
+		<platformLength>180</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='41' group='2'>
+		<name>Bad Dürkheim</name>
+		<x>225</x>
+		<y>385</y>
+		<platformLength>320</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='42' group='2'>
+		<name>Saarlouis Hbf</name>
+		<x>5</x>
+		<y>395</y>
+		<platformLength>315</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='43' group='2'>
+		<name>Merzig (Saar)</name>
+		<x>0</x>
+		<y>380</y>
+		<platformLength>320</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='44' group='2'>
+		<name>Wiltingen (Saar)</name>
+		<x>0</x>
+		<y>355</y>
+		<platformLength>245</platformLength>
+		<platforms>2</platforms>
+	</Station>
+
+	<Station id='45' group='2'>
+		<name>Wittlich Hbf</name>
+		<x>55</x>
+		<y>290</y>
+		<platformLength>280</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='46' group='2'>
+		<name>Bullay DB</name>
+		<x>95</x>
+		<y>280</y>
+		<platformLength>290</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='47' group='2'>
+		<name>Bitburg-Erdorf</name>
+		<x>0</x>
+		<y>300</y>
+		<platformLength>210</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='48' group='2'>
+		<name>Gerolstein</name>
+		<x>25</x>
+		<y>255</y>
+		<platformLength>285</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='49' group='2'>
+		<name>Euskirchen</name>
+		<x>30</x>
+		<y>215</y>
+		<platformLength>165</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='50' group='2'>
+		<name>Erftstadt</name>
+		<x>25</x>
+		<y>165</y>
+		<platformLength>285</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='51' group='2'>
+		<name>Wetzlar</name>
+		<x>270</x>
+		<y>225</y>
+		<platformLength>310</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='52' group='2'>
+		<name>Weilburg</name>
+		<x>245</x>
+		<y>240</y>
+		<platformLength>190</platformLength>
+		<platforms>2</platforms>
+	</Station>
+
+	<Station id='53' group='2'>
+		<name>Limburg (Lahn)</name>
+		<x>205</x>
+		<y>240</y>
+		<platformLength>250</platformLength>
+		<platforms>6</platforms>
+	</Station>
+
+	<Station id='54' group='2'>
+		<name>Nassau (Lahn)</name>
+		<x>175</x>
+		<y>260</y>
+		<platformLength>240</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='55' group='1'>
+		<name>Siegen</name>
+		<x>235</x>
+		<y>175</y>
+		<platformLength>355</platformLength>
+		<platforms>6</platforms>
+	</Station>
+
+	<Station id='56' group='2'>
+		<name>Herborn (Dillkr)</name>
+		<x>260</x>
+		<y>210</y>
+		<platformLength>265</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='57' group='2'>
+		<name>Haiger</name>
+		<x>245</x>
+		<y>190</y>
+		<platformLength>275</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='58' group='1'>
+		<name>Friedberg (Hess)</name>
+		<x>295</x>
+		<y>255</y>
+		<platformLength>330</platformLength>
+		<platforms>10</platforms>
+	</Station>
+
+	<Station id='59' group='2'>
+		<name>Niederweimar</name>
+		<x>305</x>
+		<y>185</y>
+		<platformLength>180</platformLength>
+		<platforms>2</platforms>
+	</Station>
+
+	<Station id='60' group='1'>
+		<name>Marburg (Lahn)</name>
+		<x>310</x>
+		<y>170</y>
+		<platformLength>425</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='61' group='2'>
+		<name>Bad Nauheim</name>
+		<x>290</x>
+		<y>245</y>
+		<platformLength>258</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='62' group='2'>
+		<name>Bad Vilbel</name>
+		<x>295</x>
+		<y>277</y>
+		<platformLength>280</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='63' group='2'>
+		<name>Kirchhain (Bz Kassel)</name>
+		<x>330</x>
+		<y>145</y>
+		<platformLength>305</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='64' group='1'>
+		<name>Treysa</name>
+		<x>355</x>
+		<y>115</y>
+		<platformLength>420</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='65' group='1'>
+		<name>Wabern (Bz Kassel)</name>
+		<x>410</x>
+		<y>90</y>
+		<platformLength>400</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='66' group='2'>
+		<name>Baunatal-Guntershausen</name>
+		<x>440</x>
+		<y>70</y>
+		<platformLength>290</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='67' group='2'>
+		<name>Offenbach (Main) Hbf</name>
+		<x>303</x>
+		<y>293</y>
+		<platformLength>410</platformLength>
+		<platforms>6</platforms>
+	</Station>
+
+	<Station id='68' group='1'>
+		<name>Hanau Hbf</name>
+		<x>315</x>
+		<y>285</y>
+		<platformLength>410</platformLength>
+		<platforms>11</platforms>
+	</Station>
+
+	<Station id='69' group='2'>
+		<name>Gelnhausen</name>
+		<x>350</x>
+		<y>275</y>
+		<platformLength>340</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='70' group='2'>
+		<name>Wächtersbach</name>
+		<x>365</x>
+		<y>265</y>
+		<platformLength>430</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='71' group='2'>
+		<name>Schlüchtern</name>
+		<x>410</x>
+		<y>240</y>
+		<platformLength>335</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='72' group='2'>
+		<name>Flieden</name>
+		<x>435</x>
+		<y>225</y>
+		<platformLength>340</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='73' group='2'>
+		<name>Betzdorf (Sieg)</name>
+		<x>215</x>
+		<y>185</y>
+		<platformLength>270</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='74' group='2'>
+		<name>Eitorf</name>
+		<x>185</x>
+		<y>185</y>
+		<platformLength>210</platformLength>
+		<platforms>2</platforms>
+	</Station>
+
+	<Station id='75' group='2'>
+		<name>Bbf Rohrbach</name>
+		<x>455</x>
+		<y>305</y>
+		<platformLength>0</platformLength>
+		<platforms>0</platforms>
+	</Station>
+
+	<Station id='76' group='1'>
+		<name>Aschaffenburg Hbf</name>
+		<x>350</x>
+		<y>305</y>
+		<platformLength>450</platformLength>
+		<platforms>8</platforms>
+	</Station>
+
+	<Station id='77' group='2'>
+		<name>Lohr Bahnhof</name>
+		<x>415</x>
+		<y>300</y>
+		<platformLength>355</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='78' group='2'>
+		<name>Fürth (Bay) Hbf</name>
+		<x>617</x>
+		<y>378</y>
+		<platformLength>410</platformLength>
+		<platforms>8</platforms>
+	</Station>
+
+	<Station id='79' group='2'>
+		<name>Neustadt (Aisch) Bahnhof</name>
+		<x>575</x>
+		<y>360</y>
+		<platformLength>430</platformLength>
+		<platforms>6</platforms>
+	</Station>
+
+	<Station id='80' group='2'>
+		<name>Iphofen</name>
+		<x>505</x>
+		<y>345</y>
+		<platformLength>180</platformLength>
+		<platforms>2</platforms>
+	</Station>
+
+	<Station id='81' group='1'>
+		<name>Duisburg Hbf</name>
+		<x>40</x>
+		<y>55</y>
+		<platformLength>500</platformLength>
+		<platforms>12</platforms>
+	</Station>
+
+	<Station id='82' group='1'>
+		<name>Essen Hbf</name>
+		<x>75</x>
+		<y>50</y>
+		<platformLength>480</platformLength>
+		<platforms>13</platforms>
+	</Station>
+
+	<Station id='83' group='1'>
+		<name>Bochum Hbf</name>
+		<x>110</x>
+		<y>40</y>
+		<platformLength>435</platformLength>
+		<platforms>8</platforms>
+	</Station>
+
+	<Station id='84' group='1'>
+		<name>Hamm (Westf)</name>
+		<x>215</x>
+		<y>15</y>
+		<platformLength>420</platformLength>
+		<platforms>12</platforms>
+	</Station>
+
+	<Station id='85' group='2'>
+		<name>Solingen Hbf</name>
+		<x>65</x>
+		<y>95</y>
+		<platformLength>225</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='86' group='1'>
+		<name>Wuppertal Hbf</name>
+		<x>85</x>
+		<y>75</y>
+		<platformLength>420</platformLength>
+		<platforms>5</platforms>
+	</Station>
+
+	<Station id='87' group='1'>
+		<name>Hagen Hbf</name>
+		<x>150</x>
+		<y>60</y>
+		<platformLength>260</platformLength>
+		<platforms>16</platforms>
+	</Station>
+
+	<Station id='88' group='1'>
+		<name>Warburg (Westf)</name>
+		<x>395</x>
+		<y>35</y>
+		<platformLength>360</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='89' group='2'>
+		<name>Arnsberg (Westf)</name>
+		<x>245</x>
+		<y>40</y>
+		<platformLength>340</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='90' group='2'>
+		<name>Soest</name>
+		<x>255</x>
+		<y>25</y>
+		<platformLength>275</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='91' group='2'>
+		<name>Olsberg</name>
+		<x>285</x>
+		<y>55</y>
+		<platformLength>250</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='92' group='2'>
+		<name>Marsberg</name>
+		<x>335</x>
+		<y>35</y>
+		<platformLength>250</platformLength>
+		<platforms>2</platforms>
+	</Station>
+
+	<Station id='93' group='2'>
+		<name>Altenbeken</name>
+		<x>355</x>
+		<y>0</y>
+		<platformLength>495</platformLength>
+		<platforms>11</platforms>
+	</Station>
+
+	<Station id='94' group='2'>
+		<name>Erlangen</name>
+		<x>620</x>
+		<y>355</y>
+		<platformLength>420</platformLength>
+		<platforms>4</platforms>
+	</Station>
+
+	<Station id='95' group='1'>
+		<name>Bamberg</name>
+		<x>610</x>
+		<y>310</y>
+		<platformLength>370</platformLength>
+		<platforms>7</platforms>
+	</Station>
+
+	<Station id='96' group='1'>
+		<name>Schweinfurt Hbf</name>
+		<x>490</x>
+		<y>295</y>
+		<platformLength>470</platformLength>
+		<platforms>8</platforms>
+	</Station>
+
+	<Station id='97' group='2'>
+		<name>Bad Kissingen</name>
+		<x>480</x>
+		<y>285</y>
+		<platformLength>230</platformLength>
+		<platforms>3</platforms>
+	</Station>
+
+	<Station id='98' group='2'>
+		<name>Gemünden (Main)</name>
+		<x>460</x>
+		<y>295</y>
+		<platformLength>415</platformLength>
+		<platforms>8</platforms>
+	</Station>
+</Stations>

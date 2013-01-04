@@ -13,6 +13,7 @@ class Autoload {
 	const CLASS_DIR = 'libary/';
 	
 	private $classname;
+	private static $beforeCallbacks = array(), $afterCallbacks = array();
 	
 	/**
 	* Verarbeitet die Anfrage einer Klasse.
@@ -22,17 +23,19 @@ class Autoload {
 	public function __construct($classname) {
 		$this->classname = new Classname($classname);
 		
-		// Heißt die Klasse „i“? Dann wird wohl die MainInstance Klasse erwartet
-		if($this->classname->getClassname() == self::MAIN_INSTANCE_ALIAS) $this->aliasMainInstanceClass();
-		else $this->includeClassFile();
-	}
-	
-	/**
-	* Erstellt einen „Alias“ für die MainInstance-Klasse.
-	*	Wichtig: Es wird kein richtiger Alias erstellt, da der Namespace für uns sehr wichtig ist.
-	**/
-	private function aliasMainInstanceClass() {
-		Alias::forClass(new Classname('\Core\MainInstance'), $this->classname);
+		// Registrierte Callbacks abarbeiten
+		foreach(self::$beforeCallbacks as $currentCallback) {
+			$return = call_user_func($currentCallback, $this->classname);
+			// Callback hat „true“ zurückgegeben? Abrechen
+			if($return === true) return;
+		}
+		
+		// Klassen-Datei einfügen
+		$this->includeClassFile();
+		
+		// Registrierte Callbacks abarbeiten
+		foreach(self::$afterCallbacks as $currentCallback)
+			$return = call_user_func($currentCallback, $this->classname);
 	}
 	
 	/**
@@ -67,6 +70,24 @@ class Autoload {
 		
 		// Ohh, keine Klasse gefunden. :(
 		throw new \Exception('Die/Das angeforderte Klasse/Interface/Trait „'.$this->classname->getFullClassname().'“ existiert nicht.', 1080);
+	}
+	
+	/**
+	* Registriert ein Callback für den Autoloader, das bevor die Klasse geladen wird ausgeführt wird.
+	*
+	* @param callback $callback
+	**/
+	public static function registerBeforeCallback(callable $callback) {
+		self::$beforeCallbacks[] = $callback;
+	}
+	
+	/**
+	* Registriert ein Callback für den Autoloader, das nachdem die Klasse geladen wird ausgeführt wird.
+	*
+	* @param callback $callback
+	**/
+	public static function registerAfterCallback(callable $callback) {
+		self::$afterCallbacks[] = $callback;
 	}
 } 
 ?>

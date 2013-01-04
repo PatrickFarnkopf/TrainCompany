@@ -12,7 +12,12 @@ abstract class Main {
 	/**
 	* Die Konstrukt-Methode, die alles weitere ausführt.
 	**/
-	public function __construct() {	
+	public function __construct() {
+		// Callback für die Main-Instance-Klasse setzen
+		Autoload::registerBeforeCallback(array('Core\MainInstance', 'callback'));
+		// Callback für die Daten-Klassen-Erstellen
+		Autoload::registerAfterCallback(array('Core\Data', 'callback'));
+	
 		// Zeitzone setzen
 		date_default_timezone_set(\Config\TIME_ZONE);
 		

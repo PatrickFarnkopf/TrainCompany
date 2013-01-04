@@ -7,17 +7,8 @@
 **/
 namespace Game;
 
-class Capacity extends Data {
+class Capacity extends \Core\Data {
 	use \Core\Data\Vars;
-	
-	/**
-	* Setzt die Einheit der Kapazität
-	*
-	* @param String $unit - Einheit
-	**/
-	public function setUnit($unit) {
-		$this->properties['unit'] = $unit;
-	}
 	
 	/**
 	* Gibt die Einheit dieser Kapazität zurück.
@@ -29,15 +20,6 @@ class Capacity extends Data {
 	}
 	
 	/**
-	* Setzt ein Icon der Kapazität
-	*
-	* @param String $iconName - Icon
-	**/
-	public function setIcon($iconName) {
-		$this->properties['iconName'] = $iconName;
-	}
-	
-	/**
 	* Gibt das Icon dieser Kapazität zurück.
 	*
 	* @return String - Icon
@@ -46,14 +28,6 @@ class Capacity extends Data {
 		return $this->properties['iconName'];
 	}
 	
-	/**
-	* Setzt das Gewicht in Tonnen für eine Einheit.
-	*
-	* @param float $unitMass - Eine Einheit in Tonnen. (z.B.: Ein Passagier = 0,07 Tonnen)
-	**/
-	public function setUnitMass($unitMass) {
-		$this->properties['unitMass'] = $unitMass;
-	}
 	
 	/**
 	* Gibt das Gewicht in Tonnen für eine Kapazität zurück.

@@ -12,17 +12,52 @@ abstract class Data {
 	const DATA_DIR = 'data/';
 	
 	protected $id, $group, $name;
-	protected $properties = array();
+	public $properties = array();
 	protected $varProperties = array();
 	
 	/**
-	* Lädt alle Daten-Dateien, die im Ordner liegen.
-	*
-	* @param array $dataFiles - Welche Dateien überhaupt? [optional]
+	* Ließt Daten aus der, zur Klasse passenden XML-Datei und erstellt daraus ein Objekt, fügt dieses der Klasse hinzu.
 	**/
-	public static function loadAllDataFiles($dataFiles = array()) {
-		foreach($dataFiles as $currentFile)
-		    require_once ROOT_PATH.self::DATA_DIR.$currentFile.'.data.php';
+	public static function loadDataFromXMLFile() {
+		// Klassen-Namen ermitteln
+		$className = new Classname(get_called_class());
+		// Name der XML-Datei bauen.
+		$fileName = ROOT_PATH.self::DATA_DIR.$className->getClassname().'.xml';
+		
+		// Die Datei ist nicht vorhanden? Abruch!
+		if(!file_exists($fileName)) return;
+		
+		// SimpleXML-Objekte
+		foreach(XMLElement::loadFile($fileName) as $count=>$currentObject) {
+			// Das „Name“-Element muss immer vorhanden sein.
+			if(!isset($currentObject->name))
+				throw new \Exception('Das '.Format::number($count).'-te Element in der „'.$fileName.'“-Datei hat keinen festgelegten Namen.', 1154);
+			
+			// Objekt erstellen
+			$object = new static((string) $currentObject->name);
+			
+			// Die Eigenschaften des Objekts auslesen
+			$properties = $currentObject->toArray();
+			// Den Namen/Die Gruppe aus den Eigenschaften rauslöschen
+			unset($properties['name']);
+			unset($properties['group']);
+			// Daten dem Objekt hinzufügen
+			$object->properties = $properties;
+			
+			// Objekt der Klasse hinzufügen
+			static::addObject((string) $currentObject['id'], $object, (isset($currentObject['group']) ? (string) $currentObject['group'] : false));
+		}
+	}
+	
+	/**
+	* Rückfrage-Funktion für die Autoload-Klasse
+	*
+	* @param Classname - Angforderter Klassennamen
+	* @return bool - Weitere Autoload-Funktionen durchführen? true = nein
+	**/
+	public static function callback(Classname $classname) {
+		if($classname->getReflectionClass()->isSubclassOf('Core\Data') && $classname->getClassname() != 'Data')
+			call_user_func(array((string)$classname, 'loadDataFromXMLFile'));
 	}
 
 	/**
@@ -33,7 +68,7 @@ abstract class Data {
 	* @param bool $group - Die Gruppe des Objekts [optional]
 	**/
 	public static function addObject($id, $object, $group=false) {
-		if(isset(static::$objects[$id])) throw new \Exception('Ein Daten-Objekt mit dieser ID ist bereits gespeichert.', 2011);
+		if(isset(static::$objects[$id])) throw new \Exception('Ein Daten-Objekt mit dieser ID ist bereits gespeichert.', 1150);
 		
 		$object->setID($id);
 		$object->setGroup($group);
@@ -49,7 +84,7 @@ abstract class Data {
 	**/
 	public static function getList($group = false) {
 		if($group === false) return static::$objects;
-		if(!isset(static::$objectGroups[$group])) throw new \Exception('Diese Daten-Gruppe ist nicht bekannt.', 2012);
+		if(!isset(static::$objectGroups[$group])) throw new \Exception('Die angeforderte Daten-Grupp ist nicht bekannt.', 1151);
 		
 		$array = array();
 		$groupArray = static::$objectGroups[$group];
@@ -74,7 +109,7 @@ abstract class Data {
 	* @return Train
 	**/
 	public static function getObjectForID($id) {
-		if(!self::existObjectForID($id)) throw new \Exception('Kein Daten-Objekt mit dieser ID vorhanden.', 2013);
+		if(!self::existObjectForID($id)) throw new \Exception('Kein Daten-Objekt mit dieser ID vorhanden.', 1152);
 		
 		return static::$objects[$id];
 	}
@@ -177,7 +212,7 @@ abstract class Data {
 	* Wenn kein Objekt mit dieser ID mehr existiert wird ein Fehler geworfen.
 	**/
 	public function __wakeup() {
-		if(!static::existObjectForID($this->id)) throw new \Exception('Beim Aufwachen hat TrainCompany das erwartete Daten-Objekt vergessen.', 2014);
+		if(!static::existObjectForID($this->id)) throw new \Exception('Das angeforderte Daten-Objekt mit der ID „'.$this->id.'“ konnte nicht wiederhergestellt werden.', 1153);
 		
 		$newInstance = self::getObjectForID($this->id);
 		$this->name = $newInstance->getName();

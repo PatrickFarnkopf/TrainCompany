@@ -7,7 +7,7 @@
 **/
 namespace Game;
 
-class Train extends Data {
+class Train extends \Core\Data {
 	use \Core\Data\Vars;
 	
 	const GROUP_LOCO = 0;
@@ -64,15 +64,6 @@ class Train extends Data {
 		
 		return $this->getCost() * pow(self::AGING_FACTOR, $yearsSinceBought + 1);
 	}
-
-	/**
-	* Setzt die Kapäzität des Fahrzeugs.
-	*
-	* @param array $capacityArray - array(Kapazitättype => Anzahl)
-	**/
-	public function setCapacity(array $capacityArray) {
-		$this->properties['capacity'] = $capacityArray;
-	}
 	
 	/**
 	* Gibt die Kapazitäten des Zugs als Array zurück
@@ -81,15 +72,6 @@ class Train extends Data {
 	**/
 	public function getCapacity() {
 		return $this->properties['capacity'];
-	}
-	
-	/**
-	* Setzt die maximale Geschwindigkeit des Fahrzeugs.
-	*
-	* @param int $speed - Maximale Geschwindigkeit in km/h
-	**/
-	public function setSpeed($speed) {
-		$this->properties['speed'] = $speed;
 	}
 	
 	/**
@@ -102,15 +84,6 @@ class Train extends Data {
 	}
 	
 	/**
-	* Setzt die Länge des Fahrzeugs.
-	*
-	* @param int $length - Länge des Fahrzeugs
-	**/
-	public function setLength($length) {
-		$this->properties['length'] = $length;
-	}
-	
-	/**
 	* Gibt die Länge des Zugs zurück
 	*
 	* @return int - Länge des Fahrzeugs
@@ -120,30 +93,12 @@ class Train extends Data {
 	}
 	
 	/**
-	* Setzt das Gewicht des Fahrzeugs.
-	*
-	* @param float $weight - Gewicht in t
-	**/
-	public function setWeight($weight) {
-		$this->properties['weight'] = $weight;
-	}
-	
-	/**
 	* Gibt das Gewicht des Zugs zurück
 	*
 	* @return float - Gewicht
 	**/
 	public function getWeight() {
 		return $this->properties['weight'];
-	}
-	
-	/**
-	* Setzt die Zugkraft des Fahrzeugs.
-	*
-	* @param int $force - Zugkraft in kN
-	**/
-	public function setForce($force) {
-		$this->properties['force'] = $force;
 	}
 	
 	/**
@@ -165,30 +120,12 @@ class Train extends Data {
 	}
 	
 	/**
-	* Setzt die Antriebsart des Fahrzeugs.
-	*
-	* @param DIESEL_DRIVE/ELECTRO_DRIVE/NO_DRIVE $drive - Diesel-Antrieb, Elektro-Antrieb oder gar kein Antrieb?
-	**/
-	public function setDrive($drive) {
-		$this->properties['drive'] = $drive;
-	}
-	
-	/**
 	* Gibt die Antriebsart des Zugs zurück
 	*
 	* @return DIESEL_DRIVE/ELECTRO_DRIVE/NO_DRIVE - Antriebsart
 	**/
 	public function getDrive() {
 		return $this->properties['drive'];
-	}
-	
-	/**
-	* Setzt den Preis des Fahrzeugs.
-	*
-	* @param int $cost - Preis in Plops
-	**/
-	public function setCost($cost) {
-		$this->properties['cost'] = $cost;
 	}
 	
 	/**
@@ -201,16 +138,6 @@ class Train extends Data {
 	}
 	
 	/**
-	* Setzt die Anzahl der Triebzüge, die maximal miteinander gekoppelt werden können.
-	* Nur bei Triebzügen interessant.
-	*
-	* @param int $units - Anzahl der Einheiten. (0 = Unbegrenzt)
-	**/
-	public function setMaxConnectedUnits($units) {
-		$this->properties['maxConnectedUnits'] = $units;
-	}
-	
-	/**
 	* Gibt die Anzahl der Triebzüge, die maximal miteinander gekoppelt werden können zurück.
 	*
 	* @return int - Anzahl der Einheiten
@@ -219,14 +146,6 @@ class Train extends Data {
 		return $this->properties['maxConnectedUnits'];
 	}
 	
-	/**
-	* Setzt die Start-Zuverlässigkeit
-	*
-	* @param float $reliability - Zuverlässigkeit
-	**/
-	public function setReliability($reliability) {
-		$this->properties['reliability'] = $reliability;
-	}
 	
 	/**
 	* Gibt die aktuelle Zuverlässigkeit aus

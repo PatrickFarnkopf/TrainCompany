@@ -85,7 +85,7 @@ class Task {
 	* @param TaskApplication $taskApplication - Die Bewerbung
 	* @param User $user - Der User, der die hinzufügt.
 	**/
-	public function addApplication(\Game\Task\Application $taskApplication, User $user) {
+	public function addApplication(Task\Application $taskApplication, User $user) {
 		if($this->endTime == 0)
 			$this->endTime = time() + self::APPLICATION_TIME;
 	
@@ -277,7 +277,7 @@ class Task {
 	* @param TrainUnit $trainUnit - Die Zugeinheit
 	* @return bool - Kompatibel?
 	**/
-	public function isCompatibleTrainUnit(\Game\Train\Unit $trainUnit) {
+	public function isCompatibleTrainUnit(Train\Unit $trainUnit) {
 		if($trainUnit->isLocked()) return false;
 		if($trainUnit->getDrive() == Train::NO_DRIVE) return false;
 	
@@ -292,7 +292,7 @@ class Task {
 	/**
 	* Gibt die beste PathUnit, aus den gegebenen, für die Ausschreibung zurück
 	*
-	* @param array[PathUnit] $pathUnits - Array mit Strecken-Verbünden
+	* @param array[Path\Unit] $pathUnits - Array mit Strecken-Verbünden
 	* @return PathUnit
 	**/
 	public function getBestPathUnit(array $pathUnits) {

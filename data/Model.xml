@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<TaskModels>
+	<TaskModel id='0' group='1'>
+		<name>NRW-Express von Köln Hbf nach Paderborn Hbf</name>
+		<descriptions>
+			<description>Du musst den Regional-Express der Linie 1 von %s nach %s bringen. Dieser Zug ist sehr stark ausgelastet.</description>
+			<description>Der RE1 von %s nach %s ist sehr stark ausgelastet. Plane genug Pufferzeit ein.</description>
+			<description>Bringe den Regional-Express der Linie 1 pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>120000</plops>
+		<plopDifferent>5</plopDifferent>
+		<stations>
+			<station>0</station>
+			<station>13</station>
+			<station>14</station>
+			<station>81</station>
+			<station>82</station>
+			<station>83</station>
+			<station>27</station>
+			<station>84</station>
+			<station>90</station>
+			<station>29</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='1' group='1'>
+		<name>Eifel-Mosel-Express von Köln Hbf nach Trier Hbf</name>
+		<descriptions>
+			<description>Bringe den RE12 von %s nach %s. Der Zug ist nur schwach ausgelastet.</description>
+			<description>Der RE12 muss von %s nach %s gebracht werden. Die Strecke ist nicht stark ausgelastet.</description>
+			<description>Bringe den Regional-Express der Linie 12 pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>80000</plops>
+		<plopDifferent>5</plopDifferent>
+		<stations>
+			<station>0</station>
+			<station>50</station>
+			<station>49</station>
+			<station>48</station>
+			<station>47</station>
+			<station>23</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='2' group='1'>
+		<name>Sauerland-Express von Hagen Hbf nach Kassel-Willhelmshöhe</name>
+		<descriptions>
+			<description>Bringe den RE17 von %s nach %s. Der Zug ist nur mittelmäßig ausgelastet.</description>
+			<description>Der RE17 muss von %s nach %s gebracht werden. Die Strecke ist nicht sehr stark ausgelastet.</description>
+			<description>Bringe den Regional-Express der Linie 17 pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>110000</plops>
+		<plopDifferent>5</plopDifferent>
+		<stations>
+			<station>87</station>
+			<station>89</station>
+			<station>91</station>
+			<station>92</station>
+			<station>88</station>
+			<station>26</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='3' group='1'>
+		<name>RE7 von Mannheim Hbf nach Saarbrücken Hbf</name>
+		<descriptions>
+			<description>Bringe den RE7 von %s nach %s. Der Zug ist nur mittelmäßig ausgelastet.</description>
+			<description>Der RE7 muss von %s nach %s gebracht werden. Die Strecke ist nicht sehr stark ausgelastet.</description>
+			<description>Bringe den Regional-Express der Linie 7 pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>90000</plops>
+		<plopDifferent>5</plopDifferent>
+		<stations>
+			<station>15</station>
+			<station>37</station>
+			<station>38</station>
+			<station>39</station>
+			<station>22</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='4' group='1'>
+		<name>RE30 von Frankfurt (Main) Hbf nach Kassel-Willhelmshöhe</name>
+		<descriptions>
+			<description>Bringe den RE30 von %s nach %s. Der Zug ist stark ausgelastet.</description>
+			<description>Der RE30 muss von %s nach %s gebracht werden. Die Strecke ist stark ausgelastet.</description>
+			<description>Bringe den Regionl-Express der Linie 30 pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>130000</plops>
+		<plopDifferent>5</plopDifferent>
+		<stations>
+			<station>9</station>
+			<station>58</station>
+			<station>30</station>
+			<station>60</station>
+			<station>64</station>
+			<station>65</station>
+			<station>26</station>
+		</stations>
+		<neededCapacity>
+			<neededCapacit>0</neededCapacit>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='5' group='1'>
+		<name>Nahe-Express von Saarbrücken Hbf nach Frankfurt (Main) Hbf</name>
+		<descriptions>
+			<description>Bringe den RE3 von %s nach %s. Der Zug ist zeitweise stark ausgelastet.</description>
+			<description>Der RE3 muss von %s nach %s gebracht werden. Die Strecke ist stark ausgelastet.</description>
+			<description>Bringe den Regionl-Express der Linie 3 pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>140000</plops>
+		<plopDifferent>5</plopDifferent>
+		<stations>
+			<station>22</station>
+			<station>35</station>
+			<station>34</station>
+			<station>33</station>
+			<station>32</station>
+			<station>31</station>
+			<station>6</station>
+			<station>7</station>
+			<station>8</station>
+			<station>9</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='6' group='1'>
+		<name>Regional-Express von Koblenz Hbf nach Gießen Hbf</name>
+		<descriptions>
+			<description>Bringe den RE von %s nach %s. Die Strecke ist sehr kurvig.</description>
+			<description>Der RE muss von %s nach %s gebracht werden. Die Strecke ist sehr kurvig.</description>
+			<description>Bringe den Regionl-Express pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>90000</plops>
+		<plopDifferent>5</plopDifferent>
+		<stations>
+			<station>4</station>
+			<station>54</station>
+			<station>53</station>
+			<station>52</station>
+			<station>51</station>
+			<station>30</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='7' group='1'>
+		<name>Intercity von Mannheim Hbf nach Köln Hbf</name>
+		<descriptions>
+			<description>Bringe den Intercity von %s nach %s, über die Rheinstrecke.</description>
+			<description>Der IC muss von %s über die Rheinstrecke nach %s gebracht werden.</description>
+			<description>Bringe den IC über die Rheinstrecke pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>160000</plops>
+		<plopDifferent>8</plopDifferent>
+		<stations>
+			<station>15</station>
+			<station>19</station>
+			<station>6</station>
+			<station>5</station>
+			<station>4</station>
+			<station>3</station>
+			<station>2</station>
+			<station>1</station>
+			<station>0</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='8' group='1'>
+		<name>Intercity von Trier Hbf nach Köln Hbf</name>
+		<descriptions>
+			<description>Bringe den Intercity von %s nach %s, über die Rheinstrecke.</description>
+			<description>Der IC muss von %s über die Rheinstrecke nach %s gebracht werden.</description>
+			<description>Bringe den IC über die Rheinstrecke pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>150000</plops>
+		<plopDifferent>8</plopDifferent>
+		<stations>
+			<station>23</station>
+			<station>45</station>
+			<station>46</station>
+			<station>4</station>
+			<station>3</station>
+			<station>2</station>
+			<station>1</station>
+			<station>0</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='9' group='1'>
+		<name>ICE von Mannheim Hbf nach Dortmund Hbf</name>
+		<descriptions>
+			<description>Der ICE muss über die Schnellstrecke nach %2$s.</description>
+			<description>Der ICE muss von %s über die SFS nach %s gebracht werden.</description>
+			<description>Bringe den ICE über die SFS pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>250000</plops>
+		<plopDifferent>8</plopDifferent>
+		<stations>
+			<station>15</station>
+			<station>8</station>
+			<station>10</station>
+			<station>11</station>
+			<station>12</station>
+			<station>13</station>
+			<station>14</station>
+			<station>81</station>
+			<station>82</station>
+			<station>83</station>
+			<station>27</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='10' group='1'>
+		<name>ICE von Nürnberg Hbf nach Hamm (Westf)</name>
+		<descriptions>
+			<description>Der ICE muss über die Schnellstrecke nach %2$s.</description>
+			<description>Der ICE muss von %s über die SFS nach %s gebracht werden.</description>
+			<description>Bringe den ICE über die SFS pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>300000</plops>
+		<plopDifferent>8</plopDifferent>
+		<stations>
+			<station>28</station>
+			<station>24</station>
+			<station>76</station>
+			<station>68</station>
+			<station>9</station>
+			<station>8</station>
+			<station>10</station>
+			<station>11</station>
+			<station>12</station>
+			<station>13</station>
+			<station>86</station>
+			<station>87</station>
+			<station>84</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='11' group='1'>
+		<name>ICE von Frankfurt (Main) Hbf nach Nürnberg Hbf</name>
+		<descriptions>
+			<description>Der ICE muss über die Schnellstrecke nach %2$s.</description>
+			<description>Der ICE muss von %s über die SFS nach %s gebracht werden.</description>
+			<description>Bringe den ICE über die SFS pünktlich von %s nach %s.</description>
+		</descriptions>
+		<plops>400000</plops>
+		<plopDifferent>8</plopDifferent>
+		<stations>
+			<station>9</station>
+			<station>8</station>
+			<station>10</station>
+			<station>11</station>
+			<station>12</station>
+			<station>13</station>
+			<station>86</station>
+			<station>87</station>
+			<station>84</station>
+			<station>90</station>
+			<station>29</station>
+			<station>93</station>
+			<station>88</station>
+			<station>26</station>
+			<station>25</station>
+			<station>24</station>
+			<station>28</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='12' group='1'>
+		<name>ICE von Mannheim Hbf nach Kassel-Willhelmshöhe</name>
+		<descriptions>
+			<description>Der ICE muss nach %2$s gebracht. Er startet in %1$s.</description>
+			<description>Der ICE muss von %s nach %s gebracht werden. Verwende die schnellste Strecke</description>
+			<description>Bringe den ICE pünktlich und schnell von %s nach %s.</description>
+		</descriptions>
+		<plops>300000</plops>
+		<plopDifferent>8</plopDifferent>
+		<stations>
+			<station>15</station>
+			<station>9</station>
+			<station>68</station>
+			<station>25</station>
+			<station>26</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+
+	<TaskModel id='13' group='1'>
+		<name>ICE von Nürnberg Hbf nach Kassel-Willhelmshöhe</name>
+		<descriptions>
+			<description>Der ICE muss nach %2$s gebracht. Er startet in %1$s.</description>
+			<description>Der ICE muss von %s nach %s gebracht werden. Verwende die schnellste Strecke</description>
+			<description>Bringe den ICE pünktlich und schnell von %s nach %s.</description>
+		</descriptions>
+		<plops>280000</plops>
+		<plopDifferent>8</plopDifferent>
+		<stations>
+			<station>28</station>
+			<station>24</station>
+			<station>25</station>
+			<station>26</station>
+		</stations>
+		<neededCapacity>
+			<passengers>0</passengers>
+		</neededCapacity>
+		<neededCapacityDifferent>0</neededCapacityDifferent>
+	</TaskModel>
+</TaskModels>

@@ -7,7 +7,7 @@
 **/
 namespace Game;
 
-class Station extends Data {
+class Station extends \Core\Data {
 	use \Core\Data\Vars;
 	
 	const GROUP_BIG = 0;
@@ -19,30 +19,12 @@ class Station extends Data {
 	const GROUP_SMALL_PASSENGER = 40;
 	
 	/**
-	* Setzt den X-Wert des Bahnhofs
-	*
-	* @param int $x - X-Wert
-	**/
-	public function setX($x) {
-		$this->properties['x'] = $x;
-	}
-	
-	/**
 	* Gibt den X-Wert des Bahnhofes zurück
 	*
 	* @return int - X-Wert
 	**/
 	public function getX() {
 		return $this->properties['x'];
-	}
-	
-	/**
-	* Setzt den Y-Wert des Bahnhofs
-	*
-	* @param int $y - Y-Wert
-	**/
-	public function setY($y) {
-		$this->properties['y'] = $y;
 	}
 	
 	/**
@@ -55,30 +37,12 @@ class Station extends Data {
 	}
 	
 	/**
-	* Setzt die Bahnsteigslänge des Bahnhofs
-	*
-	* @param int $platformLength - Bahnsteigslänge
-	**/
-	public function setPlatformLength($platformLength) {
-		$this->properties['platformLength'] = $platformLength;
-	}
-	
-	/**
 	* Gibt die Bahnsteigslänge des Bahnhofes zurück
 	*
 	* @return int - Bahnsteigslänge
 	**/
 	public function getPlatformLength() {
 		return $this->properties['platformLength'];
-	}
-	
-	/**
-	* Setzt die Anzahl Bahnsteige des Bahnhofs
-	*
-	* @param int $platforms - Anzahl
-	**/
-	public function setPlatforms($platforms) {
-		$this->properties['platforms'] = $platforms;
 	}
 	
 	/**

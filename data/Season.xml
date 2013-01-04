@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<Seasons>
+	<Season id="0">
+		<name>Frühling</name>
+		<rubbingFactor>0.8</rubbingFactor>
+	</Season>
+	
+	<Season id="1">
+		<name>Sommer</name>
+		<rubbingFactor>0.8</rubbingFactor>
+	</Season>
+	
+	<Season id="2">
+		<name>Herbst</name>
+		<rubbingFactor>0.6</rubbingFactor>
+	</Season>
+	
+	<Season id="3">
+		<name>Winter</name>
+		<rubbingFactor>0.7</rubbingFactor>
+	</Season>
+</Seasons>

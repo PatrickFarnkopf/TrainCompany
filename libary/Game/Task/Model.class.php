@@ -7,7 +7,7 @@
 **/
 namespace Game\Task;
 
-class Model extends \Game\Data {
+class Model extends \Core\Data {
 	use \Core\Data\Vars;
 	
 	private $direction = 0;
@@ -24,15 +24,6 @@ class Model extends \Game\Data {
 	}
 	
 	/**
-	* Eine Sammlung an Beschreibungen.
-	*
-	* @param array[String] $descriptions - Array mit mehreren Beschreibungen
-	**/
-	public function setDescriptions(array $descriptions) {
-		$this->properties['descriptions'] = $descriptions;
-	}
-	
-	/**
 	* Gibt eine zufällige, der zur Verfügung stehendenen Beschreibungen zurück
 	*
 	* @return string - Eine Beschreibung
@@ -42,28 +33,6 @@ class Model extends \Game\Data {
 		$descriptionString = $this->properties['descriptions'][$descriptionElement];
 		
 		return $this->makeString($descriptionString);
-	}
-	
-	/**
-	* Setzt, wie viel Belohnung für diese Aufgaben gegeben wird.
-	*
-	* @params int $plops - Belohnung
-	**/
-	public function setPlops($plops) {
-		if($plops < 10000) throw new \HumanException('Der Lohn muss mindestens 10.000 Plops betragen.', 2030);
-	
-		$this->properties['plops'] = $plops;
-	}
-	
-	/**
-	* Wie viel Prozent dieser Preis +- verändert werden soll
-	*
-	* @param int $plopDifferent - Angabe in %
-	**/
-	public function setPlopDifferent($plopDifferent) {
-		if($plopDifferent < 0) throw new \HumanException('Die prozentuale Abweichung muss positiv sein.', 2032);
-	
-		$this->properties['plopDifferent'] = $plopDifferent;
 	}
 	
 	/**
@@ -81,36 +50,18 @@ class Model extends \Game\Data {
 	}
 	
 	/**
-	* Setzt die Station, die möglicherweiße angefahren werden sollen. (Die erste und die letzte Station werden IMMER angefahren.
-	*
-	* @param array[Station] $stations - Array mit Stationen
-	**/
-	public function setStations(array $stations) {
-		if(count($stations) < 2) throw new \Exception('Es müssen mindestens zwei Stationen angefahren werden.', 2031);
-	
-		$this->properties['stations'] = $stations;
-	}
-	
-	/**
-	* Setzt die Stationen für die IDs.
-	*
-	* @param array[int] $stationIDs - Array mit Stationen-IDs
-	**/
-	public function setStationIDs(array $stationIDs) {
-		if(count($stationIDs) < 2) throw new \Exception('Es müssen mindestens zwei Stationen angefahren werden.', 2031);
-	
-		$this->properties['stations'] = array();
-		foreach($stationIDs as $currentID)
-			$this->properties['stations'][] = \Game\Station::getObjectForID($currentID);
-	}
-	
-	/**
 	* Gibt zurück, welche Stationen angefahren werden sollen.
 	*
 	* @return array[Station] - Anzufahrenden Stationen
 	**/
 	public function getStations() {
-		$stationArray = $this->properties['stations'];
+		$stationIDArray = $this->properties['stations'];
+		$stationArray = array();
+		
+		// Stationen zu den IDs finden
+		foreach($stationIDArray as $currentID)
+			$stationArray[] = \Game\Station::getObjectForID($currentID);
+		
 		if($this->direction) {
 			krsort($stationArray);
 			$stationArray = array_values($stationArray);
@@ -129,24 +80,6 @@ class Model extends \Game\Data {
 		} while(count($stations) < count($stationArray) / 2);
 		
 		return $stations;
-	}
-	
-	/**
-	* Setzt die Kapazität einer Ausschreibung
-	*
-	* @param array $neededCapacity - Benötigte Kapazität
-	**/
-	public function setNeededCapacity(array $neededCapacity) {
-		$this->properties['neededCapacity'] = $neededCapacity;
-	}
-	
-	/**
-	* Setzt die Abweichung in Prozent
-	*
-	* @param int $different - Abweichung in Prozent
-	**/
-	public function setNeededCapacityDifferent($different) {
-		$this->properties['neededCapacityDifferent'] = $different;
 	}
 	
 	/**
@@ -180,11 +113,7 @@ class Model extends \Game\Data {
 	* @return string - String mit Start- und Endbahnhof
 	**/
 	private function makeString($string) {
-		$stationArray = $this->properties['stations'];
-		if($this->direction) {
-			krsort($stationArray);
-			$stationArray = array_values($stationArray);
-		} 
+		$stationArray = $this->getStations();
 		
 		$string = sprintf($string, $stationArray[0]->getName(), $stationArray[count($stationArray)-1]->getName());
 	

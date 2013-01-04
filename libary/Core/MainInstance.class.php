@@ -10,6 +10,23 @@ namespace Core;
 
 class MainInstance {
 	const CLASS_NAME = 'Core\Cache';
+	const ALIAS_NAME = 'i';
+	
+	/**
+	* Rückfrage-Funktion für die Autoload-Klasse
+	*
+	* @param Classname - Angforderter Klassennamen
+	* @return bool - Weitere Autoload-Funktionen durchführen? true = nein
+	**/
+	public static function callback(Classname $classname) {
+		// Wenn Klassennamen nicht i ist, abbrechen
+		if($classname->getClassname() != self::ALIAS_NAME) return false;
+	
+		// Alias erstellen
+		Alias::forClass(new Classname('\Core\MainInstance'), $classname);
+		
+		return true;
+	}
 
 	/**
 	* Alle Klassenmethoden-Aufrufe stellen eine Klasse da, von der wir die Haupt-Instanz mäöchten

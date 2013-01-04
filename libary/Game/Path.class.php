@@ -7,7 +7,7 @@
 **/
 namespace Game;
 
-class Path extends Data {
+class Path extends \Core\Data {
 	use \Core\Data\Vars;
 	
 	protected static $pathsFromStation = array();
@@ -69,30 +69,12 @@ class Path extends Data {
 	}
 	
 	/**
-	* Setzt den Start-Bahnhof der Strecke
-	*
-	* @param int $startStationID - ID des Startbahnhofs
-	**/
-	public function setStartStation($startStationID) {
-		$this->properties['startStationID'] = $startStationID;
-	}
-	
-	/**
 	* Gibt den Start-Bahnhof der Strecke zurück
 	*
 	* @return Station - Bahnhofs-Objekt
 	**/
 	public function getStartStation() {
 		return Station::getObjectForID($this->properties['startStationID']);
-	}
-	
-	/**
-	* Setzt den End-Bahnhof der Strecke
-	*
-	* @param int $setEndStationID - ID des Startbahnhofs
-	**/
-	public function setEndStation($endStationID) {
-		$this->properties['endStationID'] = $endStationID;
 	}
 	
 	/**
@@ -105,30 +87,12 @@ class Path extends Data {
 	}
 	
 	/**
-	* Setzt den Kurvigkeits-Faktor der Strecke
-	*
-	* @param float $twistingFactor - Kurvigkeit der Strecke
-	**/
-	public function setTwistingFactor($twistingFactor) {
-		$this->properties['twistingFactor'] = $twistingFactor;
-	}
-	
-	/**
 	* Gibt die Kurvivkeit der Strecke zurück
 	*
 	* @return float - Kurven
 	**/
 	public function getTwistingFactor() {
 		return $this->properties['twistingFactor'];
-	}
-	
-	/**
-	* Setzt die Länge eines Strecken-Teiles.
-	*
-	* @param int $length - Länge in km
-	**/
-	public function setLength($length) {
-		$this->properties['length'] = $length;
 	}
 	
 	/**
@@ -141,30 +105,12 @@ class Path extends Data {
 	}
 	
 	/**
-	* Setzt die max Geschwindigkeit auf dieser Strecke.
-	*
-	* @param int $maxSpeed - Maximal Geschwindigkeit in km/h
-	**/
-	public function setMaxSpeed($maxSpeed) {
-		$this->properties['maxSpeed'] = $maxSpeed;
-	}
-	
-	/**
 	* Gibt die max Geschwindigkeit zurück
 	*
 	* @return int - Maximal Geschwindigkeite in km/h
 	**/
 	public function getMaxSpeed() {
 		return $this->properties['maxSpeed'];
-	}
-	
-	/**
-	* Gibt an ob die Strecke elektrifiziert ist
-	*
-	* @param bool $electrified - Elektrifiziert?
-	**/
-	public function setElectrified($electrified) {
-		$this->properties['electrified'] = $electrified;
 	}
 	
 	/**

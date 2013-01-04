@@ -7,17 +7,8 @@
 **/
 namespace Game;
 
-class Season extends Data {
+class Season extends \Core\Data {
 	use \Core\Data\Vars;
-	
-	/**
-	* Setzt einen Reibungsfaktor für die Züge.
-	*
-	* @param String $factor - Reibungsfaktor
-	**/
-	public function setRubbingFactor($factor) {
-		$this->properties['factor'] = $factor;
-	}
 	
 	/**
 	* Gibt einen Reibungsfaktor für die Züge zurück.
@@ -25,7 +16,7 @@ class Season extends Data {
 	* @return String - Reibungsfaktor
 	**/
 	public function getRubbingFactor() {
-		return $this->properties['factor'];
+		return $this->properties['rubbingFactor'];
 	}
 }
 ?>

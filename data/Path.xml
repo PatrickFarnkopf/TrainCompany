@@ -1,0 +1,1292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<Paths>
+ 	<!-- Linke Rheinstrecke (Köln-Mainz)  -->
+
+	<Path id='0' group='0'>
+		<name></name>
+		<startStationID>0</startStationID>
+		<endStationID>1</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>34</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='1' group='0'>
+		<name></name>
+		<startStationID>1</startStationID>
+		<endStationID>2</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>20</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='2' group='0'>
+		<name></name>
+		<startStationID>2</startStationID>
+		<endStationID>3</endStationID>
+		<twistingFactor>0.55</twistingFactor>
+		<length>21</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='3' group='0'>
+		<name></name>
+		<startStationID>3</startStationID>
+		<endStationID>4</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>18</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='4' group='0'>
+		<name></name>
+		<startStationID>4</startStationID>
+		<endStationID>5</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>61</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='5' group='0'>
+		<name></name>
+		<startStationID>5</startStationID>
+		<endStationID>6</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>30</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Schnellfahrstrecke FF-Flughafen-Köln Messe/Deutz -->
+	
+	<Path id='6' group='0'>
+		<name></name>
+		<startStationID>8</startStationID>
+		<endStationID>10</endStationID>
+		<twistingFactor>0.1</twistingFactor>
+		<length>59</length>
+		<maxSpeed>300</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='7' group='0'>
+		<name></name>
+		<startStationID>10</startStationID>
+		<endStationID>11</endStationID>
+		<twistingFactor>0.1</twistingFactor>
+		<length>21</length>
+		<maxSpeed>300</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='8' group='0'>
+		<name></name>
+		<startStationID>11</startStationID>
+		<endStationID>12</endStationID>
+		<twistingFactor>0.1</twistingFactor>
+		<length>65</length>
+		<maxSpeed>300</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='9' group='0'>
+		<name></name>
+		<startStationID>12</startStationID>
+		<endStationID>13</endStationID>
+		<twistingFactor>0.1</twistingFactor>
+		<length>23</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Köln–Duisburg -->
+
+	<Path id='10' group='0'>
+		<name></name>
+		<startStationID>0</startStationID>
+		<endStationID>13</endStationID>
+		<twistingFactor>0.1</twistingFactor>
+		<length>1</length>
+		<maxSpeed>40</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='11' group='0'>
+		<name></name>
+		<startStationID>13</startStationID>
+		<endStationID>14</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>35</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='91' group='0'>
+		<name></name>
+		<startStationID>14</startStationID>
+		<endStationID>81</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>22</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Mainbahn (Mainz-Frankfurt) -->
+
+	<Path id='12' group='0'>
+		<name></name>
+		<startStationID>6</startStationID>
+		<endStationID>7</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>12</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='13' group='0'>
+		<name></name>
+		<startStationID>7</startStationID>
+		<endStationID>8</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>16</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='14' group='0'>
+		<name></name>
+		<startStationID>8</startStationID>
+		<endStationID>9</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>11</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Riedbahn (Mannheim-Frankfurt, auch FF-Flughafen) -->
+
+	<Path id='15' group='0'>
+		<name></name>
+		<startStationID>15</startStationID>
+		<endStationID>17</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>28</length>
+		<maxSpeed>180</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='16' group='0'>
+		<name></name>
+		<startStationID>17</startStationID>
+		<endStationID>16</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>26</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='17' group='0'>
+		<name></name>
+		<startStationID>16</startStationID>
+		<endStationID>9</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>26</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	<!-- Abzweig nach FF-Flughafen -->
+	<Path id='18' group='0'>
+		<name></name>
+		<startStationID>16</startStationID>
+		<endStationID>8</endStationID>
+		<twistingFactor>0.5</twistingFactor>
+		<length>18</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	<!-- Abzweig nach Worms -->
+	<Path id='22' group='0'>
+		<name></name>
+		<startStationID>17</startStationID>
+		<endStationID>19</endStationID>
+		<twistingFactor>0.45</twistingFactor>
+		<length>10</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Mainz–Ludwigshafen (Start in Mannheim) -->
+
+	<Path id='19' group='0'>
+		<name></name>
+		<startStationID>15</startStationID>
+		<endStationID>18</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>13</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='20' group='0'>
+		<name></name>
+		<startStationID>18</startStationID>
+		<endStationID>19</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>11</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='21' group='0'>
+		<name></name>
+		<startStationID>19</startStationID>
+		<endStationID>6</endStationID>
+		<twistingFactor>0.15</twistingFactor>
+		<length>46</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Freinsheim–Frankenthal -->
+
+	<Path id='23' group='1'>
+		<name></name>
+		<startStationID>20</startStationID>
+		<endStationID>18</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>13</length>
+		<maxSpeed>100</maxSpeed>
+		<electrified></electrified>
+	</Path>
+	
+	
+	<!-- Pfälzische Nordbahn (Abschnitt Neustadt-Grünstadt) -->
+
+	<Path id='38' group='1'>
+		<name></name>
+		<startStationID>37</startStationID>
+		<endStationID>41</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>15</length>
+		<maxSpeed>100</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='39' group='1'>
+		<name></name>
+		<startStationID>41</startStationID>
+		<endStationID>20</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>6</length>
+		<maxSpeed>100</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='24' group='1'>
+		<name></name>
+		<startStationID>20</startStationID>
+		<endStationID>21</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>9</length>
+		<maxSpeed>100</maxSpeed>
+		<electrified></electrified>
+	</Path>
+	
+	
+	<!--- Nahetalbahn (Bingen-Saarbrücken) -->
+
+	<Path id='25' group='1'>
+		<name></name>
+		<startStationID>5</startStationID>
+		<endStationID>31</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>15</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='26' group='1'>
+		<name></name>
+		<startStationID>31</startStationID>
+		<endStationID>32</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>5</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='27' group='1'>
+		<name></name>
+		<startStationID>32</startStationID>
+		<endStationID>33</endStationID>
+		<twistingFactor>0.5</twistingFactor>
+		<length>48</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='28' group='1'>
+		<name></name>
+		<startStationID>33</startStationID>
+		<endStationID>34</endStationID>
+		<twistingFactor>0.5</twistingFactor>
+		<length>26</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='29' group='1'>
+		<name></name>
+		<startStationID>34</startStationID>
+		<endStationID>35</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>29</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='30' group='1'>
+		<name></name>
+		<startStationID>35</startStationID>
+		<endStationID>22</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>21</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Pfälzische Ludwigsbahn (Mannheim–Saarbrücken) -->
+
+	<Path id='31' group='0'>
+		<name></name>
+		<startStationID>15</startStationID>
+		<endStationID>36</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>13</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='32' group='0'>
+		<name></name>
+		<startStationID>36</startStationID>
+		<endStationID>37</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>17</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='33' group='0'>
+		<name></name>
+		<startStationID>37</startStationID>
+		<endStationID>38</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>34</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='34' group='0'>
+		<name></name>
+		<startStationID>38</startStationID>
+		<endStationID>39</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>35</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='35' group='0'>
+		<name></name>
+		<startStationID>39</startStationID>
+		<endStationID>40</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>15</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='36' group='0'>
+		<name></name>
+		<startStationID>40</startStationID>
+		<endStationID>22</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>16</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Homburg–Neunkirchen -->
+
+	<Path id='37' group='1'>
+		<name></name>
+		<startStationID>39</startStationID>
+		<endStationID>35</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>14</length>
+		<maxSpeed>130</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Saarstrecke (Saarbrücken-Trier) -->
+
+	<Path id='40' group='0'>
+		<name></name>
+		<startStationID>22</startStationID>
+		<endStationID>42</endStationID>
+		<twistingFactor>0.45</twistingFactor>
+		<length>24</length>
+		<maxSpeed>110</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='41' group='0'>
+		<name></name>
+		<startStationID>42</startStationID>
+		<endStationID>43</endStationID>
+		<twistingFactor>0.45</twistingFactor>
+		<length>27</length>
+		<maxSpeed>110</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='42' group='0'>
+		<name></name>
+		<startStationID>43</startStationID>
+		<endStationID>44</endStationID>
+		<twistingFactor>0.45</twistingFactor>
+		<length>32</length>
+		<maxSpeed>110</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='43' group='0'>
+		<name></name>
+		<startStationID>44</startStationID>
+		<endStationID>23</endStationID>
+		<twistingFactor>0.45</twistingFactor>
+		<length>16</length>
+		<maxSpeed>110</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Moselstrecke (Koblenz-Trier) -->
+
+	<Path id='44' group='0'>
+		<name></name>
+		<startStationID>4</startStationID>
+		<endStationID>46</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>60</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='45' group='0'>
+		<name></name>
+		<startStationID>46</startStationID>
+		<endStationID>45</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>17</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='46' group='0'>
+		<name></name>
+		<startStationID>45</startStationID>
+		<endStationID>23</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>17</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Eifelstrecke (Köln-Trier) -->
+
+	<Path id='47' group='1'>
+		<name></name>
+		<startStationID>0</startStationID>
+		<endStationID>50</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>22</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='48' group='1'>
+		<name></name>
+		<startStationID>50</startStationID>
+		<endStationID>49</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>29</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='49' group='1'>
+		<name></name>
+		<startStationID>49</startStationID>
+		<endStationID>48</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>71</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='50' group='1'>
+		<name></name>
+		<startStationID>48</startStationID>
+		<endStationID>47</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>30</length>
+		<maxSpeed>90</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='51' group='1'>
+		<name></name>
+		<startStationID>47</startStationID>
+		<endStationID>23</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>37</length>
+		<maxSpeed>80</maxSpeed>
+		<electrified></electrified>
+	</Path>
+	
+	
+	<!-- Lahntalbahn (Koblenz-Wetzlar) -->
+
+	<Path id='52' group='1'>
+		<name></name>
+		<startStationID>4</startStationID>
+		<endStationID>54</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>25</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='53' group='1'>
+		<name></name>
+		<startStationID>54</startStationID>
+		<endStationID>53</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>26</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='54' group='1'>
+		<name></name>
+		<startStationID>53</startStationID>
+		<endStationID>52</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>29</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='55' group='1'>
+		<name></name>
+		<startStationID>52</startStationID>
+		<endStationID>51</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>23</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified></electrified>
+	</Path>
+	
+	
+	<!-- SFS Hannover-Würzburg (Abschnitt Kassel-Würzburg) -->
+
+	<Path id='56' group='0'>
+		<name></name>
+		<startStationID>26</startStationID>
+		<endStationID>25</endStationID>
+		<twistingFactor>0.05</twistingFactor>
+		<length>90</length>
+		<maxSpeed>280</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='57' group='0'>
+		<name></name>
+		<startStationID>25</startStationID>
+		<endStationID>75</endStationID>
+		<twistingFactor>0.05</twistingFactor>
+		<length>93</length>
+		<maxSpeed>280</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='83' group='0'>
+		<name></name>
+		<startStationID>75</startStationID>
+		<endStationID>24</endStationID>
+		<twistingFactor>0.05</twistingFactor>
+		<length>93</length>
+		<maxSpeed>280</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Dill-Strecke (Siegen-Gießen) -->
+
+	<Path id='58' group='1'>
+		<name></name>
+		<startStationID>55</startStationID>
+		<endStationID>57</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>26</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='59' group='1'>
+		<name></name>
+		<startStationID>57</startStationID>
+		<endStationID>56</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>12</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='60' group='1'>
+		<name></name>
+		<startStationID>56</startStationID>
+		<endStationID>51</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>23</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='61' group='1'>
+		<name></name>
+		<startStationID>51</startStationID>
+		<endStationID>30</endStationID>
+		<twistingFactor>0.6</twistingFactor>
+		<length>13</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Main-Weser-Bahn (Kassel-Frankfurt) -->
+
+	<Path id='62' group='0'>
+		<name></name>
+		<startStationID>26</startStationID>
+		<endStationID>66</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>14</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='63' group='0'>
+		<name></name>
+		<startStationID>66</startStationID>
+		<endStationID>65</endStationID>
+		<twistingFactor>0.5</twistingFactor>
+		<length>20</length>
+		<maxSpeed>110</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='64' group='0'>
+		<name></name>
+		<startStationID>65</startStationID>
+		<endStationID>64</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>28</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='65' group='0'>
+		<name></name>
+		<startStationID>64</startStationID>
+		<endStationID>63</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>27</length>
+		<maxSpeed>130</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='66' group='0'>
+		<name></name>
+		<startStationID>63</startStationID>
+		<endStationID>60</endStationID>
+		<twistingFactor>0.5</twistingFactor>
+		<length>15</length>
+		<maxSpeed>130</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='67' group='0'>
+		<name></name>
+		<startStationID>60</startStationID>
+		<endStationID>59</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>8</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='68' group='0'>
+		<name></name>
+		<startStationID>59</startStationID>
+		<endStationID>30</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>22</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='69' group='0'>
+		<name></name>
+		<startStationID>30</startStationID>
+		<endStationID>61</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>28</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='70' group='0'>
+		<name></name>
+		<startStationID>61</startStationID>
+		<endStationID>58</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>4</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='71' group='0'>
+		<name></name>
+		<startStationID>58</startStationID>
+		<endStationID>62</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>18</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='72' group='0'>
+		<name></name>
+		<startStationID>62</startStationID>
+		<endStationID>9</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>18</length>
+		<maxSpeed>150</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Südmainische Strecke (Abschnitt Frankfurt-Hanau) -->
+
+	<Path id='73' group='0'>
+		<name></name>
+		<startStationID>9</startStationID>
+		<endStationID>67</endStationID>
+		<twistingFactor>0.5</twistingFactor>
+		<length>10</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='74' group='0'>
+		<name></name>
+		<startStationID>67</startStationID>
+		<endStationID>68</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>13</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Kinzigtalbahn (Hessen) (Fulda-Hanau) -->
+
+	<Path id='75' group='0'>
+		<name></name>
+		<startStationID>25</startStationID>
+		<endStationID>72</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>18</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='76' group='0'>
+		<name></name>
+		<startStationID>72</startStationID>
+		<endStationID>71</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>10</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='77' group='0'>
+		<name></name>
+		<startStationID>71</startStationID>
+		<endStationID>70</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>20</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='78' group='0'>
+		<name></name>
+		<startStationID>70</startStationID>
+		<endStationID>69</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>11</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='79' group='0'>
+		<name></name>
+		<startStationID>69</startStationID>
+		<endStationID>68</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>21</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Siegstrecke (Siegburg/Bonn-Siegen) -->
+
+	<Path id='80' group='0'>
+		<name></name>
+		<startStationID>12</startStationID>
+		<endStationID>74</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>19</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='81' group='0'>
+		<name></name>
+		<startStationID>74</startStationID>
+		<endStationID>73</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>40</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='82' group='0'>
+		<name></name>
+		<startStationID>73</startStationID>
+		<endStationID>55</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>26</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Main-Spessart-Bahn (Abschnitt Hanau-Gemünden (Main) (einschließlich)) -->
+
+	<Path id='84' group='0'>
+		<name></name>
+		<startStationID>68</startStationID>
+		<endStationID>76</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>23</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='85' group='0'>
+		<name></name>
+		<startStationID>76</startStationID>
+		<endStationID>77</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>38</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='111' group='1'>
+		<name></name>
+		<startStationID>77</startStationID>
+		<endStationID>98</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>14</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	<!-- Abzweig auf die SFS nach Würzburg (Natenbacher Kurve) -->
+	<Path id='86' group='0'>
+		<name></name>
+		<startStationID>77</startStationID>
+		<endStationID>75</endStationID>
+		<twistingFactor>0.45</twistingFactor>
+		<length>14</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Nürnberg-Bamberg -->
+
+	<Path id='87' group='0'>
+		<name></name>
+		<startStationID>28</startStationID>
+		<endStationID>78</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>8</length>
+		<maxSpeed>90</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='114' group='0'>
+		<name></name>
+		<startStationID>78</startStationID>
+		<endStationID>94</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>16</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='115' group='0'>
+		<name></name>
+		<startStationID>94</startStationID>
+		<endStationID>95</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>42</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Bamberg-Nürnberg -->
+
+	<Path id='88' group='0'>
+		<name></name>
+		<startStationID>78</startStationID>
+		<endStationID>79</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>33</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='89' group='0'>
+		<name></name>
+		<startStationID>79</startStationID>
+		<endStationID>80</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>29</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='90' group='0'>
+		<name></name>
+		<startStationID>80</startStationID>
+		<endStationID>24</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>33</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Duisburg-Dortmund -->
+
+	<Path id='92' group='0'>
+		<name></name>
+		<startStationID>81</startStationID>
+		<endStationID>82</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>19</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='93' group='0'>
+		<name></name>
+		<startStationID>82</startStationID>
+		<endStationID>83</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>17</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='94' group='0'>
+		<name></name>
+		<startStationID>83</startStationID>
+		<endStationID>27</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>19</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Dortmund-Hamm -->
+
+	<Path id='95' group='0'>
+		<name></name>
+		<startStationID>27</startStationID>
+		<endStationID>84</endStationID>
+		<twistingFactor>0.2</twistingFactor>
+		<length>19</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Wuppertal-Köln -->
+
+	<Path id='96' group='0'>
+		<name></name>
+		<startStationID>86</startStationID>
+		<endStationID>85</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>18</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='97' group='0'>
+		<name></name>
+		<startStationID>85</startStationID>
+		<endStationID>13</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>27</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Dortmund-Wupertal -->
+
+	<Path id='98' group='0'>
+		<name></name>
+		<startStationID>27</startStationID>
+		<endStationID>87</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>31</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='99' group='0'>
+		<name></name>
+		<startStationID>87</startStationID>
+		<endStationID>86</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>26</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Wuppertal-Düsseldorf -->
+
+	<Path id='100' group='1'>
+		<name></name>
+		<startStationID>86</startStationID>
+		<endStationID>14</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>27</length>
+		<maxSpeed>130</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Hagen-Hamm -->
+
+	<Path id='101' group='0'>
+		<name></name>
+		<startStationID>87</startStationID>
+		<endStationID>84</endStationID>
+		<twistingFactor>0.3</twistingFactor>
+		<length>48</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Obere Ruhrtalbahn ((Hagen-)Schwerte-Warburg) -->
+
+	<Path id='102' group='1'>
+		<name></name>
+		<startStationID>87</startStationID>
+		<endStationID>89</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>55</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='103' group='1'>
+		<name></name>
+		<startStationID>89</startStationID>
+		<endStationID>91</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>35</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='104' group='1'>
+		<name></name>
+		<startStationID>91</startStationID>
+		<endStationID>92</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>34</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+
+	<Path id='105' group='1'>
+		<name></name>
+		<startStationID>92</startStationID>
+		<endStationID>88</endStationID>
+		<twistingFactor>0.4</twistingFactor>
+		<length>25</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified></electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Warburg-Kassel -->
+
+	<Path id='106' group='0'>
+		<name></name>
+		<startStationID>88</startStationID>
+		<endStationID>26</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>52</length>
+		<maxSpeed>140</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Hamm-Warburg -->
+
+	<Path id='107' group='0'>
+		<name></name>
+		<startStationID>84</startStationID>
+		<endStationID>90</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>25</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='108' group='0'>
+		<name></name>
+		<startStationID>90</startStationID>
+		<endStationID>29</endStationID>
+		<twistingFactor>0.25</twistingFactor>
+		<length>52</length>
+		<maxSpeed>200</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='109' group='0'>
+		<name></name>
+		<startStationID>29</startStationID>
+		<endStationID>93</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>18</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='110' group='0'>
+		<name></name>
+		<startStationID>93</startStationID>
+		<endStationID>88</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>37</length>
+		<maxSpeed>120</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Gemünden-Bad Kissing -->
+
+	<Path id='112' group='1'>
+		<name></name>
+		<startStationID>98</startStationID>
+		<endStationID>97</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>50</length>
+		<maxSpeed>80</maxSpeed>
+		<electrified></electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Schweinfurt-Ebenhausen-Bad Kissing -->
+
+	<Path id='113' group='1'>
+		<name></name>
+		<startStationID>96</startStationID>
+		<endStationID>97</endStationID>
+		<twistingFactor>0.45</twistingFactor>
+		<length>23</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified></electrified>
+	</Path>
+	
+	
+	<!-- Bahnstrecke Bamberg-Würzburg -->
+
+	<Path id='116' group='0'>
+		<name></name>
+		<startStationID>95</startStationID>
+		<endStationID>96</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>57</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+
+	<Path id='117' group='0'>
+		<name></name>
+		<startStationID>96</startStationID>
+		<endStationID>24</endStationID>
+		<twistingFactor>0.35</twistingFactor>
+		<length>38</length>
+		<maxSpeed>160</maxSpeed>
+		<electrified>1</electrified>
+	</Path>
+</Paths>

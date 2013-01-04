@@ -16,9 +16,6 @@ class Main extends \Core\Main {
 		parent::__construct();
 		
 		if(\Config\INSTALLED) {
-			// Daten-Objekte einbinden
-			Data::loadAllDataFiles();
-
 			// Session šffnen
 			session_start();
 		}

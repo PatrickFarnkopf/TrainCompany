@@ -73,5 +73,14 @@ class Classname {
 	public function getNamespaceAsString() {
 		return implode('\\', $this->namespace);
 	}
+	
+	/**
+	* Gibt die Reflection-Class für diesen Klassennamen zurück.
+	*
+	* @return \ReflectionClass
+	**/
+	public function getReflectionClass() {
+		return new \ReflectionClass((string)$this);
+	}
 }
 ?>

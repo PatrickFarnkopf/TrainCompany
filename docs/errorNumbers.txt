@@ -65,14 +65,18 @@ lib/Core/Header.class.php:
 lib/Core/Module/Script.class.php:
 1140: Es muss genau ein „Script“-Block in jeder Modul-Skript-Datei vorkommen.
 
+lib/Core/Data.class.php:
+1150: Ein Daten-Objekt mit dieser ID ist bereits gespeichert.
+1151: Die angeforderte Daten-Grupp ist nicht bekannt.
+1152: Kein Daten-Objekt mit dieser ID vorhanden.
+1153: Das angeforderte Daten-Objekt mit der ID „…“ konnte nicht wiederhergestellt werden.
+1154: Das …-te Element in der „…“-Datei hat keinen festgelegten Namen.
+
+lib/Core/XMLElement.class.php:
+1160: Die angeforderte XML-Datei konnte nicht geladen werden.
+
 
 +++ Spiel-Klassen-Fehlermeldungen +++
-
-lib/Game/Data.class.php:
-2011: Ein Daten-Objekt mit dieser ID ist bereits gespeichert.
-2012: Diese Daten-Gruppe ist nicht bekannt.
-2013: Kein Daten-Objekt mit dieser ID vorhanden.
-2014: Beim Aufwachen hat TrainCompany das erwartete Daten-Objekt vergessen.
 
 lib/Game/Path.class.php:
 2020: Es existiert keine Strecke zwischen den beiden Bahnhöfen.
