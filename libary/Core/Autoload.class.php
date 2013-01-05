@@ -9,7 +9,6 @@
 namespace Core;
 
 class Autoload {
-	const MAIN_INSTANCE_ALIAS = 'i';
 	const CLASS_DIR = 'libary/';
 	
 	private $classname;
@@ -61,7 +60,7 @@ class Autoload {
 				$functionName = $current.'_exists';
 				
 				// Ist in dieser Datei auch die erwartete Klasse enthalten?
-				if(!$functionName($this->classname->getFullClassname()))
+				if(!$functionName($this->classname->getFullClassname(), false))
 					throw new \Exception('Für die/das Klasse/Interface/Trait „'.$this->classname->getFullClassname().'“ existiert zwar eine Datei, in dieser befindet sich aber nicht die/das erwartete Klasse/Interface/Trait.', 1081);
 				
 				return;

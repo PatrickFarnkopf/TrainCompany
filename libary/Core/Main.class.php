@@ -38,7 +38,7 @@ abstract class Main {
 	**/
 	public static function startAll() {
 		// Instance šffnen
-		$instance = new static;
+		$instance = new static();
 		// Start-Methode aufrufen
 		$instance->start();
 	}

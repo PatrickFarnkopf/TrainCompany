@@ -27,8 +27,9 @@ class Module extends Cache {
 	* Startet eine Instanz der Modul-Klasse und schaut, was geladen werden muss.
 	*
 	* @param bool $showErrorModule - Soll bei einem nicht vorhandenen Modul statt eine Exception das 404-Module geöffnet werden? [optional]
+	* @param array $alwaysAllowed - Module, die in jeder Situation angefordert werden dürfen. Das Error- und das Install-Modul sind immer dabei.
 	**/
-	public function __construct($showErrorModule = true) {
+	public function __construct($showErrorModule = true, array $alwaysAllowed = array()) {
 		// Existiert bereits eine Modul-Hauptinstanz?
 		if(self::existMainInstance()) throw new \Exception('Es existiert bereits eine Modul-Hauptinstanz.', 1011);
 			
@@ -39,9 +40,9 @@ class Module extends Cache {
 		$this->setTemplateSet('main');
 	
 		// Welches Modul wurde angefordert?
-		if(\Config\INSTALLED)
-			$moduleNameString = isset($_GET[self::GET_NAME]) ? $_GET[self::GET_NAME] : self::START_MODULE;
-		else
+		$moduleNameString = isset($_GET[self::GET_NAME]) ? $_GET[self::GET_NAME] : self::START_MODULE;
+		// Nicht installiert?
+		if(!\Config\INSTALLED && !in_array($moduleNameString, $alwaysAllowed))
 			$moduleNameString = self::INSTALL_MODULE;
 		
 		do {

@@ -66,7 +66,7 @@ class Format {
     **/
     public static function string($string) {
     	// Sonderzeichen bitte nicht maskieren
-		return htmlspecialchars($string, ENT_COMPAT | ENT_HTML401, 'UTF-8', false);   
+		return htmlspecialchars($string, ENT_COMPAT | ENT_HTML5, 'UTF-8', false);   
     }
     
     /**

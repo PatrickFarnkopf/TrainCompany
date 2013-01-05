@@ -101,7 +101,7 @@ class MySQL extends Cache {
     **/
     public function queryObject($sql) {
         $queryResource = mysql_query($sql, $this->resource);
-        if($queryResource === false) throw new \Core\MySQL\Exception($this->errorString(),$this->errorNumber());
+        if($queryResource === false) throw new MySQL\Exception($this->errorString(),$this->errorNumber());
         
         return new MySQL\Query($this, $queryResource);
     }

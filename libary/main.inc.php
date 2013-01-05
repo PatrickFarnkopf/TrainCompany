@@ -51,7 +51,6 @@ function get_exception_handler() {
 **/
 require_once ROOT_PATH.'libary/Core/functions.php';
 require_once ROOT_PATH.'libary/Core/Classname.class.php';
-require_once ROOT_PATH.'libary/Core/Alias.class.php';
 require_once ROOT_PATH.'libary/Core/Autoload.class.php';
 
 /**
