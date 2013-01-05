@@ -1,4 +1,4 @@
-<? ^^^('currentTask',array('task'=>!!!task!!!)) ?>
+<? ^^^('currentTask',['task'=>!!!task!!!]) ?>
 <fieldset class="RightBox">
 	<legend>Streckenwahl</legend>
 	Auf dieser Karte musst du die Strecke deines Zuges wählen.
@@ -17,10 +17,10 @@
 </fieldset>
 
 <div class="Center">
-	<? ^^^('mapView',array('mapContent'=>!!!svgMap!!!)) ?>
+	<? ^^^('mapView',['mapContent'=>!!!svgMap!!!]) ?>
 </div>
 
-<button class="Left" onclick="window.location.href='<?= >>>('Game_Trains_Select',array('taskID'=>!!!taskID!!!)) ?>'">
+<button class="Left" onclick="window.location.href='<?= >>>('Game_Trains_Select',['taskID'=>!!!taskID!!!]) ?>'">
 	&laquo; Zurück
 </button>
 <button class="Right" onclick="sendStations('<?= >>>(NULL,!!!mapSendOptions!!!) ?>')">

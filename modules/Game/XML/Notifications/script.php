@@ -9,7 +9,7 @@ script {
 	public function __construct() {
 		$options = $this->mi()->getVarCache('options');
 		
-		$newNotifications = array();
+		$newNotifications = [];
 		foreach($this->mi()->getVarCache('currentUserNotifications') as $notificationID => $currentNotification) {
 			if($currentNotification->isSended()) continue;
 			

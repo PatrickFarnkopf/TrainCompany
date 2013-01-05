@@ -11,7 +11,7 @@ namespace Core;
 class Alias {
 	const TMP_FILE = 'cache/alias.tmp.php';
 
-	private static $aliasCallback = array();
+	private static $aliasCallback = [];
 
 	/**
 	* Macht einen Alias für eine Klasse. Unterschied zu class_alias(): Er lässt sich nachvollziehen

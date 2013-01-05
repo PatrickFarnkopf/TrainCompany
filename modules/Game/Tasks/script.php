@@ -38,7 +38,7 @@ script {
 	private function startApplication() {
 		$taskManager = \Game\Task\i::Manager();
 	
-		$applicationArray = isset($_POST['takeTask']) && is_array($_POST['takeTask']) ? $_POST['takeTask'] : array();
+		$applicationArray = isset($_POST['takeTask']) && is_array($_POST['takeTask']) ? $_POST['takeTask'] : [];
 		$applicationIDs = array_keys($applicationArray);
 		
 		if(!isset($applicationIDs[0]))
@@ -55,6 +55,6 @@ script {
 		$taskApplication = new \Game\Task\Application();
 		$this->si()->addElementToVarCache('taskApplications',$taskApplication, $taskID);
 		
-		\Core\Module::goToModule('game_trains_select',array('taskID'=>$taskID));
+		\Core\Module::goToModule('Game_Trains_Select',['taskID'=>$taskID]);
 	}
 }

@@ -9,8 +9,7 @@ namespace Core\MySQL;
 
 class Query {
 	private $mysqlInstance, $resource;
-	private $lastID = false;
-	private $affectedRows = false;
+	private $lastID = false, $affectedRows = false;
 	
 	/**
 	* Öffnet eine neue Instanz von MySQLQuery

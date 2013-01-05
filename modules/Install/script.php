@@ -59,7 +59,7 @@ script {
 		
 			\Core\CacheFile::clearCache();
 		
-			\Core\Module::goToModule(NULL, array('installationSuccessfull'=>true));
+			\Core\Module::goToModule(NULL, ['installationSuccessfull'=>true]);
 		} catch(\HumanException $exception) {
 			$this->mi()->addVarCache('showError', true);
 			$this->mi()->addVarCache('errorString', $exception->getMessage());

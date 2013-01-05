@@ -16,7 +16,7 @@ class ExpiredTasks implements \Daemon\Task {
 	public function __construct() {
 		\Game\Task\i::Manager()->loadExpired();
 		
-		if (\Game\Task\i::Manager()->countObjects() > 0)
+		if (count(\Game\Task\i::Manager()) > 0)
 			$this->hasToRun = true;
 	}
 

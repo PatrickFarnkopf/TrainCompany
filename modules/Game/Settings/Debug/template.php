@@ -5,7 +5,7 @@
 			<li>Anzahl der Dateien im Cache: <em><?= Format::number(!!!cacheInfo!!!['elementCount']) ?></em></li>
 			<li>Größe des Caches: <em><?= Format::size(!!!cacheInfo!!!['size']) ?></em></li>
 		</ul>
-		<form method="post" action="<?= >>>(NULL,array('clearCache'=>true)) ?>">
+		<form method="post" action="<?= >>>(NULL,['clearCache'=>true]) ?>">
 			<input type="submit" value="Cache leeren">
 		</form>
 	</fieldset>
@@ -21,14 +21,14 @@
 <fieldset class="RightBox">
 	<legend>Funktionen</legend>
 	<ul>
-		<li><a href="<?= >>>(NULL, array('plops'=>'add')) ?>">+500k Plops</a></li>
-		<li><a href="<?= >>>(NULL, array('plops'=>'sub')) ?>">-500k Plops</a></li>
-		<li><a href="<?= >>>(NULL, array('trainUnits'=>'unlock')) ?>">Zugeinheiten entsperren</a></li>
-		<li><a href="<?= >>>(NULL, array('applications'=>'revoke')) ?>">Bewerbungen zurückziehen</a></li>
-		<li><a href="<?= >>>(NULL, array('notification'=>'new')) ?>">Neue Test-Benachrichtigung</a></li>
-		<li><a href="<?= >>>(NULL, array('tasks'=>'new')) ?>">Neue Test-Ausschreibungen</a></li>
-		<li><a href="<?= >>>(NULL, array('tasks'=>'removeAll')) ?>">Alle Ausschreibungen löschen</a></li>
-		<li><a href="<?= >>>(NULL, array('taskJourneys'=>'removeAll')) ?>">Alle aktiven Ausschreibungen löschen</a></li>
+		<li><a href="<?= >>>(NULL, ['plops'=>'add']) ?>">+500k Plops</a></li>
+		<li><a href="<?= >>>(NULL, ['plops'=>'sub']) ?>">-500k Plops</a></li>
+		<li><a href="<?= >>>(NULL, ['trainUnits'=>'unlock']) ?>">Zugeinheiten entsperren</a></li>
+		<li><a href="<?= >>>(NULL, ['applications'=>'revoke']) ?>">Bewerbungen zurückziehen</a></li>
+		<li><a href="<?= >>>(NULL, ['notification'=>'new']) ?>">Neue Test-Benachrichtigung</a></li>
+		<li><a href="<?= >>>(NULL, ['tasks'=>'new']) ?>">Neue Test-Ausschreibungen</a></li>
+		<li><a href="<?= >>>(NULL, ['tasks'=>'removeAll']) ?>">Alle Ausschreibungen löschen</a></li>
+		<li><a href="<?= >>>(NULL, ['taskJourneys'=>'removeAll']) ?>">Alle aktiven Ausschreibungen löschen</a></li>
 	</ul>
 </fieldset>
 

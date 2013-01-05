@@ -16,7 +16,7 @@ abstract class Compiler {
 	* @param string $fileName - Zum ROOT_PATH relativer Pfad zur Datei
 	* @param array $vars - Variablen die dem Template mitgegeben werden sollen. [optional]
 	**/
-	public function __construct($fileName, array $vars = array()) {
+	public function __construct($fileName, array $vars = []) {
 		// Name der Datei zwischen speichern
 		$this->fileName = $fileName;
 	

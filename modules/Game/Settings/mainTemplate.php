@@ -16,7 +16,7 @@
 				<? if($settingLink == !!!currentModule!!!): ?>
 					&raquo;<?= Format::string($settingName) ?>&laquo;
 				<? else: ?>
-					<a href="<?= >>>($settingLink, array(),'groupList') ?>"><?= Format::string($settingName) ?></a>
+					<a href="<?= >>>($settingLink, [],'groupList') ?>"><?= Format::string($settingName) ?></a>
 				<? endif; ?>
 			</li>
 		<? endforeach; ?>

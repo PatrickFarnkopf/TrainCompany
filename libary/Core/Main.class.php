@@ -14,9 +14,9 @@ abstract class Main {
 	**/
 	public function __construct() {
 		// Callback für die Main-Instance-Klasse setzen
-		Autoload::registerBeforeCallback(array('Core\MainInstance', 'callback'));
+		Autoload::registerBeforeCallback(['Core\MainInstance', 'callback']);
 		// Callback für die Daten-Klassen-Erstellen
-		Autoload::registerAfterCallback(array('Core\Data', 'callback'));
+		Autoload::registerAfterCallback(['Core\Data', 'callback']);
 	
 		// Zeitzone setzen
 		date_default_timezone_set(\Config\TIME_ZONE);
@@ -29,7 +29,7 @@ abstract class Main {
 			// Verbindung aufbauen
 			MySQL::connectWithConfigData();
 			// Escape-String-Alias erstellen
-			Alias::forFunction(array(i::MySQL(), 'escapeString'), 'escapeMySQL');
+			Alias::forFunction([i::MySQL(), 'escapeString'], 'escapeMySQL');
 		}
 	}
 	

@@ -4,7 +4,7 @@
 	Bevor Daten eingegeben werden können, müssen zuerst alle Vorraussetzungen erfüllt werden.
 </fieldset>
 
-<form method="post" action="<?= >>>(NULL, array('writeConfiguration'=>true)) ?>">
+<form method="post" action="<?= >>>(NULL, ['writeConfiguration'=>true]) ?>">
 	<fieldset class="RightBox">
 		<legend>MySQL-Daten</legend>
 		<label for="mysqlServer">Servername:</label>

@@ -6,5 +6,5 @@
 </fieldset>
 
 <div class="Center">
-	<? ^^^('mapView',array('mapContent'=>!!!svgMap!!!)) ?>
+	<? ^^^('mapView',['mapContent'=>!!!svgMap!!!]) ?>
 </div>

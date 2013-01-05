@@ -53,11 +53,11 @@ script {
 	* Fügt eine neue Test-Benachrichtigung dem User hinzu (DEBUG-Funktion)
 	**/
 	private function newNotification() {
-		$sampleNotifications = array();
-		$sampleNotifications[] = array('title'=>'Zug explodiert','text'=>'Einer deiner Züge ist explodiert, er musste ersetzt werden.','moneySub'=>100000, 'moneyAdd'=>0);
-		$sampleNotifications[] = array('title'=>'Zug verspätet','text'=>'Ein betrunkener Fahrgast randaliert. Dein Zug hat jetzt 10 Minuten Verspätung.','moneySub'=>5000, 'moneyAdd'=>0);
-		$sampleNotifications[] = array('title'=>'Zug angekommen','text'=>'Dein Zug ist in Köln Hbf angekommen.','moneySub'=>0, 'moneyAdd'=>35000);
-		$sampleNotifications[] = array('title'=>'Kein Geld','text'=>'Dein Konto ist leer. Du kannst keine weiteren Aktionen durchführen.','moneySub'=>0, 'moneyAdd'=>0);
+		$sampleNotifications = [];
+		$sampleNotifications[] = ['title'=>'Zug explodiert','text'=>'Einer deiner Züge ist explodiert, er musste ersetzt werden.','moneySub'=>100000, 'moneyAdd'=>0];
+		$sampleNotifications[] = ['title'=>'Zug verspätet','text'=>'Ein betrunkener Fahrgast randaliert. Dein Zug hat jetzt 10 Minuten Verspätung.','moneySub'=>5000, 'moneyAdd'=>0];
+		$sampleNotifications[] = ['title'=>'Zug angekommen','text'=>'Dein Zug ist in Köln Hbf angekommen.','moneySub'=>0, 'moneyAdd'=>35000];
+		$sampleNotifications[] = ['title'=>'Kein Geld','text'=>'Dein Konto ist leer. Du kannst keine weiteren Aktionen durchführen.','moneySub'=>0, 'moneyAdd'=>0];
 		
 		$notificationID = mt_rand(0,count($sampleNotifications)-1);
 		$notification = new \Game\Notification($sampleNotifications[$notificationID]['title'],$sampleNotifications[$notificationID]['text'],$sampleNotifications[$notificationID]['moneyAdd'],$sampleNotifications[$notificationID]['moneySub']);
@@ -71,11 +71,11 @@ script {
 	private function newTasks() {
 		$taskManager = \Game\Task\i::Manager();
 	
-		$sampleTasks = array();
-		$sampleTasks[] = array('title'=>'RE6 von Düsseldorf nach Hamm','description'=>'Der RE6 muss von Düsseldorf nach Hamm gebracht werden. Die Strecke ist stark ausgelastet.','plops'=>125000, 'type'=>\Game\Task::WITH_APPLICATION,'stations'=>array(14,81,82,83,27,84),'neededCapacity'=>array('passengers'=>0));
-		$sampleTasks[] = array('title'=>'RE7 von Mannheim nach Saarbrücken','description'=>'Der RE7 fährt nach Saarbrücken und ist nicht besonders ausgelastet.','plops'=>100000, 'type'=>\Game\Task::WITH_APPLICATION,'stations'=>array(15,38,39,22),'neededCapacity'=>array('passengers'=>0));
-		$sampleTasks[] = array('title'=>'Güterzug von Saarbrücken nach Paderborn','description'=>'Die Autos müssen sicher nach Paderborn gebracht werden.','plops'=>200000, 'type'=>\Game\Task::NO_APPLICATION,'stations'=>array(22,29),'neededCapacity'=>array('cars'=>80));
-		$sampleTasks[] = array('title'=>'Güterzug von Frankfurt nach Kassel','description'=>'Du musst eine Ladung Holz nach Kassel bringen.','plops'=>200000, 'type'=>\Game\Task::NO_APPLICATION,'stations'=>array(9,26),'neededCapacity'=>array('wood'=>2000));
+		$sampleTasks = [];
+		$sampleTasks[] = ['title'=>'RE6 von Düsseldorf nach Hamm','description'=>'Der RE6 muss von Düsseldorf nach Hamm gebracht werden. Die Strecke ist stark ausgelastet.','plops'=>125000, 'type'=>\Game\Task::WITH_APPLICATION,'stations'=>[14,81,82,83,27,84],'neededCapacity'=>['passengers'=>0]];
+		$sampleTasks[] = ['title'=>'RE7 von Mannheim nach Saarbrücken','description'=>'Der RE7 fährt nach Saarbrücken und ist nicht besonders ausgelastet.','plops'=>100000, 'type'=>\Game\Task::WITH_APPLICATION,'stations'=>[15,38,39,22],'neededCapacity'=>['passengers'=>0]];
+		$sampleTasks[] = ['title'=>'Güterzug von Saarbrücken nach Paderborn','description'=>'Die Autos müssen sicher nach Paderborn gebracht werden.','plops'=>200000, 'type'=>\Game\Task::NO_APPLICATION,'stations'=>[22,29],'neededCapacity'=>['cars'=>80]];
+		$sampleTasks[] = ['title'=>'Güterzug von Frankfurt nach Kassel','description'=>'Du musst eine Ladung Holz nach Kassel bringen.','plops'=>200000, 'type'=>\Game\Task::NO_APPLICATION,'stations'=>[9,26],'neededCapacity'=>['wood'=>2000]];
 		
 		foreach($sampleTasks as $currentTask) {
 			$task = new \Game\Task($currentTask['title'],$currentTask['description'],$currentTask['plops'],$currentTask['type']);

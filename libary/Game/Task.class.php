@@ -14,9 +14,9 @@ class Task {
 	const WITH_APPLICATION = 1;
 
 	private $title,$description,$plops,$type;
-	private $neededCapacity = array();
-	private $stations = array();
-	private $applications = array();
+	private $neededCapacity = [];
+	private $stations = [];
+	private $applications = [];
 	private $endTime = 0;
 	
 	/**
@@ -137,7 +137,7 @@ class Task {
 	* Alle Bewerbungen löschen.
 	**/
 	public function removeAllApplications() {
-		$this->applications = array();
+		$this->applications = [];
 	}
 	
 	/**
@@ -149,8 +149,8 @@ class Task {
 		$capacities = array_keys($this->getNeededCapacity());
 		
 		$applications = $this->applications;
-		$fullTimes = array();
-		$fullCapacity = array();
+		$fullTimes = [];
+		$fullCapacity = [];
 		
 		// Die Werte für alle Bewerbungen bekommen
 		foreach($applications as $userID => $currentApplication) {
@@ -169,7 +169,7 @@ class Task {
 		$fullCapacityPlaces = array_flip(array_keys($fullCapacity));
 			
 		// Die Gesamt-Plätze der User ermitteln
-		$places = array();
+		$places = [];
 		foreach(array_keys($applications) as $userID) {
 			$capacityPlace = $fullCapacityPlaces[$userID];
 			$timePlace = $fullTimePlaces[$userID];
@@ -185,7 +185,7 @@ class Task {
 		
 		$bestApplication = $applications[$bestUserID];
 		
-		return array('application'=>$bestApplication, 'user'=>$bestUser);
+		return ['application'=>$bestApplication, 'user'=>$bestUser];
 	}
 	
 	/**

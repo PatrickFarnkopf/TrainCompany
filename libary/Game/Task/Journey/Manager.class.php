@@ -35,7 +35,7 @@ class Manager extends \Core\Manager {
 	* @return array - Content-Array
 	**/
     protected function getContentArrayForObject($object) {
-	    $contentArray = array();
+	    $contentArray = [];
 		$contentArray['object'] = serialize($object);
 		$contentArray['nextStepTime'] = $object->getNextStepTime();
 		

@@ -29,14 +29,14 @@
 				<? if($groupID == !!!currentUnitGroupID!!!): ?>
 					&raquo;<?= Format::string($currentTrainUnitGroup->getName()) ?>&laquo;
 				<? else: ?>
-					<a href="<?= >>>(NULL, array('groupID' => $groupID),'groupList') ?>"><?= Format::string($currentTrainUnitGroup->getName()) ?></a>
+					<a href="<?= >>>(NULL, ['groupID' => $groupID],'groupList') ?>"><?= Format::string($currentTrainUnitGroup->getName()) ?></a>
 				<? endif; ?>
 			</li>
 		<? endforeach; ?>
 	</ul>
 </div>
 
-<form method="post" name="trainList" action="<?= >>>(NULL, array('makeAction'=>true,'groupID' => !!!currentUnitGroupID!!!)) ?>">
+<form method="post" name="trainList" action="<?= >>>(NULL, ['makeAction'=>true,'groupID' => !!!currentUnitGroupID!!!]) ?>">
 	<table class="OverviewTable">
 		<tr>
 			<th width="180">Bestandteile</th>
@@ -52,7 +52,7 @@
 			<? $i = 1 ?>
 			<? foreach(!!!trainUnits!!! as $key=>$currentTrainUnit): ?>
 				<? $i ++ ?>
-				<? ^^^('currentTrainUnit',array('tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key,'splitUpOptions'=>array('splitUp'=>true,'trainUnit'=>$key,'groupID'=>!!!currentUnitGroupID!!!), 'showSalePrice'=>true)) ?>
+				<? ^^^('currentTrainUnit',['tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key,'splitUpOptions'=>['splitUp'=>true,'trainUnit'=>$key,'groupID'=>!!!currentUnitGroupID!!!], 'showSalePrice'=>true]) ?>
 			<? endforeach; ?>
 		<? else: ?>
 			<tr>

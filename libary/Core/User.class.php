@@ -16,11 +16,10 @@ class User extends Cache {
 	const NAME_MAX_LENGTH = 15;
 	const NAME_MATCH = '/^[a-zA-Z0-9-_.]+$/';
 		
-	protected $dataArray;
-	protected $saveInDB = array();
+	protected $dataArray, $saveInDB = [];
 	
 	protected $userID, $userName, $userPass, $userMail;
-	protected $notifications = array();
+	protected $notifications = [];
 	
 	protected $tableActions;
 	
@@ -33,7 +32,7 @@ class User extends Cache {
 		if (static::existInstanceFor($userID)) throw new \Exception('Es ist bereits eine Instanz für diesen User vorhanden.', 1030);
 		
 		$this->tableActions = i::MySQL()->tableActions('user');
-		$mysqlObject = $this->tableActions->select(array('id'=>$userID));
+		$mysqlObject = $this->tableActions->select(['id'=>$userID]);
 		
 		// Der User existiert gar nicht?
 		if($mysqlObject->numRows() != 1)
@@ -45,7 +44,7 @@ class User extends Cache {
 		$this->userPass = $this->dataArray['pass'];
 		$this->userMail = $this->dataArray['mail'];
 		$this->notifications = unserialize($this->dataArray['notifications']);
-		if(!is_array($this->notifications)) $this->notifications = array();
+		if(!is_array($this->notifications)) $this->notifications = [];
 	}
 	
 	/**
@@ -57,7 +56,7 @@ class User extends Cache {
 		$this->saveInDB['mail'] = $this->userMail;
 		$this->saveInDB['notifications'] = serialize($this->notifications);
 		
-		$this->tableActions->update($this->saveInDB,array('id'=>$this->userID));
+		$this->tableActions->update($this->saveInDB,['id'=>$this->userID]);
 		
 		unset(static::$instances[$this->userID]);
 	}
@@ -217,14 +216,14 @@ class User extends Cache {
 	* @param array $moreInformations - Mehr Dinge, die geschrieben werden müssen.
 	* @return User - Die User-Klasse des neuen Nutzers
 	**/
-	public static function createNewUser($name, $firstPass, $secondPass, $mail, array $moreInformations = array()) {
+	public static function createNewUser($name, $firstPass, $secondPass, $mail, array $moreInformations = []) {
 		static::validateUserName($name);
 		static::validateUserPass($firstPass,$secondPass);
 		static::validateUserMail($mail);
 	
 		$passHash = static::hashUserPass($firstPass);
 		
-		$contentArray = array('name'=>$name,'pass'=>$passHash,'mail'=>$mail) + $moreInformations;
+		$contentArray = ['name'=>$name,'pass'=>$passHash,'mail'=>$mail] + $moreInformations;
 		$queryObject = i::MySQL()->tableActions('user')->insert($contentArray);
 		
 		return static::instanceFor($queryObject->getLastID());
@@ -237,7 +236,7 @@ class User extends Cache {
 	* @return bool - true = ja / false = nein
 	**/
 	public static function existUserName($userName) {
-		$queryObject = i::MySQL()->tableActions('user')->select(array('name'=>$userName));
+		$queryObject = i::MySQL()->tableActions('user')->select(['name'=>$userName]);
 		
 		return (bool) $queryObject->numRows();
 	}
@@ -249,7 +248,7 @@ class User extends Cache {
 	* @return bool - true = ja / false = nein
 	**/
 	public static function existUserMail($userMail) {
-		$queryObject = i::MySQL()->tableActions('user')->select(array('mail'=>$userMail));
+		$queryObject = i::MySQL()->tableActions('user')->select(['mail'=>$userMail]);
 		
 		return (bool) $queryObject->numRows();
 	}
@@ -265,7 +264,7 @@ class User extends Cache {
 	public static function loginUser($userName, $userPass, $noHash = false) {
 		if (!$noHash) $passHash = static::hashUserPass($userPass);
 		else $passHash = $userPass;
-		$queryObject = i::MySQL()->tableActions('user')->select(array(array('name'=>$userName,'mail'=>$userName),'pass'=>$passHash));
+		$queryObject = i::MySQL()->tableActions('user')->select([['name'=>$userName,'mail'=>$userName],'pass'=>$passHash]);
 		if ($queryObject->numRows() == 0)
 			throw new \HumanException('Der Login ist fehlgeschlagen. Überprüfe auch Groß- und Kleinschreibung des Passworts.', -1);		
 		

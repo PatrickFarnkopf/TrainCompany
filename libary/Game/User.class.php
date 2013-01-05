@@ -26,9 +26,9 @@ class User extends \Core\User {
 		$this->trainUnits = unserialize($this->dataArray['trainUnits']); 
 		$this->trainUnitGroups = unserialize($this->dataArray['trainUnitGroups']);
 		
-		if(!is_array($this->trainUnits)) $this->trainUnits = array();
+		if(!is_array($this->trainUnits)) $this->trainUnits = [];
 		if(!is_array($this->trainUnitGroups)) {
-			$this->trainUnitGroups = array();
+			$this->trainUnitGroups = [];
 			$this->addTrainUnitGroup(new Train\Unit\Group('Ungruppierte Züge'));
 			$this->addTrainUnitGroup(new Train\Unit\Group('Regionalverkehr'));
 			$this->addTrainUnitGroup(new Train\Unit\Group('Fernverkehr'));
@@ -101,7 +101,7 @@ class User extends \Core\User {
 		if ($groupID === false) return $this->trainUnits;
 			
 		$trainUnitIDs = $this->trainUnitGroups[$groupID]->listIDs();
-		$trainUnits = array();
+		$trainUnits = [];
 		foreach($trainUnitIDs as $currentID) $trainUnits[$currentID] = $this->trainUnits[$currentID];
 		
 		return $trainUnits;
@@ -193,8 +193,8 @@ class User extends \Core\User {
 	* @param array $moreInformations - Mehr Dinge, die geschrieben werden müssen.
 	* @return User - Die User-Klasse des neuen Nutzers
 	**/
-	public static function createNewUser($name, $firstPass, $secondPass, $mail, array $moreInformations = array()) {
-		$moreInformations = array('plops'=>static::START_PLOPS) + $moreInformations;
+	public static function createNewUser($name, $firstPass, $secondPass, $mail, array $moreInformations = []) {
+		$moreInformations = ['plops'=>static::START_PLOPS] + $moreInformations;
 		
 		return parent::createNewUser($name, $firstPass, $secondPass, $mail, $moreInformations);
 	}

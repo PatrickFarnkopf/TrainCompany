@@ -22,7 +22,7 @@ script {
 		$this->task = $taskManager->existObjectForID($this->taskID) ? $taskManager->getObjectForID($this->taskID) : false;
 		
 		// Bewerbung laden
-		$taskApplicationList = $this->si()->issetVarCache('taskApplications') ? $this->si()->getVarCache('taskApplications') : array();
+		$taskApplicationList = $this->si()->issetVarCache('taskApplications') ? $this->si()->getVarCache('taskApplications') : [];
 		$this->taskApplication = isset($taskApplicationList[$this->taskID]) ? $taskApplicationList[$this->taskID] : false;
 		
 		// Bewerbung überprüfen
@@ -40,7 +40,7 @@ script {
 		$this->mi()->addVarCache('trainUnitGroups', $trainUnitGroups);
 		
 		// Die Zugeinheiten speichern
-		$trainUnits = array();
+		$trainUnits = [];
 		foreach($trainUnitGroups as $groupID => $currentGroup)
 			$trainUnits[$groupID] = $this->ui()->listTrainUnits($groupID);
 		$this->mi()->addVarCache('trainUnits', $trainUnits);
@@ -63,13 +63,13 @@ script {
 	private function checkApplication() {
 		// Die Ausschreibung nicht (mehr) vorhanden?
 		if($this->task === false)
-			\Core\Module::goToModule('Game_Tasks', array('currentTask'=>'invalid'));
+			\Core\Module::goToModule('Game_Tasks', ['currentTask'=>'invalid']);
 	
 		try {
 			if($this->taskApplication === false)
 				throw new \HumanException();
 		} catch (\HumanException $exception) {
-			\Core\Module::goToModule('Game_Tasks', array('currentTaskApplicaton'=>'invalid'));
+			\Core\Module::goToModule('Game_Tasks', ['currentTaskApplicaton'=>'invalid']);
 		}
 	}
 	
@@ -98,7 +98,7 @@ script {
 			throw new HumanException('Diese Zugeinheit passt nicht zu der Ausschreibung.', -3);
 		
 		$this->taskApplication->setTrainUnitID($selectedTrainUnitID);		
-		\Core\Module::goToModule('Game_Map_Select',array('taskID'=>$this->taskID));
+		\Core\Module::goToModule('Game_Map_Select',['taskID'=>$this->taskID]);
 	}
 }
 ?>

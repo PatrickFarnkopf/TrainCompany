@@ -40,7 +40,7 @@ class Session extends Cache {
 	* @return array
 	**/
 	public function __sleep() {
-		return array('userName','userPass','lastActivity','userClassname','varCache','isFunction');
+		return ['userName','userPass','lastActivity','userClassname','varCache','isFunction'];
 	}
 	
 	/**

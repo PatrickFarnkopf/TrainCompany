@@ -10,7 +10,7 @@ namespace Game;
 class Path extends \Core\Data {
 	use \Core\Data\Vars;
 	
-	protected static $pathsFromStation = array();
+	protected static $pathsFromStation = [];
 	
 	const GROUP_MAIN = 0;
 	const GROUP_SMALL = 1;
@@ -29,7 +29,7 @@ class Path extends \Core\Data {
 		$startStationID = $object->getStartStation()->getID();
 		$endStationID = $object->getEndStation()->getID();
 		 
-		if(!isset(self::$pathsFromStation[$startStationID])) self::$pathsFromStation[$startStationID] = array();
+		if(!isset(self::$pathsFromStation[$startStationID])) self::$pathsFromStation[$startStationID] = [];
 		self::$pathsFromStation[$startStationID][$endStationID] = $object; 
 	}
 	
@@ -138,9 +138,7 @@ class Path extends \Core\Data {
 		$by = $endStation->getY();
 	
 		// Den Vektor zwischen Punkt a und Punkt b ausrechnen
-		$vector = array();
-		$vector[0] = $bx - $ax;
-		$vector[1] = $by - $ay;
+		$vector = [$bx-$ax, $by-$ay];
 		
 		// Wie lang ist der Vektor?
 		$pathLength = sqrt($vector[0]*$vector[0]+$vector[1]*$vector[1]);
@@ -152,18 +150,18 @@ class Path extends \Core\Data {
 		$randFactor = $improvedTwistingFactor / 4;
 		$minDif = $randFactor / 4;
 		
-		$lineVectors = array();
-		$lastVector = array(0,0);
+		$lineVectors = [];
+		$lastVector = [0,0];
 		// Start der Linie an Punkt a
-		$stepVectors[] = array($ax,$ay);
+		$stepVectors[] = [$ax,$ay];
 		for($i = 0; $i < $steps; $i++) {
 			// Vektor vom Ursprung zur $i-sten Kurve ausrechnen
-			$stepVector = array();
+			$stepVector = [];
 			$stepVector[0] = $ax + ($vector[0] / $steps) * $i;
 			$stepVector[1] = $ay + ($vector[1] / $steps) * $i;
 			
 			// Abweichungsvektor ausrechnen (Abweichung zur gerade Linie.)
-			$randVector = array();
+			$randVector = [];
 			$randomDif = false; 
 			do {
 				$randVector[0] = mt_rand(-$randFactor,$randFactor);
@@ -185,13 +183,13 @@ class Path extends \Core\Data {
 			$stepVector[1] += $randVector[1];
 			
 			// Kurven-Vektor im Array speichern.
-			$stepVectors[] = array(round($stepVector[0]),round($stepVector[1]));
+			$stepVectors[] = [round($stepVector[0]),round($stepVector[1])];
 			
 			// Zufallsvektor zwischenspeichern
 			$lastVector = $randVector;
 		}
 		// Ende der Linie an Punkt b
-		$stepVectors[] = array($bx,$by);
+		$stepVectors[] = [$bx,$by];
 		
 		return $stepVectors;
 	}
@@ -203,7 +201,7 @@ class Path extends \Core\Data {
 	**/
 	public function getStepVectors() {
 		$pathCache = \Core\i::CacheFile('paths');
-		$cachedDate = $pathCache->issetVar($this->getID()) ? $pathCache->getVar($this->getID()) : array();
+		$cachedDate = $pathCache->issetVar($this->getID()) ? $pathCache->getVar($this->getID()) : [];
 
 		if(isset($cachedDate['twistingFactor']) && $cachedDate['vectorArray'] && $cachedDate['twistingFactor'] == $this->getTwistingFactor())
 			return $cachedDate['vectorArray'];
@@ -333,7 +331,7 @@ class Path extends \Core\Data {
 	 	$reachedSpeed /= 1000/60/60;
 	 	
 	 	$time = new \Core\TimeDuration(round($fullTime));
-	 	return array('reachedSpeed'=>$reachedSpeed, 'time'=>$time);
+	 	return ['reachedSpeed'=>$reachedSpeed, 'time'=>$time];
 	}
 
 }

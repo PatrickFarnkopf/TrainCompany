@@ -5,7 +5,7 @@
 
 <div id="groupList">
 	<ul>
-		<li><a href="<?= >>>('Game_Tasks', array(), 'groupList') ?>">Neue Ausschreibungen</a></li>
+		<li><a href="<?= >>>('Game_Tasks', [], 'groupList') ?>">Neue Ausschreibungen</a></li>
 		<li>&middot;</li>
 		<li>&raquo;Aktive Ausschreibungen&laquo;</li>
 	</ul>
@@ -77,7 +77,7 @@
 							<? if(count($currentTaskJourney->getDelays())): ?>
 								<? foreach($currentTaskJourney->getDelays() as $currentDelay): ?>
 									<li>
-										<?= ^^^('delay', array('delayTime'=>$currentDelay->getTime())) ?>:
+										<?= ^^^('delay', ['delayTime'=>$currentDelay->getTime()]) ?>:
 										„<?= Format::string($currentDelay->getDescription()) ?>“
 									</li>
 								<? endforeach; ?>

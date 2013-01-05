@@ -29,7 +29,7 @@ class Module extends Cache {
 	* @param bool $showErrorModule - Soll bei einem nicht vorhandenen Modul statt eine Exception das 404-Module geöffnet werden? [optional]
 	* @param array $alwaysAllowed - Module, die in jeder Situation angefordert werden dürfen. Das Error- und das Install-Modul sind immer dabei.
 	**/
-	public function __construct($showErrorModule = true, array $alwaysAllowed = array()) {
+	public function __construct($showErrorModule = true, array $alwaysAllowed = []) {
 		// Existiert bereits eine Modul-Hauptinstanz?
 		if(self::existMainInstance()) throw new \Exception('Es existiert bereits eine Modul-Hauptinstanz.', 1011);
 			
@@ -114,7 +114,7 @@ class Module extends Cache {
 		$this->addVarCache('currentModule',$this->moduleName);
 		
 		// Die mitgesendeten Optionen setzen
-		$this->addVarCache('options',isset($_GET[self::GET_OPTIONS]) ? $_GET[self::GET_OPTIONS] : array());
+		$this->addVarCache('options',isset($_GET[self::GET_OPTIONS]) ? $_GET[self::GET_OPTIONS] : []);
 	}
 	
 	/**
@@ -127,7 +127,7 @@ class Module extends Cache {
 		// Den aktuellen Namen
 		$moduleName = $this->moduleName;
 		// Main-Class sammeln
-		$mainElements = array();
+		$mainElements = [];
 		
 		do {
 			// Den Pfad zur Haupt-Klasse bilden
@@ -220,9 +220,9 @@ class Module extends Cache {
 	* Fügt ein Template ein.
 	*
 	* @param string $templateName - Name des Templates
-	* @param array $vars - Variablen
+	* @param array $vars - Variablen [optional]
 	**/
-	public function includeTemplate($templateName, array $vars) {
+	public function includeTemplate($templateName, array $vars = []) {
 		// Pfad fertig basteln
 		$templatePath = self::INC_DIR.$templateName.'.tpl.php';
 	
@@ -234,9 +234,9 @@ class Module extends Cache {
 	* Gibt den Inhalt eines Templates zurück.
 	*
 	* @param string $templateName - Name des Templates
-	* @param array $vars - Variablen
+	* @param array $vars - Variablen [optional]
 	**/
-	public function getTemplateContent($templateName, array $vars) {
+	public function getTemplateContent($templateName, array $vars = []) {
 		ob_start();
 		$this->includeTemplate($templateName, $vars);
 		
@@ -258,7 +258,7 @@ class Module extends Cache {
 	* @param Array $options - Die mitgelieferten Optionen [optional]
 	* @param string $anchor - HTML-Anker [optional]
 	**/
-	public static function goToModule($moduleName = NULL, array $options = array(), $anchor = NULL) {
+	public static function goToModule($moduleName = NULL, array $options = [], $anchor = NULL) {
 		// Wenn der Modul-Name == NULL ist, dann zur Startseite weiterleiten
 		if(is_null($moduleName)) $moduleName = self::START_MODULE;
 	
@@ -275,7 +275,7 @@ class Module extends Cache {
 	* @param bool $encodeEntities - Später als in HTML? [optional]
 	* @return String - Der Link zu dem Modul
 	**/
-	public static function createModuleLink($moduleName = NULL, array $options = array(), $anchor = NULL, $encodeEntities = true) {
+	public static function createModuleLink($moduleName = NULL, array $options = [], $anchor = NULL, $encodeEntities = true) {
 		// Wenn der angeforderte Name NULL ist, auf das eigene Verweisen
 		if(is_null($moduleName)) $moduleName = i::Module()->moduleName;
 	

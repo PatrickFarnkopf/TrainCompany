@@ -12,8 +12,7 @@ script {
 	private $task = false;
 	private $taskApplication = false;
 
-	private $pathUnits = array();
-	private $selectedStations = array();
+	private $pathUnits = [], $selectedStations = [];
 
 	public function __construct() {
 		$options = $this->mi()->getVarCache('options');
@@ -65,7 +64,7 @@ script {
 		$this->mapInstance->setHighlightedStations($this->selectedStations,$this->task->getStations());
 		
 		// Wenn bereits Strecken-Verbünde gespeichert sind, diese markieren
-		$paths = array();
+		$paths = [];
 		foreach($this->pathUnits as $currentPathUnit) {
 			// Die einzelnen Strecken aus den Strecken-Verbünden auslesen
 			foreach($currentPathUnit->listPaths() as $currentPath) $paths[] = $currentPath;
@@ -82,7 +81,7 @@ script {
 	private function checkApplication() {
 		// Die Ausschreibung nicht (mehr) vorhanden?
 		if($this->task === false)
-			\Core\Module::goToModule('Game_Tasks', array('currentTask'=>'invalid'));
+			\Core\Module::goToModule('Game_Tasks', ['currentTask'=>'invalid']);
 	
 		try {
 			if($this->taskApplication === false)
@@ -90,7 +89,7 @@ script {
 		
 			$this->taskApplication->checkTrainUnit($this->task, $this->ui());
 		} catch (\HumanException $exception) {
-			\Core\Module::goToModule('Game_Tasks', array('currentTaskApplicaton'=>'invalid'));
+			\Core\Module::goToModule('Game_Tasks', ['currentTaskApplicaton'=>'invalid']);
 		}
 	}
 	
@@ -116,7 +115,7 @@ script {
 		$this->taskApplication->checkPathUnit($this->task, $this->ui());
 			
 		// Wenn alles okay ist, weiterleiten.
-		\Core\Module::goToModule('Game_Tasks_Application',array('taskID'=>$this->taskID));
+		\Core\Module::goToModule('Game_Tasks_Application',['taskID'=>$this->taskID]);
 	}
 	
 	/**

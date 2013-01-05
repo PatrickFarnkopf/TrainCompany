@@ -34,7 +34,7 @@ class Play {
 		$currentYear = self::START_YEAR + $yearsSinceStart;
 		$currentSeason = $seasonsSinceStart - ($yearsSinceStart * Season::countObjects());
 		
-		return array('currentYear' => $currentYear, 'currentSeason' => $currentSeason);
+		return ['currentYear' => $currentYear, 'currentSeason' => $currentSeason];
 	}
 	
 	/**

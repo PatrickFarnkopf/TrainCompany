@@ -43,8 +43,8 @@ script {
 	**/
 	private function getSelectedTrainUnits($canLocked = false) {
 		$userTrainUnits = $this->ui()->listTrainUnits($this->mi()->getVarCache('currentUnitGroupID'));
-		$trainUnitIDs = isset($_POST['trainUnits']) ? $_POST['trainUnits'] : array();
-		$trainUnits = array();
+		$trainUnitIDs = isset($_POST['trainUnits']) ? $_POST['trainUnits'] : [];
+		$trainUnits = [];
 		
 		if(count($trainUnitIDs) == 0)
 			throw new \HumanException('Keine Zugeinheiten ausgewählt.', -1);
@@ -59,7 +59,7 @@ script {
 		}
 		if(count($trainUnits) == 0) return false;
 		
-		return array('trainUnitIDs'=>$trainUnitIDs,'trainUnits'=>$trainUnits);
+		return ['trainUnitIDs'=>$trainUnitIDs,'trainUnits'=>$trainUnits];
 	}
 	
 	/**

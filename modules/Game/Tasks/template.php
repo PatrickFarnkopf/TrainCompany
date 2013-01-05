@@ -8,11 +8,11 @@
 	<ul>
 		<li>&raquo;Neue Ausschreibungen&laquo;</li>
 		<li>&middot;</li>
-		<li><a href="<?= >>>('Game_Tasks_Active', array(), 'groupList') ?>">Aktive Ausschreibungen</a></li>
+		<li><a href="<?= >>>('Game_Tasks_Active', [], 'groupList') ?>">Aktive Ausschreibungen</a></li>
 	</ul>
 </div>
 
-<form method="post" action="<?= >>>(NULL ,array('makeAction'=>true)) ?>">
+<form method="post" action="<?= >>>(NULL, ['makeAction'=>true]) ?>">
 	<? if(count(!!!taskList!!!) == 0): ?>
 		<p class="Center">
 			Derzeit existieren keine Ausschreibungen, die du erfüllen könntest.

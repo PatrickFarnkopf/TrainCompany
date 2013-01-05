@@ -13,7 +13,7 @@
 			TrainCompany
 		</title>
 		<script type="text/javascript">
-			var notificationDeleteLink = '<?= >>>('Game_XML_Notifications_Remove',array('deleteID'=>''),NULL,false) ?>';
+			var notificationDeleteLink = '<?= >>>('Game_XML_Notifications_Remove',['deleteID'=>''],NULL,false) ?>';
 			var notificationListLink = '<?= >>>('Game_XML_Notifications') ?>';
 			
 			window.onload = function() {

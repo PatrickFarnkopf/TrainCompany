@@ -26,7 +26,7 @@ class Main extends \Core\Main {
 	**/
 	public function start() {
 		// Modul-Instanz šffnen
-		$moduleInstance = new \Core\Module(true, array('License')); 		
+		$moduleInstance = new \Core\Module(true, ['License']); 		
 		$moduleInstance->open();
 	}
 }

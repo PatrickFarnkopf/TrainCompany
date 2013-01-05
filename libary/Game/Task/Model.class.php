@@ -56,7 +56,7 @@ class Model extends \Core\Data {
 	**/
 	public function getStations() {
 		$stationIDArray = $this->properties['stations'];
-		$stationArray = array();
+		$stationArray = [];
 		
 		// Stationen zu den IDs finden
 		foreach($stationIDArray as $currentID)
@@ -68,7 +68,7 @@ class Model extends \Core\Data {
 		}
 		
 		do {
-			$stations = array();
+			$stations = [];
 			$stations[] = $stationArray[0];
 		
 			for($i=1; $i<count($stationArray)-2; $i++) {

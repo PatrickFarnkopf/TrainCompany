@@ -5,7 +5,7 @@
 	
 <fieldset id="registerBox" class="LeftBox">
 	<legend>Registrierung</legend>
-	<form method="post" action="<?= >>>(NULL, array('register'=>'true')) ?>">
+	<form method="post" action="<?= >>>(NULL, ['register'=>'true']) ?>">
 		<label for="userName">Benutzername:</label>
 		<input type="text" name="userName" id="userName" value="<?= Format::string(!!!userName!!!) ?>">
 			

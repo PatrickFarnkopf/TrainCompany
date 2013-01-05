@@ -6,7 +6,7 @@
 </fieldset>
 <fieldset id="loginBox" class="RightBox">
 	<legend>Login</legend>
-	<form method="post" action="<?= >>>('Start',array('login'=>true)) ?>">
+	<form method="post" action="<?= >>>('Start',['login'=>true]) ?>">
 		<label for="userName">Benutzername:</label> <input type="text" name="userName" id="userName">
 		<label for="userPassword">Passwort:</label> <input type="password" name="userPassword" id="userPassword">
 		<a href="<?= >>>('Register') ?>">Registrieren</a> <input type="submit" value="Login">

@@ -8,7 +8,7 @@
 namespace Game\Task\Journey;
 
 abstract class Step {
-	protected $currentStation, $user, $task, $taskApplication, $delays = array();
+	protected $currentStation, $user, $task, $taskApplication, $delays = [];
 	
 	/**
 	* Gibt den aktuellen Bahnhof zurück

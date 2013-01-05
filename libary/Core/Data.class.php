@@ -12,8 +12,7 @@ abstract class Data {
 	const DATA_DIR = 'data/';
 	
 	protected $id, $group, $name;
-	public $properties = array();
-	protected $varProperties = array();
+	protected $properties = [], $varProperties = [];
 	
 	/**
 	* Ließt Daten aus der, zur Klasse passenden XML-Datei und erstellt daraus ein Objekt, fügt dieses der Klasse hinzu.
@@ -57,7 +56,7 @@ abstract class Data {
 	**/
 	public static function callback(Classname $classname) {
 		if($classname->getReflectionClass()->isSubclassOf('Core\Data') && $classname->getClassname() != 'Data')
-			call_user_func(array((string)$classname, 'loadDataFromXMLFile'));
+			call_user_func([(string)$classname, 'loadDataFromXMLFile']);
 	}
 
 	/**
@@ -86,7 +85,7 @@ abstract class Data {
 		if($group === false) return static::$objects;
 		if(!isset(static::$objectGroups[$group])) throw new \Exception('Die angeforderte Daten-Grupp ist nicht bekannt.', 1151);
 		
-		$array = array();
+		$array = [];
 		$groupArray = static::$objectGroups[$group];
 		foreach($groupArray as $currentID) $array[] = self::getObjectForID($currentID);
 		
@@ -204,7 +203,7 @@ abstract class Data {
 	* @return array
 	**/
 	public function __sleep() {
-		return array('id','varProperties');
+		return ['id','varProperties'];
 	}
 	
 	/**

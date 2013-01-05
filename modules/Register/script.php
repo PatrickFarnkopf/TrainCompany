@@ -34,7 +34,7 @@ script {
 		\Game\User::createNewUser($this->mi()->getVarCache('userName'),$this->mi()->getVarCache('userPassword'),$this->mi()->getVarCache('userPasswordAgain'),$this->mi()->getVarCache('userMail'));
 		
 		// Weiterleitung auf Startseite
-		\Core\Module::goToModule('Start',array('regSuccessfull'=>true));
+		\Core\Module::goToModule('Start',['regSuccessfull'=>true]);
 	}
 }
 

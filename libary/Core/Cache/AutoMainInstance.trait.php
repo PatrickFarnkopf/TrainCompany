@@ -15,7 +15,7 @@ trait AutoMainInstance {
 	* @return static - Die Haupinstanz dieser Klasse
 	**/
 	public static function mainInstance() {
-		if(!static::existMainInstance()) static::setMainInstance(new static);
+		if(!static::existMainInstance()) static::setMainInstance(new static());
 		
 		return static::$mainInstance;
 	}

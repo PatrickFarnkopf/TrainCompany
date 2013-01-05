@@ -8,8 +8,7 @@
 namespace Core;
 
 trait VarCache {
-	protected $varCache = array();
-	protected $isFunction = array();
+	protected $varCache = [], $isFunction = [];
 	
 	/**
 	* Fügt eine neue(s) Variable/Array dem Variablen-Cache hinzu. Ist diese nicht vorhanden wird das Skript mit einer Exception beendet.
@@ -57,7 +56,7 @@ trait VarCache {
 	* @return int - Die ID des Elements
 	**/
 	public function addElementToVarCache($varName, $value, $elementID = false) {
-		if(!$this->issetVarCache($varName)) $this->addVarCache($varName,array());
+		if(!$this->issetVarCache($varName)) $this->addVarCache($varName,[]);
 		if(!is_array($this->varCache[$varName])) throw new \Exception('Diese Variable ist kein Array.', 1092);
 		
 		
@@ -80,7 +79,7 @@ trait VarCache {
 	* @param string $elementID
 	**/
 	public function unsetElementInVarCache($varName, $elementID) {
-		if(!$this->issetVarCache($varName)) $this->addVarCache($varName,array());
+		if(!$this->issetVarCache($varName)) $this->addVarCache($varName,[]);
 		if(!is_array($this->varCache[$varName])) throw new \Exception('Diese Variable ist kein Array.', 1092);
 		
 		unset($this->varCache[$varName][$elementID]);

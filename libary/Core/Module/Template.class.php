@@ -16,7 +16,7 @@ class Template extends Compiler {
 	* @param string $filename - Zum ROOT_PATH relativer Pfad zum Template-File
 	* @param array $vars - Variablen die dem Template mitgegeben werden sollen. [optional]
 	**/
-	public function __construct($filename, array $vars = array()) {
+	public function __construct($filename, array $vars = []) {
 		parent::__construct($filename, $vars); 
 		
 		// Die Datei einbinden
@@ -31,7 +31,7 @@ class Template extends Compiler {
 		$templateContent = file_get_contents(ROOT_PATH.$this->getFileName());
 		
 		// Was soll alles ersetzt werden?
-		$replacements = array();
+		$replacements = [];
 		$replacements['/\?\?\?([a-zA-Z0-9]*)\?\?\?/'] = '\Core\i::Module()->issetVarCache(\'\1\')';
 		$replacements['/\!\!\!([a-zA-Z0-9]*)\!\!\!/'] = '\Core\i::Module()->getVarCache(\'\1\')';
 		$replacements['/>>>/'] = '\Core\Module::createModuleLink';

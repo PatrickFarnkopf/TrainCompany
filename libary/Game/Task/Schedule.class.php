@@ -8,9 +8,7 @@
 namespace Game\Task;
 
 class Schedule {
-	private $stations = array();
-	private $arrivals = array();
-	private $departures = array();
+	private $stations = [], $arrivals = [], $departures = [];
 	
 	/**
 	* Fügt eine neue Station mit Ankunft und Abfahrt hinzu.
@@ -82,7 +80,7 @@ class Schedule {
 			$departureTime -= $this->departures[$lastKey];
 		}
 		
-		return array('arrival'=>$arrivalTime,'departure'=>$departureTime);
+		return ['arrival'=>$arrivalTime,'departure'=>$departureTime];
 	}
 	
 	/**

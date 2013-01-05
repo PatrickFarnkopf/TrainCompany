@@ -109,7 +109,7 @@ class Application {
 	* @return bool - Wirft eine HumanException, wenn ein Fehler auftritt.
 	**/
 	public function checkPathUnit(\Game\Task $task, \Game\User $user) {
-				if(!is_object($this->pathUnit) || !$task->getBestPathUnit(array($this->pathUnit)))
+				if(!is_object($this->pathUnit) || !$task->getBestPathUnit([$this->pathUnit]))
 			throw new \HumanException('Die ausgewählte Strecke ist nicht mit dieser Ausschreibung kompatibel.',-1);
 		if(!$this->pathUnit->isEletrified() && $this->getTrainUnit($user)->getDrive() == \Game\Train::ELECTRO_DRIVE)
 			throw new \HumanException('Die ausgewählte Zugeinheit kann nicht auf der ausgewählten Strecke fahren.',-2);

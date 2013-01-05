@@ -14,7 +14,7 @@
 					<span>
 						<?= Format::string($currentTrain->getName()) ?>
 						<div class="DetailView">
-							<? ^^^('currentTrain',array('train'=>$currentTrain)) ?>
+							<? ^^^('currentTrain',['train'=>$currentTrain]) ?>
 						</div>
 					</span>
 				</li>

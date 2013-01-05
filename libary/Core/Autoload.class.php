@@ -12,7 +12,7 @@ class Autoload {
 	const CLASS_DIR = 'libary/';
 	
 	private $classname;
-	private static $beforeCallbacks = array(), $afterCallbacks = array();
+	private static $beforeCallbacks = [], $afterCallbacks = [];
 	
 	/**
 	* Verarbeitet die Anfrage einer Klasse.
@@ -47,7 +47,7 @@ class Autoload {
 		$dirName .= implode('/', $this->classname->getNamespace()).'/';
 		
 		// Nicht nur bei Klassen wird der Autoloader aufgerufen. Auch bei Interfaces und Traits.
-		foreach(array('class','interface','trait') as $current) {
+		foreach(['class','interface','trait'] as $current) {
 			// Datei-Name bilden
 			$fileName = $dirName.$this->classname->getClassname();
 			$fileName .= '.'.$current.'.php';
@@ -74,7 +74,7 @@ class Autoload {
 	/**
 	* Registriert ein Callback für den Autoloader, das bevor die Klasse geladen wird ausgeführt wird.
 	*
-	* @param callback $callback
+	* @param callable $callback
 	**/
 	public static function registerBeforeCallback(callable $callback) {
 		self::$beforeCallbacks[] = $callback;
@@ -83,7 +83,7 @@ class Autoload {
 	/**
 	* Registriert ein Callback für den Autoloader, das nachdem die Klasse geladen wird ausgeführt wird.
 	*
-	* @param callback $callback
+	* @param callable $callback
 	**/
 	public static function registerAfterCallback(callable $callback) {
 		self::$afterCallbacks[] = $callback;

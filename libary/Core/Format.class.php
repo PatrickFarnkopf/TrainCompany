@@ -86,7 +86,7 @@ class Format {
     * @return string - Formatierter String
     **/
     public static function size($fileSize) {
-    	$sizes = array('B','KiB','MiB','GiB','TiB','PiB');
+    	$sizes = ['B','KiB','MiB','GiB','TiB','PiB'];
     	
     	foreach($sizes as $key=>$currentSize) {
 	    	if($fileSize >= pow(2,10*($key+1))) continue;

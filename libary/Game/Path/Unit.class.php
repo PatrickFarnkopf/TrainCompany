@@ -51,7 +51,7 @@ class Unit {
 	public function getStations() {
 		$paths = $this->listPaths();
 		
-		$stationArray = array();
+		$stationArray = [];
 		$stationArray[] = $this->startStation;
 		foreach($paths as $currentPath) {
 			if($stationArray[count($stationArray)-1] != $currentPath->getStartStation())
@@ -74,7 +74,7 @@ class Unit {
 	**/
 	public function calcTimeWithTrainUnit(\Game\Train\Unit $trainUnit, $weightType, array $stations, $showFullTime = true) {
 		$stations = $this->getStations();
-		$arrivalTimes = array();
+		$arrivalTimes = [];
 		
 		$currentSpeed = 0;
 		$fullTime = 0;
@@ -103,7 +103,7 @@ class Unit {
 	* @return PathUnit - Die neue Streckeneinheit
 	**/
 	public function getPathUnit(\Game\Station $startStation, \Game\Station $endStation) {
-		$stations = array();
+		$stations = [];
 		$afterStart = false;
 		
 		foreach($this->getStations() as $currentStation) {
@@ -139,7 +139,7 @@ class Unit {
 	**/
 	public static function getPathUnitsToConnectStations(array $stations) {
 		// Alle Strecke, die die ausgewählten Bahnhöfe verbinden in ein Array speichern
-		$paths = array();
+		$paths = [];
 		foreach($stations as $currentStations) {
 			foreach($stations as $secondStations) {
 				if(!\Game\Path::existPathFromStationToStation($currentStations,$secondStations)) continue;
@@ -150,7 +150,7 @@ class Unit {
 		}
 		
 		// Herausfinden, wo Strecken-Verbünde anfangen
-		$startStationIDs = array();
+		$startStationIDs = [];
 		foreach($paths as $stationID => $currentStartStation) {
 			// Es geht nur eine Strecke von diesem Bahnhof weg? Der Bahnhof muss ein Ende sein.
 			if(count($currentStartStation) == 1) $startStationIDs[] = $stationID;
@@ -161,11 +161,11 @@ class Unit {
 			throw new \HumanException('Es konnte keine durchgehende Strecke ermittelt werden. Die Strecken dürfen nicht verzweigt sein!', -1);
 		
 		// Die Strecken von einem Start-Bahnhof aus abbilden
-		$pathUnits = array();
+		$pathUnits = [];
 		foreach($startStationIDs as $currentStartID) {
 			$currentStationID = $currentStartID;
 			$lastStationID = -1;
-			$currentPathUnit = array();		
+			$currentPathUnit = [];		
 			while(true) {
 				// Stationen die vom aktuellen Bahnhof aus abgehen.
 				$currenStationPaths = $paths[$currentStationID];

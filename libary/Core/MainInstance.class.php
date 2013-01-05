@@ -34,7 +34,7 @@ class MainInstance {
 	* @param string $name - Klassen-Name, von der wir die Haupt-Instanze möchten.
 	* @param array $args - Uninteressant.
 	**/
-	public static function __callStatic($name, $args) {
+	public static function __callStatic($name, array $args) {
 		// Den Klassennamen bilden, dafür brauchen wir unser eigenen Namespace
 		$ownClassname = new Classname(get_called_class());
 		$ownNamespace = $ownClassname->getNamespaceAsString();

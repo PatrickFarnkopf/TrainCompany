@@ -12,7 +12,7 @@
 			<td class="Center"><?= Format::number($groupID) ?></td>
 			<td>
 				<? if(!!!editGroup!!! == $groupID): ?>
-					<form method="post" action="<?= >>>(NULL, array('makeAction'=>'saveEdit','groupID'=>$groupID)) ?>">
+					<form method="post" action="<?= >>>(NULL, ['makeAction'=>'saveEdit','groupID'=>$groupID]) ?>">
 						<input name="groupName" type="text" value="<?= Format::string($currentTrainUnitGroup->getName()) ?>" size="15">
 						<input type="submit" value="OK">
 					</form>
@@ -25,8 +25,8 @@
 				<? if($groupID == 0): ?>
 					-
 				<? else: ?>
-					<a href="<?= >>>(NULL, array('makeAction'=>'edit','groupID'=>$groupID)) ?>"><img src="img/icons/pencil.png"></a>
-					<a href="<?= >>>(NULL, array('makeAction'=>'delete','groupID'=>$groupID)) ?>"><img src="img/icons/delete.png"></a>
+					<a href="<?= >>>(NULL, ['makeAction'=>'edit','groupID'=>$groupID]) ?>"><img src="img/icons/pencil.png"></a>
+					<a href="<?= >>>(NULL, ['makeAction'=>'delete','groupID'=>$groupID]) ?>"><img src="img/icons/delete.png"></a>
 				<? endif; ?>
 			</td>
 		</tr>
@@ -35,7 +35,7 @@
 
 <fieldset class="RightBox">
 	<legend>Neue Fahrzeuggruppe</legend>
-	<form method="post" action="<?= >>>(NULL, array('makeAction'=>'new')) ?>">
+	<form method="post" action="<?= >>>(NULL, ['makeAction'=>'new']) ?>">
 		<label for="groupName">Name der Gruppe:</label>
 		<input type="text" name="groupName" id="groupName">
 		

@@ -9,6 +9,6 @@
 namespace Core\Cache;
 
 trait Vars {
-	protected static $instances, $mainInstance;
+	protected static $instances = [], $mainInstance;
 }
 ?>

@@ -13,7 +13,7 @@ namespace Core;
 * @return array - Addiertes Array
 **/
 function addArrayContent(array $arrays) {
-	$addArray = array();
+	$addArray = [];
 	foreach($arrays as $currentArray) {
 		foreach($currentArray as $key=>$content) {
 			if(!isset($addArray[$key])) $addArray[$key] = 0;
@@ -31,7 +31,7 @@ function addArrayContent(array $arrays) {
 * @return array - Addiertes Array
 **/
 function subArrayContent(array $arrays) {
-	$addArray = array();
+	$addArray = [];
 	foreach($arrays as $currentArray) {
 		foreach($currentArray as $key=>$content) {
 			if(!isset($addArray[$key])) $addArray[$key] = 0;

@@ -9,7 +9,6 @@
 namespace Core\Data;
 
 trait Vars {
-	protected static $objects = array();
-	protected static $objectGroups = array();
+	protected static $objects = [], $objectGroups = [];
 }
 ?>

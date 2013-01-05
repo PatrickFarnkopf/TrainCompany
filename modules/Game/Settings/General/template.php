@@ -1,6 +1,6 @@
 <fieldset class="RightBox">
 	<legend>Passwort ändern</legend>
-	<form method="post" action="<?= >>>(NULL, array('changePass'=>true)) ?>">
+	<form method="post" action="<?= >>>(NULL, ['changePass'=>true]) ?>">
 		<label for="userPass">Neues Passwort:</label>
 		<input type="password" id="userPass" name="userPass" value="<?= Format::string(!!!userPass!!!) ?>">
 		
@@ -14,7 +14,7 @@
 
 <fieldset class="LeftBox">
 	<legend>E-Mail-Adresse ändern</legend>
-	<form method="post" action="<?= >>>(NULL, array('changeMail'=>true)) ?>">
+	<form method="post" action="<?= >>>(NULL, ['changeMail'=>true]) ?>">
 		<label for="userMail">Neue E-Mail-Adresse:</label>
 		<input type="email" id="userMail" name="userMail" placeholder="<?= Format::string(!!!currentUserMail!!!) ?>" value="<?= Format::string(!!!userMail!!!) ?>">
 		

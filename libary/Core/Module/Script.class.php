@@ -17,7 +17,7 @@ class Script extends Compiler {
 	* @param string $filename - Zum ROOT_PATH relativer Pfad zum Template-File
 	* @param array $vars - Variablen die dem Template mitgegeben werden sollen. [optional]
 	**/
-	public function __construct($filename, array $vars = array()) {
+	public function __construct($filename, array $vars = []) {
 		parent::__construct($filename, $vars);
 		
 		// Die Datei einbinden

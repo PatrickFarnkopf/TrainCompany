@@ -14,10 +14,8 @@ class Unit {
 	const CURRENT_WEIGHT = 1;
 	const MAX_WEIGHT = 2;
 
-	private $trains = array();
-	private $usedCapacity = array();
-	private $cache = array();
-	private $locked = false;
+	private $trains = [], $usedCapacity = [], $locked = false;
+	private $cache = [];
 	
 	/**
 	* Überprüft, ob die Züge hinzugefügt werden können.
@@ -124,7 +122,7 @@ class Unit {
 	* Leert den Cache der Zugeinheit
 	**/
 	private function clearCache() {
-		$this->cache = array();
+		$this->cache = [];
 	}
 	
 	/**
@@ -153,8 +151,8 @@ class Unit {
 	*     Vorne <-> Hinten
 	**/
 	public function sortTrainUnit() {
-		$tmpLocoArray = array();
-		$tmpTrainArray = array();
+		$tmpLocoArray = [];
+		$tmpTrainArray = [];
 		foreach($this->trains as $currentTrain) {
 			if($currentTrain->getGroup() == \Game\Train::GROUP_LOCO) $varName = 'tmpLocoArray';
 			else $varName = 'tmpTrainArray';
@@ -267,7 +265,7 @@ class Unit {
 		$capacity = $this->getCapacity();
 		$usedCapacity = $this->usedCapacity;
 		
-		$usedCapacity = addArrayContent(array($usedCapacity,$useCapacity));
+		$usedCapacity = addArrayContent([$usedCapacity,$useCapacity]);
 		
 		foreach($usedCapacity as $key=>$currentCapacityUsed) {
 			if ($capacity[$key] < $currentCapacityUsed)
@@ -285,7 +283,7 @@ class Unit {
 	public function freeCapacity(array $freeCapacity) {
 		$usedCapacity = $this->usedCapacity;
 		
-		$usedCapacity = addArrayContent(array($usedCapacity,$freeCapacity));
+		$usedCapacity = addArrayContent([$usedCapacity,$freeCapacity]);
 		
 		foreach($usedCapacity as $key=>$currentCapacityUsed) {
 			if (0 > $currentCapacityUsed)

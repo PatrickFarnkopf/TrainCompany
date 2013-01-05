@@ -11,9 +11,9 @@ script {
 		$this->mi()->addVarCache('siteTitle', 'Neue Fahrzeuge');
 		$this->mi()->addVarCache('trainType', isset($options['trainType']) ? $options['trainType'] : \Game\Train::GROUP_UNIT);
 		
-		$trainTypes = array(\Game\Train::GROUP_UNIT=>'Triebzüge',
-							\Game\Train::GROUP_LOCO=>'Lokomotiven',
-							\Game\Train::GROUP_WAGON=>'Wagons');
+		$trainTypes = [	\Game\Train::GROUP_UNIT=>'Triebzüge',
+						\Game\Train::GROUP_LOCO=>'Lokomotiven',
+						\Game\Train::GROUP_WAGON=>'Wagons'];
 		$this->mi()->addVarCache('trainTypes', $trainTypes);
 			
 		$this->getTrainList($this->mi()->getVarCache('trainType'));
@@ -40,8 +40,8 @@ script {
 	**/
 	private function buyTrains() {
 		$totalCost = 0;
-		$trains = isset($_POST['trains']) && is_array($_POST['trains']) ? $_POST['trains'] : array();
-		$newTrainUnits = array();
+		$trains = isset($_POST['trains']) && is_array($_POST['trains']) ? $_POST['trains'] : [];
+		$newTrainUnits = [];
 		
 		foreach($trains as $trainID => $trainCount) {
 			if(!is_numeric($trainCount)) $trainCount = 0; 

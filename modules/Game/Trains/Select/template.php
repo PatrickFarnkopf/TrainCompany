@@ -1,4 +1,4 @@
-<? ^^^('currentTask',array('task'=>!!!task!!!)) ?>
+<? ^^^('currentTask',['task'=>!!!task!!!]) ?>
 <fieldset class="RightBox">
 	<legend>Fahrzeugwahl</legend>
 	Du musst die Zugeinheit wählen, mit der du die Ausschreibung ausführen willst.
@@ -6,7 +6,7 @@
 </fieldset>
 <div class="Clear"></div>
 
-<form method="post" action="<?= >>>(NULL, array('taskID'=>!!!taskID!!!,'makeAction'=>true)) ?>">
+<form method="post" action="<?= >>>(NULL, ['taskID'=>!!!taskID!!!,'makeAction'=>true]) ?>">
 	<? $first = true; ?>
 	<table class="OverviewTable">
 		<tr>
@@ -27,7 +27,7 @@
 				<? if(!!!task!!!->isCompatibleTrainUnit($currentTrainUnit)): ?>
 					<? $i ++ ?>
 					<? $selected = ???selectedUnit??? ? !!!selectedUnit!!! == $key : $first ?>
-					<? ^^^('currentTrainUnit',array('tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key, 'radioButton'=>true, 'selected'=>$selected)) ?>
+					<? ^^^('currentTrainUnit',['tableRow'=>$i%2,'trainUnit'=>$currentTrainUnit,'trainUnitID'=>$key, 'radioButton'=>true, 'selected'=>$selected]) ?>
 					<? $first = false; ?>
 				<? endif; ?>
 			<? endforeach; ?>

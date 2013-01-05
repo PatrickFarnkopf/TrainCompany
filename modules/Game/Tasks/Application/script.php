@@ -24,7 +24,7 @@ script {
 		$this->task = $taskManager->existObjectForID($this->taskID) ? $taskManager->getObjectForID($this->taskID) : false;
 		
 		// Bewerbung laden
-		$taskApplicationList = $this->si()->issetVarCache('taskApplications') ? $this->si()->getVarCache('taskApplications') : array();
+		$taskApplicationList = $this->si()->issetVarCache('taskApplications') ? $this->si()->getVarCache('taskApplications') : [];
 		$this->taskApplication = isset($taskApplicationList[$this->taskID]) ? $taskApplicationList[$this->taskID] : false;
 		
 		// Bewerbung überprüfen
@@ -45,11 +45,11 @@ script {
 		// Ankunfszeiten berechnen
 		$arrivalTimesEmpty = $this->taskApplication->getPathUnit()->calcTimeWithTrainUnit($this->taskApplication->getTrainUnit($this->ui()), \Game\Train\Unit::EMPTY_WEIGHT, $this->task->getStations());
 		$arrivalTimesMax = $this->taskApplication->getPathUnit()->calcTimeWithTrainUnit($this->taskApplication->getTrainUnit($this->ui()), \Game\Train\Unit::MAX_WEIGHT, $this->task->getStations());
-		$this->mi()->addVarCache('arrivalTimes',array('empty'=>$arrivalTimesEmpty,'max'=>$arrivalTimesMax));
+		$this->mi()->addVarCache('arrivalTimes',['empty'=>$arrivalTimesEmpty,'max'=>$arrivalTimesMax]);
 		
 		try {
 			if(isset($options['makeAction']) && $options['makeAction']) { 
-				if(isset($_POST['back'])) Module::goToModule('game_map_select',array('taskID'=>$this->taskID));
+				if(isset($_POST['back'])) Module::goToModule('game_map_select',['taskID'=>$this->taskID]);
 				else $this->getSchedule();
 			}
 		} catch(HumanException $exception) {
@@ -66,7 +66,7 @@ script {
 	private function checkApplication() {
 		// Die Ausschreibung nicht (mehr) vorhanden?
 		if($this->task === false)
-			\Core\Module::goToModule('Game_Tasks', array('currentTask'=>'invalid'));
+			\Core\Module::goToModule('Game_Tasks', ['currentTask'=>'invalid']);
 		
 		try {
 			if($this->taskApplication === false)
@@ -75,7 +75,7 @@ script {
 			$this->taskApplication->checkTrainUnit($this->task, $this->ui());
 			$this->taskApplication->checkPathUnit($this->task, $this->ui());
 		} catch (\HumanException $exception) {
-			\Core\Module::goToModule('Game_Tasks', array('currentTaskApplicaton'=>'invalid'));
+			\Core\Module::goToModule('Game_Tasks', ['currentTaskApplicaton'=>'invalid']);
 		}
 	}
 	
@@ -86,10 +86,10 @@ script {
 		$this->taskSchedule = new \Game\Task\Schedule();
 		
 		foreach($this->task->getStations() as $currentStation) {
-			$arrivalArray = isset($_POST[$currentStation->getID()]['arrival']) ? $_POST[$currentStation->getID()]['arrival'] : array();
+			$arrivalArray = isset($_POST[$currentStation->getID()]['arrival']) ? $_POST[$currentStation->getID()]['arrival'] : [];
 			$arrivalTime = self::getTimeFromArray($arrivalArray);
 			
-			$departureArray = isset($_POST[$currentStation->getID()]['departure']) ? $_POST[$currentStation->getID()]['departure'] : array();
+			$departureArray = isset($_POST[$currentStation->getID()]['departure']) ? $_POST[$currentStation->getID()]['departure'] : [];
 			$departureTime = self::getTimeFromArray($departureArray);
 			
 			$this->taskSchedule->addStation($currentStation, $arrivalTime, $departureTime);
@@ -103,7 +103,7 @@ script {
 		if($this->task->getType() == \Game\Task::WITH_APPLICATION) {
 			$this->task->addApplication($this->taskApplication, $this->ui());
 			
-			\Core\Module::goToModule('Game_Tasks', array('addApplication'=>'success'));
+			\Core\Module::goToModule('Game_Tasks', ['addApplication'=>'success']);
 		} else {
 			$this->task->removeAllApplications();
 
@@ -115,7 +115,7 @@ script {
 			// Die Aufgabe aus der Liste löschen
 			\Game\Task\i::Manager()->removeObject($this->taskID);
 		
-			\Core\Module::goToModule('Game_Tasks_Active', array('application'=>'success'));
+			\Core\Module::goToModule('Game_Tasks_Active', ['application'=>'success']);
 		}
 	}
 	

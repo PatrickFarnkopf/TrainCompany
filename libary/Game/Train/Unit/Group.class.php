@@ -8,8 +8,7 @@
 namespace Game\Train\Unit;
 
 class Group {
-	private $name;
-	private $trainUnitIDs = array();
+	private $name, $trainUnitIDs = [];
 	
 	/**
 	* Eine neue Gruppe erstelen
@@ -63,7 +62,7 @@ class Group {
 			return;
 		}
 		
-		$newArray = array();
+		$newArray = [];
 		foreach($this->trainUnitIDs as $currentTrainUnitID) {
 			$newArray[] = $currentTrainUnitID;
 			

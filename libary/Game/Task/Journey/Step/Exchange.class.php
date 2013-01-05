@@ -58,8 +58,8 @@ class Exchange extends \Game\Task\Journey\Step {
 			}
 			
 			// Die Kapazität auch wirklich freigeben und nutzen
-			$trainUnit->freeCapacity(array($currentCapacity=>$freeCapacity));
-			$trainUnit->useCapacity(array($currentCapacity=>$useCapacity));
+			$trainUnit->freeCapacity([$currentCapacity=>$freeCapacity]);
+			$trainUnit->useCapacity([$currentCapacity=>$useCapacity]);
 		}
 		
 		// In ein Time-Objekt umwandeln

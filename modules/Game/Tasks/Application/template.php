@@ -1,4 +1,4 @@
-<? ^^^('currentTask',array('task'=>!!!task!!!)) ?>
+<? ^^^('currentTask',['task'=>!!!task!!!]) ?>
 <fieldset class="RightBox">
 	<legend>Fahrplan festlegen</legend>
 	Auf dieser Seite musst du den Fahrplan deines Zuges festlegen.
@@ -14,7 +14,7 @@
 	</ul>
 </fieldset>
 
-<form method="post" action="<?= >>>(NULL, array('taskID'=>!!!taskID!!!,'makeAction'=>true)) ?>">
+<form method="post" action="<?= >>>(NULL, ['taskID'=>!!!taskID!!!,'makeAction'=>true]) ?>">
 	<table class="OverviewTable">
 		<tr>
 			<th width="250" rowspan="2" height="40">Stationen</th>

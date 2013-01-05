@@ -7,12 +7,12 @@
 **/
 namespace Core;
 
-abstract class Manager extends Cache {
+abstract class Manager extends Cache implements \Countable {
 	use Cache\AutoMainInstance;
 
 	const GROUPID_FIELDNAME = false;
 
-	protected $objects = array(), $unchangedObjects = array();
+	protected $objects = [], $unchangedObjects = [];
 	protected $groupID, $tableActions;
 
 	/**
@@ -47,7 +47,7 @@ abstract class Manager extends Cache {
 			if($currentObject == $this->unchangedObjects[$objectID]) continue;
 			
 			$contentArray = $this->getContentArrayForObject($currentObject);
-			$queryObject = $this->tableActions->update($contentArray, array('id'=>$objectID));
+			$queryObject = $this->tableActions->update($contentArray, ['id'=>$objectID]);
 		}
 	}
 	
@@ -68,7 +68,7 @@ abstract class Manager extends Cache {
 		if($this->groupID === false)
 			return '';
 		
-		return array(static::GROUPID_FIELDNAME => $this->groupID);
+		return [static::GROUPID_FIELDNAME => $this->groupID];
 	}
 	
 	/**
@@ -86,7 +86,7 @@ abstract class Manager extends Cache {
 	* @param MySQLQuery $queryObject - Die MySQL-Anfrage
 	**/
 	protected function saveInInstance(\Core\MySQL\Query $queryObject) {
-		$newObjects = array();
+		$newObjects = [];
 		
 		while($row = $queryObject->fetch()) {
 			if($this->existObjectForID($row['id'])) continue;
@@ -114,6 +114,15 @@ abstract class Manager extends Cache {
 				$this->unchangedObjects[$row['id']] = clone $newObject;
 			}
 		}
+	}
+	
+	/**
+	* Ersetz für das Countable-Interface
+	*
+	* @return int - Anzahl
+	**/
+	public function count() {
+		return count($this->objects);
 	}
 	
 	/**
@@ -188,7 +197,7 @@ abstract class Manager extends Cache {
 	* @param int $objectID - ID
 	**/
 	public function removeObject($objectID) {
-		$this->tableActions->delete(array('id'=>$objectID));
+		$this->tableActions->delete(['id'=>$objectID]);
 		
 		unset($this->objects[$objectID]);
 		unset($this->unchangedObjects[$objectID]);

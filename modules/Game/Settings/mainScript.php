@@ -12,8 +12,8 @@ script {
 		$this->mi()->addVarCache('showError', false);
 		$this->mi()->addVarCache('showSuccess', false);
 		
-		$settingModules = array('Game_Settings_General'=>'E-Mail/Passwort ändern',
-								'Game_Settings_Groups'=>'Fahrzeuggruppen anpassen');
+		$settingModules = [	'Game_Settings_General'=>'E-Mail/Passwort ändern',
+							'Game_Settings_Groups'=>'Fahrzeuggruppen anpassen'];
 								
 		if(\Config\DEBUG) $settingModules['Game_Settings_Debug'] = 'Debug-Informationen';
 		$this->mi()->addVarCache('settingModules', $settingModules);

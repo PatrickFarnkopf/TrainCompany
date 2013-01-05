@@ -14,25 +14,18 @@ class Install {
 	const REQUIERED_MEMORY_SIZE = '32M';
 	const REQUIERED_PHP_VERSION = '5.4';
 	
-	private $knowConfigurations = 	array(
-										'INSTALLED' => NULL,
+	private $knowConfigurations = 	[	'INSTALLED' => NULL,
 										'INSTALL_TIME' => NULL,
 										'DEBUG' => \Config\DEBUG,
 										'TIME_ZONE' => \Config\TIME_ZONE,
-										'Version' => 	array(
-															'STRING' => \Config\Version\STRING,
-															'LICENSE_FILE' => \Config\Version\LICENSE_FILE
-														),
-										'MySQL' =>		array(
-															'SERVER' => NULL,
+										'Version' => 	[	'STRING' => \Config\Version\STRING,
+															'LICENSE_FILE' => \Config\Version\LICENSE_FILE	],
+										'MySQL' =>		[	'SERVER' => NULL,
 															'USER' => NULL,
 															'PASS' => NULL,
-															'DATABASE' => \Config\MySQL\DATABASE
-														)
-									);
+															'DATABASE' => \Config\MySQL\DATABASE ]];
 	
-	private $knownTimeZones = 	array(
-									'Pacific/Midway'    => "(GMT-11:00) Midway Island",
+	private $knownTimeZones = 	[	'Pacific/Midway'    => "(GMT-11:00) Midway Island",
 									'US/Samoa'          => "(GMT-11:00) Samoa",
 									'US/Hawaii'         => "(GMT-10:00) Hawaii",
 									'US/Alaska'         => "(GMT-09:00) Alaska",
@@ -144,8 +137,7 @@ class Install {
 								    'Asia/Magadan'      => "(GMT+11:00) Magadan",
 								    'Pacific/Auckland'  => "(GMT+12:00) Auckland",
 								    'Pacific/Fiji'      => "(GMT+12:00) Fiji",
-								    'Asia/Kamchatka'    => "(GMT+12:00) Kamchatka",
-								);
+								    'Asia/Kamchatka'    => "(GMT+12:00) Kamchatka"];
 	
 	/**
 	* Öffnet die Installationsklasse und bestimmt, ob wir am Ende ein installationsfertige

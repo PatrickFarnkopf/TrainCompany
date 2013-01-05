@@ -11,7 +11,7 @@ class Journey {
 	private $userID, $user;
 	private $task, $taskApplication;
 	private $startTime, $nextStepTime, $currentStep;
-	private $delays = array();
+	private $delays = [];
 	
 	/**
 	* Nimmt die Ausschreibung und die Bewerbung zu der Ausschreibung an.
@@ -39,7 +39,7 @@ class Journey {
 	* @return array
 	**/
 	public function __sleep() {
-		return array('userID', 'task', 'taskApplication', 'startTime', 'nextStepTime', 'currentStep', 'delays');
+		return ['userID', 'task', 'taskApplication', 'startTime', 'nextStepTime', 'currentStep', 'delays'];
 	}
 
 	/**

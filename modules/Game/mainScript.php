@@ -26,7 +26,7 @@ script {
 		}
 		
 		// Keine valide Sitzung? Erstmal zur Startseite.
-		\Core\Module::goToModule(NULL, array('currentSession'=>'invalid'));
+		\Core\Module::goToModule(NULL, ['currentSession'=>'invalid']);
 	}
 	
 	/**

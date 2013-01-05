@@ -12,7 +12,7 @@ class Main extends \Game\Main {
 	const TASK_DIR = 'libary/Daemon/Task/';
 	const TASK_NAMESPACE = '\Daemon\Task\\';
 	
-	private $taskInstances = array();
+	private $taskInstances = [];
 	
 	/**
 	* Den Content-Type auf text/plain setzen
@@ -46,7 +46,7 @@ class Main extends \Game\Main {
 	**/
 	private function searchTasks() {
 		$dirName = ROOT_PATH.static::TASK_DIR;
-		$taskFiles = array();
+		$taskFiles = [];
 	    foreach(scandir($dirName) as $currentFile) {
 		    if(!is_file(ROOT_PATH.static::TASK_DIR.$currentFile)) continue;
 		    

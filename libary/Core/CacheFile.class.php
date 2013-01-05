@@ -13,8 +13,7 @@ class CacheFile extends Cache {
 	const DIR = 'cache/';
 	const DONT_DELETE_FILE = '.dontDelete';
 	
-    private $fileName;
-    private $cache = array();
+    private $fileName, $cache = [];
 
     /**
     * Öffnet eine Cache-Datei mit entsprechenden Namen. Wenn sie bereits vorhanden ist, wird der Inhalt geladen.
@@ -114,10 +113,8 @@ class CacheFile extends Cache {
     * @return array - Informationen
     **/
     public static function getInfo($dir='') {
-    	// Arrays erstellen
-    	$infoArray = array();
-	    $infoArray['elementCount'] = 0;
-	    $infoArray['size'] = 0;
+    	// Array erstellen
+    	$infoArray = ['elementCount' => 0, 'size' => 0];
     
 	    // Ordner-Name ermitteln
     	$dirName = ROOT_PATH.'/'.static::DIR.$dir;

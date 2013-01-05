@@ -19,14 +19,14 @@
 				<? if(!!!trainType!!! == $trainType): ?>
 					&raquo;<?= Format::string($typeName) ?>&laquo;
 				<? else: ?>
-					<a href="<?= >>>(NULL, array('trainType'=>$trainType),'groupList') ?>"><?= Format::string($typeName) ?></a>
+					<a href="<?= >>>(NULL, ['trainType'=>$trainType],'groupList') ?>"><?= Format::string($typeName) ?></a>
 				<? endif; ?>
 			</li>
 		<? endforeach; ?>
 	</ul>
 </div>
 
-<form method="post" action="<?= >>>(NULL,array('trainType'=>!!!trainType!!!,'buyTrains'=>true)) ?>">
+<form method="post" action="<?= >>>(NULL, ['trainType'=>!!!trainType!!!,'buyTrains'=>true]) ?>">
 	<table class="OverviewTable">
 		<tr>
 			<th width="180" >Fahrzeug</th>
@@ -43,7 +43,7 @@
 				<span>
 					<?= Format::string($currentTrain->getName()) ?>
 					<div class="DetailView">
-						<? ^^^('currentTrain',array('train'=>$currentTrain)) ?>
+						<? ^^^('currentTrain',['train'=>$currentTrain]) ?>
 					</div>
 				</span>
 			</td>

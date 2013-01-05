@@ -16,9 +16,7 @@ class Map {
 	private $maxBottomStation = false;
 	private $trainStations, $trainPaths, $svgContent;
 	
-	private $markedStations = array();
-	private $selectedStations = array();
-	private $selectedPaths = array();
+	private $markedStations = [], $selectedStations = [], $selectedPaths = [];
 	
 	/**
 	* Öffnet eine neue MapImage-Instanz und nimmt die Karten-Daten an
@@ -160,7 +158,7 @@ class Map {
 	* @param Station $station - Der Bahnhof, der gemalt werden soll.
 	**/
 	private function drawStation(Station $station) {
-		$titleString = \Core\i::Module()->getTemplateContent('currentStation',array('station'=>$station));
+		$titleString = \Core\i::Module()->getTemplateContent('currentStation',['station'=>$station]);
 		
 		$titleString = \Core\Format::string($titleString);
 		
@@ -205,7 +203,7 @@ class Map {
 		
 		foreach($stepVectors as $currentVector)	$stepVectorString.= ' '.$this->calcValue($currentVector[0]).','.$this->calcValue($currentVector[1]);
 		
-		$pathDescription = \Core\i::Module()->getTemplateContent('currentPath',array('path'=>$path));
+		$pathDescription = \Core\i::Module()->getTemplateContent('currentPath',['path'=>$path]);
 		
 		// Klasse des Pfades?
 		$pathClass = '';
