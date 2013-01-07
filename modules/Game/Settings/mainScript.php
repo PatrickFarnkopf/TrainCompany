@@ -19,3 +19,4 @@ script {
 		$this->mi()->addVarCache('settingModules', $settingModules);
 	}
 }
+?>

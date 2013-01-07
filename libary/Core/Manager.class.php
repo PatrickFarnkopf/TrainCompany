@@ -117,7 +117,7 @@ abstract class Manager extends Cache implements \Countable {
 	}
 	
 	/**
-	* Ersetz für das Countable-Interface
+	* Gibt die Anzahl der Objekte zurück. (Countable-Interface)
 	*
 	* @return int - Anzahl
 	**/
@@ -126,20 +126,11 @@ abstract class Manager extends Cache implements \Countable {
 	}
 	
 	/**
-	* Zählt die geladenen Objekte
-	*
-	* @return int - Anzahl
-	**/
-	public function countObjects() {
-		return count($this->objects);
-	}
-	
-	/**
 	* Zählt alle vorhandenen Objekte
 	*
 	* @return int - Anzahl
 	**/
-	public function countAllObjects() {
+	public function countAll() {
 		return $this->tableActions->count($this->getAllWhereString());
 	}
 	

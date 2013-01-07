@@ -97,7 +97,7 @@ abstract class Data {
 	*
 	* @return int - Anzahl der Objekte
 	**/
-	public static function countObjects() {
+	public static function count() {
 		return count(self::getList());
 	}
 	

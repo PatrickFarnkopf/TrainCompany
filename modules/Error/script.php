@@ -7,10 +7,9 @@
 **/
 script {
 	public function __construct() {
-		$moduleInstance = \Core\i::Module();
-		$options = $moduleInstance->getVarCache('options');
+		$options = $this->mi()->getVarCache('options');
 		
-		$moduleInstance->addVarCache('siteTitle', 'Fehler 404');
+		$this->mi()->addVarCache('siteTitle', 'Fehler 404');
 		
 		// Entsprechenden Header senden
 		\Core\i::Header()->addStatus(404);

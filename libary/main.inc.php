@@ -22,7 +22,7 @@ set_exception_handler(function(Exception $exception) {
 	while(!\Config\DEBUG && ob_get_level()) ob_end_clean();
 
 	// Plain- oder HTML-Fehler ausgeben?
-	if(class_exists('\Core\Header', false) && \Core\Header::existMainInstance() &&  \Core\Header::mainInstance()->getContentType() == 'text/html') {
+	if(class_exists('\Core\Header', false) && \Core\Header::existMainInstance() && \Core\Header::mainInstance()->getContentType() == 'text/html') {
 		// Wenn nicht installiert, dann gebe eine besondere Fehlermeldung aus
 		if(!\Config\INSTALLED)
 			require ROOT_PATH.'templates/ExceptionInstallHTML.tpl.php';

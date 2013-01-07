@@ -29,10 +29,10 @@ class Play {
 		$timeSinceStart = time() - \Config\INSTALL_TIME;
 
 		$seasonsSinceStart = floor($timeSinceStart / self::getSeasonDurration());
-		$yearsSinceStart = floor($seasonsSinceStart / Season::countObjects());
+		$yearsSinceStart = floor($seasonsSinceStart / Season::count());
 		
 		$currentYear = self::START_YEAR + $yearsSinceStart;
-		$currentSeason = $seasonsSinceStart - ($yearsSinceStart * Season::countObjects());
+		$currentSeason = $seasonsSinceStart - ($yearsSinceStart * Season::count());
 		
 		return ['currentYear' => $currentYear, 'currentSeason' => $currentSeason];
 	}
@@ -85,7 +85,7 @@ class Play {
 		$timeSinceTime = time() - $time;
 
 		$seasonsSinceTime = floor($timeSinceTime / self::getSeasonDurration());
-		return floor($seasonsSinceTime / Season::countObjects());
+		return floor($seasonsSinceTime / Season::count());
 	}
 }
 ?>

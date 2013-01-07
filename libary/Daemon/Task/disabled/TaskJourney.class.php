@@ -16,7 +16,7 @@ class TaskJourney implements \Daemon\Task {
 	public function __construct() {
 		i::\Game\Task\Journey\Manager()->loadActionNeeded();
 		
-		if (i::\Game\Task\Journey\Manager()->countObjects() > 0)
+		if (count(i::\Game\Task\Journey\Manager()) > 0)
 			$this->hasToRun = true;
 	}
 

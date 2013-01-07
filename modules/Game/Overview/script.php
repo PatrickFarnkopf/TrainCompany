@@ -19,8 +19,8 @@ script {
 	
 		$taskManager = \Game\Task\i::Manager();
 		$userTaskJourneyManager = \Game\Task\Journey\i::Manager($userInstance->getUserID());
-		$this->mi()->addVarCache('countTasks', $taskManager->countAllObjects());
-		$this->mi()->addVarCache('countTaskJourneys', $userTaskJourneyManager->countAllObjects()); 
+		$this->mi()->addVarCache('countTasks', $taskManager->countAll());
+		$this->mi()->addVarCache('countTaskJourneys', $userTaskJourneyManager->countAll()); 
 	}
 	
 }
