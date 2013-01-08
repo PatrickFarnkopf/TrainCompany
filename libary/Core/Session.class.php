@@ -10,7 +10,8 @@ namespace Core;
 class Session extends Cache {
 	use VarCache, Cache\Vars;
 
-	const SESSION_NAME = 'SESSION_INSTANCE';
+	const SESSION_NAME = 'CORE_SESSION';
+	const SESSION_INSTANCE = 'SESSION_INSTANCE';
 	const INACTIVE_TIME = 1800;
 	
 	private $userInstance;
@@ -19,6 +20,25 @@ class Session extends Cache {
 	private $userName;
 	private $userPass;
 	private $lastActivity;
+	
+	/**
+	* Initialisiert die Session-Umgebung
+	**/
+	public static function init() {
+		static $init = false;
+		
+		// Überpürfen, ob wir bereits initialisiert haben.
+		if($init)
+			throw new \Exception('Die Session-Klasse wurde bereits initialisiert.', 1071);
+		
+		// Den Namen des Cookies setzen
+		session_name(self::SESSION_NAME);
+		// Session starten
+		session_start();
+		
+		// Die Klasse wurde initialisiert.
+		$init = true;
+	}
 	
 	/**
 	* Öffnet eine neue User-Session-Instance
@@ -92,7 +112,7 @@ class Session extends Cache {
 	* @param Cache $mainInstance - Hauptinstanz
 	**/
 	public static function setMainInstance(Cache $mainInstance) {
-		$_SESSION[self::SESSION_NAME] = $mainInstance;
+		$_SESSION[self::SESSION_INSTANCE] = $mainInstance;
 	}
 	
 	/**
@@ -101,7 +121,7 @@ class Session extends Cache {
 	* @return bool - Hauptinstanz vorhanden?
 	**/
 	public static function existMainInstance() {
-		return isset($_SESSION[self::SESSION_NAME]);
+		return isset($_SESSION[self::SESSION_INSTANCE]);
 	}
 	
 	/**
@@ -112,14 +132,14 @@ class Session extends Cache {
 	public static function mainInstance() {
 		if(!static::existMainInstance()) throw new \Exception('Es ist keine Session-Instance im Speicher vorhanden.', 1070);
 		
-		return $_SESSION[self::SESSION_NAME];
+		return $_SESSION[self::SESSION_INSTANCE];
 	}
 	
 	/**
 	* Löscht die Hauptinstanz aus dem Speicher.
 	**/
 	public static function unsetMainInstance() {
-		unset($_SESSION[self::SESSION_NAME]);
+		unset($_SESSION[self::SESSION_INSTANCE]);
 	}
 }
 ?>

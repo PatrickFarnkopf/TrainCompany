@@ -16,8 +16,8 @@ class Main extends \Core\Main {
 		parent::__construct();
 		
 		if(\Config\INSTALLED) {
-			// Session šffnen
-			session_start();
+			// Session-Umgebung initialisieren
+			\Core\Session::init();
 		}
 	}
 	
