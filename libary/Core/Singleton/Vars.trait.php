@@ -6,7 +6,7 @@
 * Datum: 3. Dezember 2012
 *
 **/
-namespace Core\Cache;
+namespace Core\Singleton;
 
 trait Vars {
 	protected static $instances = [], $mainInstance;

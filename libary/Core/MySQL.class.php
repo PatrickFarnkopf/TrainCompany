@@ -7,8 +7,8 @@
 **/
 namespace Core;
 
-class MySQL extends Cache {
-	use Cache\Vars;
+class MySQL extends Singleton {
+	use Singleton\Vars;
 	
     private $resource;
 

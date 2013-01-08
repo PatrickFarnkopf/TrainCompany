@@ -14,7 +14,7 @@
 		<p>Damit die Installation erfolgreich gestartet werden kann, müssen einige Bedingungen erfüllt sein.  Bitte erfülle alle folgenden Punkte:</p>
 		<ul>
 			<li>Mindestens <strong>PHP <?= \Core\Install::REQUIERED_PHP_VERSION ?>.</strong></li>
-			<li>Das „<?= \Core\CacheFile::DIR ?>“-Verzeichnis muss existieren und beschreibbar sein.</li>
+			<li>Das „<?= \Core\Cache::DIR ?>“-Verzeichnis muss existieren und beschreibbar sein.</li>
 		</ul>
 		<h5>Folgender Fehler ist aufgetreten:</h5>
 		<textarea rows="15" cols="90"><? include(ROOT_PATH.'templates/ExceptionPlain.tpl.php') ?></textarea>

@@ -7,8 +7,8 @@
 **/
 namespace Core;
 
-class Session extends Cache {
-	use VarCache, Cache\Vars;
+class Session extends Singleton {
+	use VarCache, Singleton\Vars;
 
 	const SESSION_NAME = 'CORE_SESSION';
 	const SESSION_INSTANCE = 'SESSION_INSTANCE';
@@ -111,7 +111,7 @@ class Session extends Cache {
 	*
 	* @param Cache $mainInstance - Hauptinstanz
 	**/
-	public static function setMainInstance(Cache $mainInstance) {
+	public static function setMainInstance(Singleton $mainInstance) {
 		$_SESSION[self::SESSION_INSTANCE] = $mainInstance;
 	}
 	

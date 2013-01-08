@@ -200,7 +200,7 @@ class Path extends \Core\Data {
 	* @return array - Die Vektoren
 	**/
 	public function getStepVectors() {
-		$pathCache = \Core\i::CacheFile('paths');
+		$pathCache = \Core\i::Cache('paths');
 		$cachedDate = $pathCache->issetVar($this->getID()) ? $pathCache->getVar($this->getID()) : [];
 
 		if(isset($cachedDate['twistingFactor']) && $cachedDate['vectorArray'] && $cachedDate['twistingFactor'] == $this->getTwistingFactor())

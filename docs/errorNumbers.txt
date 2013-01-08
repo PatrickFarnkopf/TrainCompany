@@ -1,7 +1,8 @@
 +++ Core-Fehlermeldungen +++
 
-lib/Core/Cache.class.php:
-1000: Die Klasse „…“ hat derzeit keine Hauptinstanz. 
+lib/Core/Singleton.class.php:
+1000: Die Klasse „…“ hat derzeit keine Hauptinstanz.
+1001: Eine Singelton-Instanz darf in der Regel werden geklont noch serialisiert werden. 
 
 lib/Core/Module.class.php:
 1010: Das angeforderte Modul „…“ existiert nicht.

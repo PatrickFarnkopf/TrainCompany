@@ -6,9 +6,9 @@
 * Datum: 27. Dezember 2012
 *
 **/
-namespace Core\Cache;
+namespace Core\Singleton;
 
-trait AutoMainInstance {
+trait Auto {
 	/**
 	* Gibt die Hauptinstanz zurück, falls vorhanden. Wenn nicht wird eine neue erstellt
 	*

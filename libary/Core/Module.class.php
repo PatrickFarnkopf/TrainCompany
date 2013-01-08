@@ -7,8 +7,8 @@
 **/
 namespace Core;
 
-class Module extends Cache {
-	use VarCache, Cache\Vars;
+class Module extends Singleton {
+	use VarCache, Singleton\Vars;
 
 	const MODULE_DIR = 'modules/';
 	const SET_DIR = 'templates/set/';

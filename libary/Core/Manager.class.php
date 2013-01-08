@@ -7,8 +7,8 @@
 **/
 namespace Core;
 
-abstract class Manager extends Cache implements \Countable {
-	use Cache\AutoMainInstance;
+abstract class Manager extends Singleton implements \Countable {
+	use Singleton\Auto;
 
 	const GROUPID_FIELDNAME = false;
 

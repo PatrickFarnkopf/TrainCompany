@@ -7,8 +7,8 @@
 **/
 namespace Core;
 
-class User extends Cache {
-	use Cache\Vars;
+class User extends Singleton {
+	use Singleton\Vars;
 
 	const PASS_MIN_LENGTH = 6;
 	const MAIL_MATCH = '/^[a-zA-Z0-9-_.]+@[a-zA-Z0-9-_.]+\.[a-zA-Z]{2,4}$/';

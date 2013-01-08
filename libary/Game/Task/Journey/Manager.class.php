@@ -8,7 +8,7 @@
 namespace Game\Task\Journey;
 
 class Manager extends \Core\Manager {
-	use \Core\Cache\Vars;
+	use \Core\Singleton\Vars;
 	
 	const GROUPID_FIELDNAME = 'userID';
 	

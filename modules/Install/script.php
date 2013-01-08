@@ -57,7 +57,7 @@ script {
 			$this->installationInstance->createMySQLTables();
 			$this->installationInstance->writeConfig();
 		
-			\Core\CacheFile::clearCache();
+			\Core\Cache::clear();
 		
 			\Core\Module::goToModule(NULL, ['installationSuccessfull'=>true]);
 		} catch(\HumanException $exception) {

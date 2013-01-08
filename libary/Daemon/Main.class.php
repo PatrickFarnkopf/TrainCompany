@@ -86,7 +86,7 @@ class Main extends \Game\Main {
 	* Setzt die letzte Laufzeit
 	**/
 	private static function setLastRun() {
-		$cacheFile = \Core\i::CacheFile('daemon');
+		$cacheFile = \Core\i::Cache('daemon');
 		$cacheFile->setVar('lastRun', time());
 	}
 	
@@ -94,7 +94,7 @@ class Main extends \Game\Main {
 	* Gibt die letzte Laufzeit zurück
 	**/
 	public static function getLastRun() {
-		$cacheFile = \Core\i::CacheFile('daemon');
+		$cacheFile = \Core\i::Cache('daemon');
 		
 		if(!$cacheFile->issetVar('lastRun')) return 0;
 		return $cacheFile->getVar('lastRun');

@@ -9,7 +9,7 @@
 namespace Core;
 
 class MainInstance {
-	const CLASS_NAME = 'Core\Cache';
+	const CLASS_NAME = 'Core\Singleton';
 	const ALIAS_NAME = 'i';
 	
 	/**

@@ -12,7 +12,7 @@ script {
 		$options = $this->mi()->getVarCache('options');
 		
 		if (isset($options['clearCache']) && $options['clearCache'] == true) $this->clearCache();
-		$this->mi()->addVarCache('cacheInfo', \Core\CacheFile::getInfo());
+		$this->mi()->addVarCache('cacheInfo', \Core\Cache::getInfo());
 		
 		$this->mi()->addVarCache('lastDaemon', \Daemon\Main::getLastRun());
 		
@@ -29,7 +29,7 @@ script {
 	* Leert den Cache.
 	**/
 	private function clearCache() {
-		\Core\CacheFile::clearCache();
+		\Core\Cache::clear();
 
 		$this->mi()->addVarCache('showSuccess', true);
 		$this->mi()->addVarCache('successString', "Der Cache wurde erfolgreich geleert.");

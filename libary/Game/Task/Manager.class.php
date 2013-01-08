@@ -8,7 +8,7 @@
 namespace Game\Task;
 
 class Manager extends \Core\Manager {
-	use \Core\Cache\Vars;
+	use \Core\Singleton\Vars;
 
 	/**
 	* Lädt alle „abgelaufenen“ Auschreibungen aus der Datenbank

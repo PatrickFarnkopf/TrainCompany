@@ -7,8 +7,8 @@
 **/
 namespace Core;
 
-class Header extends Cache {
-	use Cache\Vars;
+class Header extends Singleton {
+	use Singleton\Vars;
 
     private $status = [	100	=> 'Continue',
 	    				101 => 'Switching Protocols',
