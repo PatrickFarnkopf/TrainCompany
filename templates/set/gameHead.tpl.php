@@ -53,7 +53,7 @@
 				<ul id="statusBlockBig">
 					<li>Nächste Jahreszeit: <?= Format::date(!!!timeAtNextSeason!!!) ?></li>
 					<li>E-Mail-Addresse: <?= Format::string(!!!currentUserMail!!!) ?></li>
-					<li><a href="<?= >>>('Game_Logout') ?>">Aus „TrainCompany“ ausloggen…</a></li>
+					<li><a href="<?= >>>('Game_Logout') ?>"><img src="img/icons/door_out.png" alt="Logout"> Aus „TrainCompany“ ausloggen…</a></li>
 				</ul>
 			</div>
 			<div class="Clear"></div>

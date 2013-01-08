@@ -33,6 +33,7 @@ lib/Core/MySQL.class.php:
 
 lib/Core/Session.class.php:
 1070: Es ist keine Session-Instance im Speicher vorhanden.
+1071: Die Session-Klasse wurde bereits initialisiert.
 
 lib/Core/Autoload.class.php
 1080: Die/Das angeforderte Klasse/Interface/Trait „…“ existiert nicht.
@@ -71,6 +72,7 @@ lib/Core/Data.class.php:
 1152: Kein Daten-Objekt mit dieser ID vorhanden.
 1153: Das angeforderte Daten-Objekt mit der ID „…“ konnte nicht wiederhergestellt werden.
 1154: Das …-te Element in der „…“-Datei hat keinen festgelegten Namen.
+1155: Für diese Klasse sind keine XML-Daten vorhanden.
 
 lib/Core/XMLElement.class.php:
 1160: Die angeforderte XML-Datei konnte nicht geladen werden.

@@ -24,7 +24,8 @@ abstract class Data {
 		$fileName = ROOT_PATH.self::DATA_DIR.$className->getClassname().'.xml';
 		
 		// Die Datei ist nicht vorhanden? Abruch!
-		if(!file_exists($fileName)) return;
+		if(!file_exists($fileName))
+			throw new \Exception('Für diese Klasse sind keine XML-Daten vorhanden.', 1155);
 		
 		// SimpleXML-Objekte
 		foreach(XMLElement::loadFile($fileName) as $count=>$currentObject) {
@@ -55,8 +56,11 @@ abstract class Data {
 	* @return bool - Weitere Autoload-Funktionen durchführen? true = nein
 	**/
 	public static function callback(Classname $classname) {
-		if($classname->getReflectionClass()->isSubclassOf('Core\Data') && $classname->getClassname() != 'Data')
-			call_user_func([(string)$classname, 'loadDataFromXMLFile']);
+		if($classname->getReflectionClass()->isSubclassOf('Core\Data') && $classname->getClassname() != 'Data') {
+			try {
+				call_user_func([(string)$classname, 'loadDataFromXMLFile']);
+			} catch(\Exception $exception) { }
+		}
 	}
 
 	/**

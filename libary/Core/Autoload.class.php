@@ -1,7 +1,7 @@
 <?php
 /**
 * 
-* Lädt benötigte Klassen nach.
+* Lädt benötigte Klassen, Interfaces und Traits nach.
 *
 * Datum: 20.12.2012
 *
@@ -24,9 +24,12 @@ class Autoload {
 		
 		// Registrierte Callbacks abarbeiten
 		foreach(self::$beforeCallbacks as $currentCallback) {
-			$return = call_user_func($currentCallback, $this->classname);
-			// Callback hat „true“ zurückgegeben? Abrechen
-			if($return === true) return;
+			call_user_func($currentCallback, $this->classname);
+			
+			// Existiert nach diesem Aufruf diese(s) Klasse/Interface/Trait?
+			foreach(['class','interface','trait'] as $current) {
+				if(call_user_func($current.'_exists', (string)$this->classname, false)) return;
+			}
 		}
 		
 		// Klassen-Datei einfügen
@@ -55,20 +58,17 @@ class Autoload {
 			// Existiert diese Datei? Wenn ja: Datei einbinden und restliche Methode abbrechen.
 			if(file_exists($fileName)) {
 				require_once $fileName;
-				
-				// Überprüfen ob Class/Interface/Trait gesucht ist
-				$functionName = $current.'_exists';
-				
+
 				// Ist in dieser Datei auch die erwartete Klasse enthalten?
-				if(!$functionName($this->classname->getFullClassname(), false))
-					throw new \Exception('Für die/das Klasse/Interface/Trait „'.$this->classname->getFullClassname().'“ existiert zwar eine Datei, in dieser befindet sich aber nicht die/das erwartete Klasse/Interface/Trait.', 1081);
+				if(!call_user_func($current.'_exists', (string)$this->classname, false))
+					throw new \Exception('Für die/das Klasse/Interface/Trait „'.$this->classname.'“ existiert zwar eine Datei, in dieser befindet sich aber nicht die/das erwartete Klasse/Interface/Trait.', 1081);
 				
 				return;
 			}
 		}
 		
 		// Ohh, keine Klasse gefunden. :(
-		throw new \Exception('Die/Das angeforderte Klasse/Interface/Trait „'.$this->classname->getFullClassname().'“ existiert nicht.', 1080);
+		throw new \Exception('Die/Das angeforderte Klasse/Interface/Trait „'.$this->classname.'“ existiert nicht.', 1080);
 	}
 	
 	/**

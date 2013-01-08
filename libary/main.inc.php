@@ -17,7 +17,7 @@ set_error_handler(function($number, $string, $file, $line) {
 /**
 * Unabgefanene Exceptions sollen hier landen.
 **/
-set_exception_handler(function(Exception $exception) {
+set_exception_handler(function(\Exception $exception) {
 	// Alte Ausgaben rauslšschen
 	while(!\Config\DEBUG && ob_get_level()) ob_end_clean();
 

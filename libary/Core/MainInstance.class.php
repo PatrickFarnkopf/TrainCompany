@@ -16,16 +16,13 @@ class MainInstance {
 	* Rückfrage-Funktion für die Autoload-Klasse
 	*
 	* @param Classname - Angforderter Klassennamen
-	* @return bool - Weitere Autoload-Funktionen durchführen? true = nein
 	**/
 	public static function callback(Classname $classname) {
 		// Wenn Klassennamen nicht i ist, abbrechen
-		if($classname->getClassname() != self::ALIAS_NAME) return false;
+		if($classname->getClassname() != self::ALIAS_NAME) return;
 	
 		// Alias erstellen
 		Alias::forClass(new Classname('\Core\MainInstance'), $classname);
-		
-		return true;
 	}
 
 	/**

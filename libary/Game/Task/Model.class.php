@@ -90,8 +90,9 @@ class Model extends \Core\Data {
 	public function getNeededCapacity() {
 		$neededCapacity = array();
 		foreach($this->properties['neededCapacity'] as $currentCapacity=>$value) {
-			$different = mt_rand(-$this->properties['neededCapacityDifferent'], $this->properties['neededCapacityDifferent']);		
-			$value *= $different / 100;
+			$different = mt_rand(-$this->properties['neededCapacityDifferent'], $this->properties['neededCapacityDifferent']);
+			
+			$value += round($value * ($different / 100));
 	
 			$neededCapacity[$currentCapacity] = $value;
 		}
